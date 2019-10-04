@@ -1,0 +1,39 @@
+/* Creates a black border for any applicable table element */
+table, th, td{
+		border: 1px solid black;
+}
+
+/* Used to style buttons that exists like the ones in menuManage.php */
+.button_group{
+	float: right;
+}
+
+.button_group ul{
+	list-style-type: none;
+}
+
+.button_group ul li{
+	margin: 5%;
+}
+
+.button_group ul li button{
+	background-color: blue;
+	color: white;
+	border: 2px solid blue;
+	
+	/* Determines how fast the colour change occurs */
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
+
+.button_group ul li button:hover{
+	background-color: white;
+	color: black;
+	border: 2px solid blue;
+}
+
+.button_group ul li button:hover{
+	background-color: white;
+	color: black;
+	border: 2px solid blue;
+}
