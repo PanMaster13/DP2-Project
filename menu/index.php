@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="styles/style.css" />
-</head>
-
-<body>
+<?php
+	include ("../template/navbar.php");
+?>
 	<table>
 		<tr>
 			<th>Item no.</th>
@@ -24,6 +19,7 @@
 			<li><button>Edit Items</button></li>
 		</ul>
 	</div>
-</body>
+<?php
+	include ("../template/footer.php");
 
-</html>
+?>
