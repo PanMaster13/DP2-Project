@@ -37,3 +37,36 @@ table, th, td{
 	color: black;
 	border: 2px solid blue;
 }
+
+
+/* Login stuff */
+
+#login_logo {
+	display: block;
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login_form {
+	margin: auto;
+	width: 30%;
+	min-width: 300px;
+}
+
+.login_input {
+	box-sizing: border-box;
+	padding: 12px 20px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+#login_button {
+	display: block;
+	padding: 12px 20px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* End Login stuff */
