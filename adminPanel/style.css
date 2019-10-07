@@ -4,38 +4,6 @@ body{
 	background-color: white;
 }
 
-header{
-	width: 100%;
-	height: auto;
-	background-color: #87b5eb;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-header img {
-	margin: 10px;
-	width: 300px;
-	height: auto;
-}
-
-header #logout-button {
-	width: 120px;
-	height: 50px;
-	background-color: white;
-	margin: 10px;
-	border-radius: 15px;
-	text-align: center;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	color: #87b5eb;
-}
-
-#logout-button:hover{
-	cursor: pointer;
-}
-
 article{
 	padding: 50px;
 }
@@ -110,61 +78,4 @@ article h1{
 
 .color6{
 	background: #bcbcbc;
-}
-
-#article-elements{
-	width: 100%;
-	display:flex;
-	flex-direction: row;
-}
-
-#left-order-list{
-	width: 85%;
-}
-
-#add-button, #amend-button, #cancel-button, #pay-button{
-	height: 80px;
-	width: 120px;
-	background-color: #87ceeb;
-	margin: 10px;
-	border-radius: 15px;
-	text-align: center;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-#pay-button{
-	margin-top: 40px;
-}
-
-#order-table{
-	width: 90%;
-	table-layout: fixed;
-	text-align: center;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th{
-	height: 50px;
-}
-
-td{
-	height: 40px;
-}
-
-.selectedRow{
-	background-color: #87b5eb;
-	color: white;
-}
-
-#right-btns{
-	width: 15%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }

@@ -10,11 +10,8 @@
 	<meta name="keywords" content="">
 
 	<link rel="stylesheet" href="style.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
-</head>
 
-<body>
 	<?php
 		include "../template/header.php";
 	?>
