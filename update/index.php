@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/template/navbar.php';
+include $_SERVER["DOCUMENT_ROOT"].'/template/header.php';
 ?>
 <!-- Set page title-->
 <script>
@@ -25,7 +33,6 @@ include $_SERVER["DOCUMENT_ROOT"].'/template/navbar.php';
 	</script>
 </div>
 
-<?php
-include $_SERVER["DOCUMENT_ROOT"].'/template/footer.php';
-include $_SERVER["DOCUMENT_ROOT"].'/template/script.php';
-?>
+</body>
+
+</html>
