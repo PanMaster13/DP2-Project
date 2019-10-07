@@ -1,5 +1,5 @@
 <?php
-	include ("../template/navbar.php");
+	include ("../template/header.php");
 ?>
 	<table>
 		<tr>
