@@ -1,0 +1,55 @@
+/* Button section */
+.button_group{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-end;
+	margin-right: 10%;
+}
+
+.button_group div{
+	border: 2px solid blue;
+	background-color: blue;
+	color: white;
+	margin: 1%;
+	padding: 2%;
+	text-align: center;
+	/* Makes text unselected or unhighlightable */
+	user-select: none;
+}
+
+.button_group div:hover{
+	background-color: white;
+	color: black;
+}
+
+.button_group div:active{
+	border: 2px solid yellow;
+}
+
+/* Data Box section */
+table, th, td{
+	border: 1px solid black;
+}
+
+th, td{
+	text-align: center;
+}
+
+table{
+	width: 300%;
+	border-collapse: collapse;
+}
+
+.dataBox{
+	float: left;
+	margin-left: 10%;
+}
+
+
+
+
+
+
+
