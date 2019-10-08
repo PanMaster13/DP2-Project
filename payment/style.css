@@ -1,0 +1,166 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: white;
+}
+
+article{
+	padding: 50px;
+}
+
+article h1{
+	margin-top: 0;
+}
+
+#article-elements{
+	width: 100%;
+}
+
+#payment-table{
+	width: 100%;
+	text-align: center;
+	table-layout: fixed;
+}
+
+#payment-table, #payment-table th, #payment-table td {
+  border-collapse: collapse;
+}
+
+#payment-table th{
+	height: 50px;
+	border-bottom: 2px solid black;
+}
+
+#payment-table td{
+	height: 40px;
+}
+
+
+#specialCoupon{
+	display: none;
+}
+
+#totalAmount, #totalChange{
+	font-size: 20px;
+	font-weight: bold;
+	display: none;
+}
+
+#totalPrice td{
+	border-top: 2px solid black;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.totalWord{
+	text-align:left;
+}
+
+#payment-btns{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 30px;
+}
+
+#cancel-btn, #coupon-btn, #pay-btn{
+	height: 80px;
+	width: 120px;
+	background-color: #87ceeb;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#cancel-btn:hover, #coupon-btn:hover, #pay-btn:hover{
+	cursor: pointer;
+}
+
+#cancel-btn:active, #coupon-btn:active, #pay-btn:active{
+	-webkit-box-sizing: border-box;
+	background-color: white;
+	border: 5px solid #87ceeb;
+}
+
+
+@keyframes popupAnimation{
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+
+#none-popup{
+	display: none;
+}
+
+#popup{
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+	align-items: center;
+}
+
+#popup-content{
+	background-color: white;
+	border-radius: 15px;
+	margin: 0 auto;
+	width: 30%;
+	padding: 25px;
+	animation-name: popupAnimation;
+	animation-duration: 0.2s;
+}
+
+#popup-RM-textBox{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+#popup-content p{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#popup-RM-word{
+	margin-right: 5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.popup-close-btn {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.popup-close-btn:hover,
+.popup-close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#textBox{
+	height: 30px;
+	font-size: 18px;
+	width: 100%;
+	max-width: 500px;
+	box-sizing: border-box;
+}
+
+#submit-btn{
+	text-align: right;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
