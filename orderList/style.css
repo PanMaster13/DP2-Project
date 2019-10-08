@@ -1,0 +1,80 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: white;
+}
+
+article{
+	padding: 50px;
+}
+
+article h1{
+	margin-top: 0;
+}
+
+#article-elements{
+	width: 100%;
+	display:flex;
+	flex-direction: row;
+}
+
+#left-order-list{
+	width: 85%;
+}
+
+#add-button, #amend-button, #cancel-button, #pay-button{
+	height: 80px;
+	width: 120px;
+	background-color: #87ceeb;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#add-button:hover, #amend-button:hover, #cancel-button:hover, #pay-button:hover{
+	cursor: pointer;
+}
+
+#add-button:active, #amend-button:active, #cancel-button:active, #pay-button:active{
+	-webkit-box-sizing: border-box;
+	background-color: white;
+	border: 5px solid #87ceeb;
+}
+
+#pay-button{
+	margin-top: 40px;
+}
+
+#order-table{
+	width: 90%;
+	table-layout: fixed;
+	text-align: center;
+}
+
+#order-table, #order-table th, #order-table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#order-table th{
+	height: 50px;
+}
+
+#order-table td{
+	height: 40px;
+}
+
+.selectedRow{
+	background-color: #87b5eb;
+	color: white;
+}
+
+#right-btns{
+	width: 15%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
