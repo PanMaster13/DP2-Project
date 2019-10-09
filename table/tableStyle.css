@@ -1,0 +1,73 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: white;
+}
+
+article{
+	padding: 50px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+h1{
+	text-align: center;
+}
+
+.table-group{
+	width: 70%;
+}
+
+.table-group table{
+	width: 90%;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.table-group table, .table-group th, .table-group td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.table-group th{
+	height: 50px;
+}
+
+.table-group td{
+	height: 40px;
+}
+
+.selectedRow{
+	background-color: #87b5eb;
+	color: white;
+}
+
+.table-buttons-group{
+	width: 15%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.table-buttons{
+	height: 80px;
+	width: 120px;
+	background-color: #87ceeb;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.table-buttons:hover{
+	cursor: pointer;
+}
+
+.table-buttons:active{
+	-webkit-box-sizing: border-box;
+	background-color: white;
+	border: 5px solid #87ceeb;
+}
