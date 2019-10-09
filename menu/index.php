@@ -7,8 +7,10 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
 	
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="menuStyle.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
+	
+	
 	
 <?php
 	include ("../template/header.php");
@@ -41,7 +43,7 @@
 			
 			// Echos table and values from database
 			echo "<h1>" . $categoryRow["catName"] . "</h1>";
-			echo "<table><tr><th>Item ID</th><th>Item Name</th><th>Item Price</th></tr>";
+			echo "<table class='theTables'><tr><th>Item ID</th><th>Item Name</th><th>Item Price</th></tr>";
 			if ($menuResult->num_rows > 0)
 			{
 				while($menuRow = $menuResult->fetch_assoc())
@@ -88,7 +90,7 @@
 	
 	<footer>
 	</footer>
-
+	<script src="menuScript.js"></script>
 </body>
 
 
