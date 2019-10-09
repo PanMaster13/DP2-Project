@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2019 at 08:34 AM
+-- Generation Time: Oct 09, 2019 at 08:23 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -151,10 +151,10 @@ INSERT INTO `tables` (`tableID`, `tableStatus`) VALUES
 --
 
 CREATE TABLE `user` (
-  `userID` varchar(5) NOT NULL,
-  `userType` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `userType` text NOT NULL,
   `userName` text NOT NULL,
-  `Password` varchar(10) NOT NULL
+  `Password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -162,9 +162,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `userType`, `userName`, `Password`) VALUES
-('U001', 1, 'Frodo', '12345'),
-('U002', 2, 'Holo', 'ugaelmao'),
-('U003', 1, 'Hina', 'abcde');
+(1, 'admin', 'admin', '811eb81b9d11d65a36c53c3ebdb738ee303403cb79d781ccf4b40764e0a9d12a'),
+(2, 'staff', 'bryan', '8f684d401d2bd253c862fda31cf5cb5a70dcccd3dd551dafce69ac28f5f6aabe');
 
 --
 -- Indexes for dumped tables
@@ -205,7 +204,18 @@ ALTER TABLE `tables`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `userName` (`userName`) USING HASH;
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
