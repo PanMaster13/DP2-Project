@@ -11,6 +11,10 @@ article{
 	flex-direction: row;
 }
 
+h1{
+	text-align: center;
+}
+
 .table-group{
 	width: 70%;
 }

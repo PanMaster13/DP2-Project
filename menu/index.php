@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-	<title>Admin</title>
+	<title>Menu Management Page</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
 	
@@ -15,8 +15,9 @@
 <?php
 	include ("../template/header.php");
 ?>
-	
+	<h1>Menu Mangement Page</h1>
 	<article>
+		
 		<div class="table-group">
 	<?php
 		$host = "127.0.0.1";
@@ -42,7 +43,7 @@
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-			echo "<h1>" . $categoryRow["catName"] . "</h1>";
+			echo "<h2>" . $categoryRow["catName"] . "</h2>";
 			echo "<table class='theTables'><tr><th>Item ID</th><th>Item Name</th><th>Item Price</th></tr>";
 			if ($menuResult->num_rows > 0)
 			{

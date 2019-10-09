@@ -26,8 +26,6 @@ function highlight_row() {
 			}
 		}
 	}
-	alert("test");
-	
 }
 
 window.onload = highlight_row;
