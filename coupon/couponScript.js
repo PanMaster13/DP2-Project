@@ -28,4 +28,8 @@ function highlight_row() {
 	}
 }
 
+function test(){
+	window.open("addCoupon.php", "Another one", "width=500, height=500");
+}
+
 window.onload = highlight_row;

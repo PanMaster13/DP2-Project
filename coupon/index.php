@@ -57,7 +57,7 @@
 		</div>
 		
 		<div class='coupon-buttons-group'>
-			<button class='coupon-buttons'>
+			<button class='coupon-buttons' onclick="test()">
 				<p>Add Coupon</p>
 			</button>
 			<button class='coupon-buttons'>
