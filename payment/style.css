@@ -159,7 +159,15 @@ article h1{
 	box-sizing: border-box;
 }
 
-#submit-btn{
+#payTextBox{
+	height: 30px;
+	font-size: 18px;
+	width: 100%;
+	max-width: 500px;
+	box-sizing: border-box;
+}
+
+.submit-btn{
 	text-align: right;
 	margin-top: 15px;
 	margin-bottom: 10px;

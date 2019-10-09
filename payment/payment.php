@@ -18,6 +18,48 @@
 	?>
 	
 	<article>
+		
+	<?php
+		$host = "127.0.0.1";
+		$username = "root";
+		$password = "";
+		$database = "foodsmith";
+		
+		// Create connection
+		$conn = new mysqli($host, $username, $password, $database);
+		
+		// Check connection
+		if (mysqli_connect_error())
+		{
+			die("Database connection failed: " . mysqli_connect_error());
+		}
+		
+		$count = $correctCouponID = $couponID = "";
+		$correct = false;
+		if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['couponTextBox'])){
+			$couponID = $_POST['couponTextBox'];
+			
+			$correct = false;
+			
+			$sql = "SELECT couponCode FROM coupon WHERE couponCode='$couponID'";
+			$result = $conn->query($sql);
+			$count = mysqli_num_rows($result);
+			
+			if($count == 1){
+				$correctCouponID = $couponID;
+				$correct = true;
+			}
+			else{
+				echo "Invalid couponID";
+				$correct = false;
+			}
+		}
+
+		// Close connection (although it is done automatically when script ends
+		//$conn->close();
+	?>	
+	
+	
 		<h1>Payment</h1>
 		<div id="article-elements">
 			<table id="payment-table">
@@ -57,9 +99,39 @@
 					<td>7.00</td>
 				</tr>
 				<tr id="specialCoupon">
-					<td></td>
-					<td></td>
-					<td>0.00</td>
+					<td>
+						<?php 
+							echo $correctCouponID;
+							
+							if($correct == true)
+								echo "<style type='text/css'>
+										#specialCoupon{
+											display: table-row;
+										}
+								</style>"
+							
+						?>
+					</td>
+	
+					<td>
+					
+						1
+					
+					</td>
+					<td>
+						<?php 
+						if($correct == true){
+							$sql = "SELECT couponAmount FROM coupon WHERE couponCode='$couponID'";
+							$result = $conn->query($sql);
+							while($row = $result->fetch_assoc()) {
+								echo $row['couponAmount'];
+							}
+						}
+						else{
+							echo 0.00;
+						}
+						?>
+					</td>
 				</tr>
 				<tr id="totalPrice">
 					<td>Total:</td>
@@ -91,23 +163,51 @@
 					</button>
 				</div>
 			</div>
+			
+			<?php 
+						if($correct == true){
+							echo "<script>
+							
+								var couponBtn = document.getElementById('coupon-btn');
+								couponBtn.disabled = true;
+							
+							</script>";
+						}
+			?>
 		</div>
 		
 		<div id="none-popup">
 		<div id="popup">
+		
 			<div id="popup-content">
 				<span class="popup-close-btn">&times;</span>
 				<p id="popup-title"></p>
 				
-				<div id="popup-RM-textBox">
-					<span id="popup-RM-word">RM</span> 
-					<input id="textBox" type="text" name="payment/coupon">
+				<form id="couponForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" autocomplete="off">
+				
+				
+					<input id="textBox" required type="text" name="couponTextBox"/>
+				
+				
+				<div class="submit-btn" id="couponSubmitBtn">
+					<input id="submitBtn" type="submit" value="Submit"/>
 				</div>
 				
-				<div id="submit-btn">
-					<input id="submitBtn" type="submit" value="Submit" onclick="submitOnClick()">
+				</form>
+				
+				
+				<div id ="payment-div">
+				<div id="popup-RM-textBox">
+					<span id="popup-RM-word">RM</span> 
+					<input id="payTextBox" required type="text" name="paymentTextBox"/>
+				</div>
+				
+				<div class="submit-btn" id="paymentSubmitBtn">
+					<input id="paySubmitBtn" type="submit" value="Submit" onclick="submitOnClick()"/>
+				</div>
 				</div>
 			</div>
+			
 		</div>
 		</div>
 	</article>

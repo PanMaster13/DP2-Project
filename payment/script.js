@@ -14,8 +14,6 @@ function popup(){
 	
 	//get the close button
 	var closeBtn = document.getElementsByClassName("popup-close-btn")[0];
-	//get the RM word before the text input box
-	var spanRM = document.getElementById("popup-RM-word");
 	
 	//get the popup
 	var popup = document.getElementById("popup");
@@ -23,20 +21,27 @@ function popup(){
 	//get the textbox
 	var textbox = document.getElementById("textBox");
 	
+	var couponForm = document.getElementById("couponForm");
+	
+	var paymentDiv = document.getElementById("payment-div");
+	
+	
 	//if payBtn is clicked, the RM is shown and the title will be payment
 	payBtn.onclick = function(){
-		spanRM.style.display = "block";
 		popupTitle.innerHTML = "Payment";
 		popupContainer.style.display = "block";
+		paymentDiv.style.display = "block";
+		couponForm.style.display = "none";
 		textbox.value = '';
 		textbox.focus();
 	}
 
 	//if couponBtn is clicked, the RM is not shown and the title will be CouponID
 	couponBtn.onclick = function(){
-		spanRM.style.display = "none";
 		popupTitle.innerHTML = "CouponID";
 		popupContainer.style.display = "block";
+		couponForm.style.display = "block";
+		paymentDiv.style.display = "none";
 		textbox.value = '';
 		textbox.focus();
 	}
@@ -61,8 +66,6 @@ function submitOnClick(){
 
 	var popupTitle = document.getElementById("popup-title");
 	
-	var specialCoupon = document.getElementById("specialCoupon");
-	
 	var totalPrice = document.getElementById("totalPrice");
 	
 	var totalAmount = document.getElementById("totalAmount");
@@ -70,30 +73,20 @@ function submitOnClick(){
 	var totalChange = document.getElementById("totalChange");
 	
 	var payBtn = document.getElementById("pay-btn");
+	
 	var couponBtn = document.getElementById("coupon-btn");
 	
-		if(popupTitle.innerHTML == "CouponID"){
-			//CHECK VALIDATION OF COUPON SOON - WIP
-			specialCoupon.children[0].innerHTML = "CID" + document.getElementById("textBox").value;
-			specialCoupon.children[1].innerHTML = 1;
-			specialCoupon.children[2].innerHTML = "-2.00";
-			specialCoupon.style.display = "table-row";
-			popupContainer.style.display = "none";
-			calculateTotalPrice()
-			
-			couponBtn.disabled = true;
-		}
-		else if(popupTitle.innerHTML == "Payment"){
-			textboxValue = document.getElementById("textBox").value;
+		if(popupTitle.innerHTML == "Payment"){
+			textboxValue = document.getElementById("payTextBox").value;
 			totalAmount.children[2].innerHTML = parseFloat(textboxValue).toFixed(2);
-			var finalChange = parseFloat(document.getElementById("textBox").value) - parseFloat(totalPrice.children[2].innerHTML);
+			var finalChange = parseFloat(document.getElementById("payTextBox").value) - parseFloat(totalPrice.children[2].innerHTML);
 			totalChange.children[2].innerHTML = parseFloat(finalChange).toFixed(2);
 			totalAmount.style.display = "table-row";
 			totalChange.style.display = "table-row";
 			popupContainer.style.display = "none";
 			
-			payBtn.disabled = true;
 			couponBtn.disabled = true;
+			payBtn.disabled = true;
 		}
 	
 }
@@ -114,7 +107,8 @@ function calculateTotalPrice(){
 		var cell = tr.cells[2];
 		
 		if(i > 0 && i < (length-3)){
-			s += ' ' + cell.innerHTML;
+			if(i == (length-4))
+				cell.innerHTML = -Math.abs(cell.innerHTML)
 			array.push(parseFloat(cell.innerHTML).toFixed(2));
 		}
 	}

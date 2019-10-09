@@ -5,6 +5,15 @@ header{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
+	/*https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting*/
+	/*stop users from selecting the elements accidentality*/
+	-webkit-touch-callout: none; /*IOS*/
+    -webkit-user-select: none;   /*Safari*/
+	-khtml-user-select: none;    /*Konqueror HTML*/
+    -moz-user-select: none;      /*Firefox(oldversion)*/
+    -ms-user-select: none;       /*IE*/
+    user-select: none;           /*Chrome, Opera, Firefox*/
 }
 
 header img {
