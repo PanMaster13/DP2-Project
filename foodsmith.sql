@@ -38,8 +38,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`catID`, `catName`) VALUES
-('c1', 'food'),
-('c2', 'drinks');
+('1', 'Food'),
+('2', 'Drinks');
 
 -- --------------------------------------------------------
 
@@ -81,10 +81,10 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`itemID`, `catID`, `itemName`, `price`) VALUES
-('1', 'c1', 'Burger', 8),
-('2', 'c1', 'Sandwich', 7),
-('3', 'c2', 'Milk tea', 3.5),
-('4', 'c2', 'Latte', 3);
+('1', '1', 'Burger', 8),
+('2', '1', 'Sandwich', 7),
+('3', '2', 'Milk tea', 3.5),
+('4', '2', 'Latte', 3);
 
 -- --------------------------------------------------------
 
