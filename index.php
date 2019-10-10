@@ -57,6 +57,7 @@ if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 </head>
 <body>
 
+	<div id="center">
 	<img id="login_logo" src="/template/images/logo_blue.png" alt="logo">
 
 	<h1 class="login_form" >Login</h1>
@@ -68,6 +69,6 @@ if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 		<p id="error_out"><?php echo $out; ?></p>
 		<button id="login_button" type="submit">Submit</button>
 	</form>
-	
+	</div>
 </body>
 </html>
