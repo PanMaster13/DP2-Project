@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 09:16 AM
+-- Generation Time: Oct 11, 2019 at 09:55 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -95,8 +95,11 @@ INSERT INTO `menu` (`itemID`, `categoryID`, `itemName`, `itemPrice`) VALUES
 CREATE TABLE `orderlist` (
   `orderID` int(11) NOT NULL,
   `orderDate` date NOT NULL,
-  `itemList` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
-) ;
+  `itemList` text NOT NULL,
+  `totalPrice` float NOT NULL,
+  `orderStatus` enum('Completed','Cancelled','Pending') NOT NULL,
+  `tableID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -188,6 +191,13 @@ ALTER TABLE `menu`
   ADD KEY `categoryID` (`categoryID`);
 
 --
+-- Indexes for table `orderlist`
+--
+ALTER TABLE `orderlist`
+  ADD PRIMARY KEY (`orderID`),
+  ADD KEY `tableID` (`tableID`);
+
+--
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
@@ -261,6 +271,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`);
+
+--
+-- Constraints for table `orderlist`
+--
+ALTER TABLE `orderlist`
+  ADD CONSTRAINT `orderlist_ibfk_1` FOREIGN KEY (`tableID`) REFERENCES `tables` (`tableID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
