@@ -35,12 +35,12 @@
 		$tableQuery = "SELECT * FROM tables";
 		$tableResult = $conn->query($tableQuery);
 		
-		echo "<table class='theTables'><tr><th>Table ID</th><th>Table Status</th></tr>";
+		echo "<table class='theTables'><tr><th>Table Number</th><th>Table Seats</th><th>Table Status</th></tr>";
 		if ($tableResult->num_rows > 0)
 		{
 			while ($tableRow = $tableResult->fetch_assoc())
 			{
-				echo "<tr class='list-items'><td>" . $tableRow["tableID"] . "</td><td>" . $tableRow["tableStatus"] . "</td></tr>";
+				echo "<tr class='list-items'><td>" . $tableRow["tableID"] . "</td><td>" . $tableRow["tableSeats"] . "</td><td>" . $tableRow["tableStatus"] . "</td></tr>";
 			}
 		}
 		else

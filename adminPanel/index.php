@@ -20,23 +20,23 @@
 		<h1>Welcome Back <span id="name">Chris!</span></h1>
 		<div id="admin-panel">
 			<ul class="panel-selection-container">
-				<li class="panel-items color1" onclick="window.location.href='/menu'">
+				<li class="panel-items color1" onclick="window.location.href='/FoodSmithPos/menu'">
 					<i class="fas fa-utensils fa-5x"></i>
 					<p>Menu Management</p>
 				</li>
-				<li class="panel-items color2" onclick="window.location.href='/table'">
+				<li class="panel-items color2" onclick="window.location.href='/FoodSmithPos/table'">
 					<i class="fas fa-table fa-5x"></i>
 					<p>Table Management</p>
 				</li>
-				<li class="panel-items color3" onclick="window.location.href='/transaction'">
+				<li class="panel-items color3" onclick="window.location.href='/FoodSmithPos/transaction'">
 					<i class="fas fa-receipt fa-5x"></i>
 					<p>Transaction Management</p>
 				</li>
-				<li class="panel-items color4" onclick="window.location.href='/report'">
+				<li class="panel-items color4" onclick="window.location.href='/FoodSmithPos/report'">
 					<i class="fas fa-clipboard-list fa-5x"></i>
 					<p>Report Management</p>
 				</li>
-				<li class="panel-items color5" onclick="window.location.href='/coupon'">
+				<li class="panel-items color5" onclick="window.location.href='/FoodSmithPos/coupon'">
 					<i class="fas fa-ticket-alt fa-5x"></i>
 					<p>Coupon Management</p>
 				</li>

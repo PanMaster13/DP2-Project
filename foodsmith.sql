@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2019 at 08:23 AM
+-- Generation Time: Oct 11, 2019 at 09:16 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -29,17 +29,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `catID` varchar(4) NOT NULL,
-  `catName` text NOT NULL
+  `categoryID` int(11) NOT NULL,
+  `categoryName` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`catID`, `catName`) VALUES
-('1', 'Food'),
-('2', 'Drinks');
+INSERT INTO `category` (`categoryID`, `categoryName`) VALUES
+(1, 'Food'),
+(2, 'Drinks');
 
 -- --------------------------------------------------------
 
@@ -48,7 +48,8 @@ INSERT INTO `category` (`catID`, `catName`) VALUES
 --
 
 CREATE TABLE `coupon` (
-  `couponCode` varchar(5) NOT NULL,
+  `couponID` int(11) NOT NULL,
+  `couponCode` varchar(10) NOT NULL,
   `couponName` text NOT NULL,
   `couponAmount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -57,11 +58,10 @@ CREATE TABLE `coupon` (
 -- Dumping data for table `coupon`
 --
 
-INSERT INTO `coupon` (`couponCode`, `couponName`, `couponAmount`) VALUES
-('CP001', 'Friday Lazy Day Discount', 10),
-('CP002', 'Toto Ticket', 30),
-('CP003', 'Great Days Ticket', 15.5),
-('CP004', '1st Anniversary Ticket', 111.11);
+INSERT INTO `coupon` (`couponID`, `couponCode`, `couponName`, `couponAmount`) VALUES
+(1, 'FFF2F', 'Game Collaboration - Final Fantasy VII Coupon Ticket', 77.7),
+(2, '11111', 'FoodSmith Cafe First Anniversary Coupon Ticket', 11.11),
+(3, 'MTM02', 'Montly Coupon Ticket - Febuary', 22.22);
 
 -- --------------------------------------------------------
 
@@ -70,21 +70,21 @@ INSERT INTO `coupon` (`couponCode`, `couponName`, `couponAmount`) VALUES
 --
 
 CREATE TABLE `menu` (
-  `itemID` varchar(4) NOT NULL,
-  `catID` varchar(4) NOT NULL,
+  `itemID` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL,
   `itemName` text NOT NULL,
-  `price` float NOT NULL
+  `itemPrice` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`itemID`, `catID`, `itemName`, `price`) VALUES
-('1', '1', 'Burger', 8),
-('2', '1', 'Sandwich', 7),
-('3', '2', 'Milk tea', 3.5),
-('4', '2', 'Latte', 3);
+INSERT INTO `menu` (`itemID`, `categoryID`, `itemName`, `itemPrice`) VALUES
+(1, 1, 'Burger', 8.5),
+(2, 1, 'Sandwich', 6),
+(3, 2, 'Boba Milk Tea', 6),
+(4, 2, 'Latte', 3);
 
 -- --------------------------------------------------------
 
@@ -93,12 +93,10 @@ INSERT INTO `menu` (`itemID`, `catID`, `itemName`, `price`) VALUES
 --
 
 CREATE TABLE `orderlist` (
-  `orderID` varchar(5) NOT NULL,
-  `date` date NOT NULL,
-  `itemList` varchar(100) NOT NULL,
-  `totalPrice` float NOT NULL,
-  `orderStatus` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `orderID` int(11) NOT NULL,
+  `orderDate` date NOT NULL,
+  `itemList` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+) ;
 
 -- --------------------------------------------------------
 
@@ -107,8 +105,8 @@ CREATE TABLE `orderlist` (
 --
 
 CREATE TABLE `report` (
-  `reportID` varchar(5) NOT NULL,
-  `date` date NOT NULL,
+  `reportID` int(11) NOT NULL,
+  `reportDate` date NOT NULL,
   `orderAmount` int(11) NOT NULL,
   `profit` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,11 +115,10 @@ CREATE TABLE `report` (
 -- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`reportID`, `date`, `orderAmount`, `profit`) VALUES
-('R001', '2019-10-01', 15, 75.5),
-('R002', '2019-10-02', 50, 150.25),
-('R003', '2019-10-03', 40, 102.2),
-('R004', '2019-10-04', 20, 80.8);
+INSERT INTO `report` (`reportID`, `reportDate`, `orderAmount`, `profit`) VALUES
+(1, '2019-10-01', 55, 120.5),
+(2, '2019-10-02', 50, 105),
+(3, '2019-10-03', 40, 95.5);
 
 -- --------------------------------------------------------
 
@@ -130,19 +127,21 @@ INSERT INTO `report` (`reportID`, `date`, `orderAmount`, `profit`) VALUES
 --
 
 CREATE TABLE `tables` (
-  `tableID` varchar(5) NOT NULL,
-  `tableStatus` int(11) NOT NULL
+  `tableID` int(11) NOT NULL,
+  `tableSeats` int(11) NOT NULL,
+  `tableStatus` enum('Occupied','Vacant','Unavailable','Booked') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tables`
 --
 
-INSERT INTO `tables` (`tableID`, `tableStatus`) VALUES
-('T001', 1),
-('T002', 1),
-('T003', 2),
-('T004', 3);
+INSERT INTO `tables` (`tableID`, `tableSeats`, `tableStatus`) VALUES
+(1, 5, 'Vacant'),
+(2, 5, 'Vacant'),
+(3, 5, 'Vacant'),
+(4, 10, 'Vacant'),
+(5, 10, 'Vacant');
 
 -- --------------------------------------------------------
 
@@ -173,20 +172,20 @@ INSERT INTO `user` (`userID`, `userType`, `userName`, `Password`) VALUES
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`catID`);
+  ADD PRIMARY KEY (`categoryID`);
 
 --
 -- Indexes for table `coupon`
 --
 ALTER TABLE `coupon`
-  ADD PRIMARY KEY (`couponCode`);
+  ADD PRIMARY KEY (`couponID`);
 
 --
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`itemID`),
-  ADD KEY `catID` (`catID`);
+  ADD KEY `categoryID` (`categoryID`);
 
 --
 -- Indexes for table `report`
@@ -212,6 +211,42 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `coupon`
+--
+ALTER TABLE `coupon`
+  MODIFY `couponID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `orderlist`
+--
+ALTER TABLE `orderlist`
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tables`
+--
+ALTER TABLE `tables`
+  MODIFY `tableID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
@@ -225,7 +260,7 @@ ALTER TABLE `user`
 -- Constraints for table `menu`
 --
 ALTER TABLE `menu`
-  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`catID`) REFERENCES `category` (`catID`);
+  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -39,17 +39,17 @@
 		
 		while ($categoryRow = $categoryResult->fetch_assoc())
 		{
-			$menuQuery = "SELECT * FROM menu WHERE catID = $index";
+			$menuQuery = "SELECT * FROM menu WHERE categoryID = $index";
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-			echo "<h2>" . $categoryRow["catName"] . "</h2>";
-			echo "<table class='theTables'><tr><th>Item ID</th><th>Item Name</th><th>Item Price</th></tr>";
+			echo "<h2>" . $categoryRow["categoryName"] . "</h2>";
+			echo "<table class='theTables'><tr><th>Item Name</th><th>Item Price</th></tr>";
 			if ($menuResult->num_rows > 0)
 			{
 				while($menuRow = $menuResult->fetch_assoc())
 				{
-					echo "<tr class='list-items'><td>" . $menuRow["itemID"] . "</td><td>" . $menuRow["itemName"] . "</td><td>" . number_format($menuRow["price"], 2) . "</td></tr>";
+					echo "<tr class='list-items'><td>" . $menuRow["itemName"] . "</td><td>" . number_format($menuRow["itemPrice"], 2) . "</td></tr>";
 				}
 			}
 			else

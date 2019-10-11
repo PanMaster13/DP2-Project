@@ -37,16 +37,18 @@
 		$count = $correctCouponID = $couponID = "";
 		$correct = false;
 		if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['couponTextBox'])){
-			$couponID = $_POST['couponTextBox'];
-			
+			$couponCode = $_POST['couponTextBox'];
+			$correctCouponName = "";
 			$correct = false;
 			
-			$sql = "SELECT couponCode FROM coupon WHERE couponCode='$couponID'";
+			$sql = "SELECT * FROM coupon WHERE couponCode='$couponCode'";
 			$result = $conn->query($sql);
 			$count = mysqli_num_rows($result);
 			
 			if($count == 1){
-				$correctCouponID = $couponID;
+				while($row = $result->fetch_assoc()) {
+					$correctCouponName = $row['couponName'];
+				}
 				$correct = true;
 			}
 			else{
@@ -56,7 +58,7 @@
 		}
 
 		// Close connection (although it is done automatically when script ends
-		//$conn->close();
+		// $conn->close();
 	?>	
 	
 	
@@ -101,7 +103,7 @@
 				<tr id="specialCoupon">
 					<td>
 						<?php 
-							echo $correctCouponID;
+							echo $correctCouponName;
 							
 							if($correct == true)
 								echo "<style type='text/css'>
@@ -121,7 +123,7 @@
 					<td>
 						<?php 
 						if($correct == true){
-							$sql = "SELECT couponAmount FROM coupon WHERE couponCode='$couponID'";
+							$sql = "SELECT couponAmount FROM coupon WHERE couponCode='$couponCode'";
 							$result = $conn->query($sql);
 							while($row = $result->fetch_assoc()) {
 								echo $row['couponAmount'];
