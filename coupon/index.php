@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+<?php 
+	session_start();
+	if (!isset($_SESSION["feedback"])){
+		$_SESSION = "";
+	}
+ ?>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<title>Coupon Management Page</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
-	
 	<link rel="stylesheet" href="couponStyle.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 	
@@ -57,18 +62,43 @@
 		</div>
 		
 		<div class='coupon-buttons-group'>
-			<button class='coupon-buttons' onclick="test()">
+			<button class='coupon-buttons' onclick="showAddCoupon()">
 				<p>Add Coupon</p>
 			</button>
-			<button class='coupon-buttons'>
+			<button class='coupon-buttons' onclick="showEditCoupon()">
 				<p>Edit Coupon</p>
 			</button>
-			<button class='coupon-buttons'>
+			<button class='coupon-buttons' onclick="showDeleteCoupon()">
 				<p>Delete Coupon</p>
 			</button>
 		</div>
-		
 	</article>
+	
+	<div class="coupon-forms">
+		<div id='add-coupon-form'>
+			<h2>Add a Coupon</h2>
+			<form action="addCouponProcess.php" method="post">
+				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
+				<p>Enter coupon name*: <input type="text" name="add_name" required="required"></p>
+				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required"placeholder="Please input numbers only"></p>
+				<p><input type="submit" name="add_submit_btn"></p>
+			</form>
+		</div>
+	
+		<div id='edit-coupon-form'>
+			<h2>Edit a Coupon</h2>
+		</div>
+	
+		<div id='delete-coupon-form'>
+			<h2>Delete a Coupon</h2>
+			<form action="deleteCouponProcess.php" method="post">
+				<p>Enter coupon code to be deleted*: <input type="text" name="delete_code" required="required"></p>
+				<p><input type="submit" name="delete_submit_btn"></p>
+			</form>
+		</div>
+		
+		<?php echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>"; ?>
+	</div>
 	
 	<footer>
 	</footer>
