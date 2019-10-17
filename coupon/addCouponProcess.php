@@ -32,7 +32,7 @@
 			if ($conn->query($query) === true){
 				$_SESSION["feedback"] = "Coupon added successfully.";
 			} else {
-				$_SESSION["feedback"] = "<p>Error: " . $query . "<br/>" . $conn-error;
+				$_SESSION["feedback"] = "Error adding record to database: " . $conn->error;
 			}
 			$conn->close();
 			header("Location: index.php");

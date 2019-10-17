@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 09:55 AM
+-- Generation Time: Oct 17, 2019 at 05:16 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -61,7 +61,7 @@ CREATE TABLE `coupon` (
 INSERT INTO `coupon` (`couponID`, `couponCode`, `couponName`, `couponAmount`) VALUES
 (1, 'FFF2F', 'Game Collaboration - Final Fantasy VII Coupon Ticket', 77.7),
 (2, '11111', 'FoodSmith Cafe First Anniversary Coupon Ticket', 11.11),
-(3, 'MTM02', 'Montly Coupon Ticket - Febuary', 22.22);
+(27, 'MTM02', 'Testo', 50);
 
 -- --------------------------------------------------------
 
@@ -175,19 +175,22 @@ INSERT INTO `user` (`userID`, `userType`, `userName`, `Password`) VALUES
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`categoryID`);
+  ADD PRIMARY KEY (`categoryID`),
+  ADD UNIQUE KEY `categoryName` (`categoryName`) USING HASH;
 
 --
 -- Indexes for table `coupon`
 --
 ALTER TABLE `coupon`
-  ADD PRIMARY KEY (`couponID`);
+  ADD PRIMARY KEY (`couponID`),
+  ADD UNIQUE KEY `couponCode` (`couponCode`);
 
 --
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`itemID`),
+  ADD UNIQUE KEY `itemName` (`itemName`) USING HASH,
   ADD KEY `categoryID` (`categoryID`);
 
 --
@@ -230,7 +233,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `coupon`
 --
 ALTER TABLE `coupon`
-  MODIFY `couponID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `couponID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `menu`
