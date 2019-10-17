@@ -103,7 +103,7 @@
 		
 		<?php 
 			if (isset($_SESSION["feedback"])){
-				echo "<p>" . $_SESSION["feedback"] . "</p>";
+				echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>";
 			}
 		?>
 	</div>
