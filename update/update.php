@@ -1,4 +1,4 @@
 <?php
-$output = "<pre>".exec("update.sh")."</pre>";
-echo $output;
+$output = shell_exec("git pull origin master");
+echo "<pre>".$output."</pre>";
 ?>
