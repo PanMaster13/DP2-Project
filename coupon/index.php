@@ -1,8 +1,5 @@
 <?php 
 	session_start();
-	if (!isset($_SESSION["feedback"])){
-		$_SESSION = "";
-	}
  ?>
 
 <!DOCTYPE html>
@@ -56,7 +53,7 @@
 		echo "</table>";
 		mysqli_free_result($couponResult);
 		
-		// Close connection (although it is done automatically when script ends
+		// Close connection (although it is done automatically when script ends)
 		$conn->close();
 	?>
 		</div>
@@ -97,7 +94,11 @@
 			</form>
 		</div>
 		
-		<?php echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>"; ?>
+		<?php 
+			if (isset($_SESSION["feedback"])){
+				echo "<p>" . $_SESSION["feedback"] . "</p>";
+			}
+		?>
 	</div>
 	
 	<footer>
