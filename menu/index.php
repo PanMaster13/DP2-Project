@@ -7,13 +7,11 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
 	
-	<link rel="stylesheet" href="menuStyle.css">
+	<link rel="stylesheet" href="menu_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 	
-	
-	
 <?php
-	include ("../template/header.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
 	<h1>Menu Mangement Page</h1>
 	<article>
@@ -91,7 +89,7 @@
 	
 	<footer>
 	</footer>
-	<script src="menuScript.js"></script>
+	<script src="menu_script.js"></script>
 </body>
 
 

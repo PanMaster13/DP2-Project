@@ -40,10 +40,9 @@ if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 		session_destroy();
 		
 		//redirect to page based on user type
-		if ($usertype == "admin") header("Location: /adminPanel/");
+		if ($usertype == "admin") header("Location: /admin/");
 		else {
-			$out = "You've logged in as staff, but the page hasn't been implemented. Please redirect to staff page when ready.";
-			//header("Location: /");
+			header("Location: /orders/");
 		}
 	}
 	else $out = "Username or password is incorrect. Please try again";

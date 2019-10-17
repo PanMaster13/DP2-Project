@@ -9,12 +9,12 @@
 	<meta name="description" content="Admin Panel">
 	<meta name="keywords" content="">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="admin_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 
-	<?php
-		include "../template/header.php";
-	?>
+<?php
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+?>
 	
 	<article>
 		<h1>Welcome Back <span id="name">Chris!</span></h1>
@@ -40,7 +40,7 @@
 					<i class="fas fa-ticket-alt fa-5x"></i>
 					<p>Coupon Management</p>
 				</li>
-				<li class="panel-items color6" onclick="window.open('/adminPanel/exportdatabase.php', '_blank')">
+				<li class="panel-items color6" onclick="window.open('/admin/export.php', '_blank')">
 					<i class="fas fa-database fa-5x"></i>
 					<p>Export Database</p>
 				</li>

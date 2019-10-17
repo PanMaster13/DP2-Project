@@ -9,13 +9,13 @@
 	<meta name="description" content="Admin Panel">
 	<meta name="keywords" content="">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="payment_style.css">
 
-	<script src="script.js"></script>
+	<script src="payment_script.js"></script>
 	
-	<?php
-		include "../template/header.php";
-	?>
+<?php
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+?>
 	
 	<article>
 		
@@ -167,7 +167,7 @@
 			</table>
 			
 			<div id='payment-btns'>
-				<button id='cancel-btn' onclick="window.location.href='/orderList'">
+				<button id='cancel-btn' onclick="window.location.href='/orders'">
 					<p>Cancel</p>
 				</button>
 				<div id='right-btns'>

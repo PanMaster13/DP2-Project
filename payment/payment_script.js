@@ -19,9 +19,9 @@ function popup(){
 	var popup = document.getElementById("popup");
 	
 	//get the textbox
-	var textbox = document.getElementById("textBox");
+	var textbox = document.getElementById("text-box");
 	
-	var couponForm = document.getElementById("couponForm");
+	var couponForm = document.getElementById("coupon-form");
 	
 	var paymentDiv = document.getElementById("payment-div");
 	
@@ -62,24 +62,25 @@ function popup(){
 function submitOnClick(){
 	var popupContainer = document.getElementById("none-popup");
 	
-	var submitBtn = document.getElementById("submitBtn");
+	var submitBtn = document.getElementById("submit-btn");
 
 	var popupTitle = document.getElementById("popup-title");
 	
-	var totalPrice = document.getElementById("totalPrice");
+	var totalPrice = document.getElementById("total-price");
 	
-	var totalAmount = document.getElementById("totalAmount");
+	var totalAmount = document.getElementById("total-amount");
 	
-	var totalChange = document.getElementById("totalChange");
+	var totalChange = document.getElementById("totalchange");
 	
 	var payBtn = document.getElementById("pay-btn");
 	
 	var couponBtn = document.getElementById("coupon-btn");
 	
 		if(popupTitle.innerHTML == "Payment"){
-			textboxValue = document.getElementById("payTextBox").value;
+			payTextBox = document.getElementById("pay-textbox");
+			textboxValue = payTextBox.value;
 			totalAmount.children[2].innerHTML = parseFloat(textboxValue).toFixed(2);
-			var finalChange = parseFloat(document.getElementById("payTextBox").value) - parseFloat(totalPrice.children[2].innerHTML);
+			var finalChange = parseFloat(payTextBox.value) - parseFloat(totalPrice.children[2].innerHTML);
 			totalChange.children[2].innerHTML = parseFloat(finalChange).toFixed(2);
 			totalAmount.style.display = "table-row";
 			totalChange.style.display = "table-row";
@@ -92,7 +93,7 @@ function submitOnClick(){
 }
 
 function calculateTotalPrice(){
-	var totalPrice = document.getElementById("totalPrice").children[2];
+	var totalPrice = document.getElementById("total-price").children[2];
 	
 	var paymentTable = document.getElementById("payment-table");
 	

@@ -7,11 +7,11 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
 	
-	<link rel="stylesheet" href="tableStyle.css">
+	<link rel="stylesheet" href="table_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 	
 <?php
-	include ("../template/header.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
 
 	<h1>Table Management Page</h1>
@@ -70,6 +70,6 @@
 	<footer>
 	
 	</footer>
-	<script src="tableScript.js"></script>
+	<script src="table_script.js"></script>
 </body>
 </html>

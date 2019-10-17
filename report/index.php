@@ -9,14 +9,14 @@
 	<meta name="description" content="Report Management">
 	<meta name="keywords" content="Report, Management">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="report_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 
 	<script src="script.js"></script>
 
-	<?php
-		include "../template/header.php";
-	?>
+<?php
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+?>
 	
 	<article>
 		<h1>Report</h1>

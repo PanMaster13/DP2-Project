@@ -9,14 +9,12 @@
 	<meta name="description" content="Order List">
 	<meta name="keywords" content="Order, Order List">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="index_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 
-	<script src="script.js"></script>
-
-	<?php
-		include "../template/header.php";
-	?>
+<?php
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+?>
 	
 	<article>
 		<h1>Orders</h1>

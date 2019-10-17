@@ -9,11 +9,11 @@
 	<title>Coupon Management Page</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Jason">
-	<link rel="stylesheet" href="couponStyle.css">
+	<link rel="stylesheet" href="coupon_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 	
 <?php
-	include ("../template/header.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
 
 	<h1>Coupon Management Page</h1>
@@ -74,7 +74,7 @@
 	<div class="coupon-forms">
 		<div id='add-coupon-form'>
 			<h2>Add a Coupon</h2>
-			<form action="addCouponProcess.php" method="post">
+			<form action="coupon_add.php" method="post">
 				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
 				<p>Enter coupon name*: <input type="text" name="add_name" required="required"></p>
 				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required" placeholder="Please input numbers only"></p>
@@ -84,7 +84,7 @@
 	
 		<div id='edit-coupon-form'>
 			<h2>Edit a Coupon</h2>
-			<form action="editCouponProcess.php" method="post">
+			<form action="coupon_edit.php" method="post">
 				<p>Enter coupon code to be edited*: <input type="text" name="edit_code" required="required"></p>
 				<p>Enter new coupon code: <input type="text" name="couponCode" placeholder="Leave it empty if no change is needed" size="30"></p>
 				<p>Enter new coupon name: <input type="text" name="couponName" placeholder="Leave it empty if no change is needed" size="30"></p>
@@ -95,7 +95,7 @@
 	
 		<div id='delete-coupon-form'>
 			<h2>Delete a Coupon</h2>
-			<form action="deleteCouponProcess.php" method="post">
+			<form action="coupon_delete.php" method="post">
 				<p>Enter coupon code to be deleted*: <input type="text" name="delete_code" required="required"></p>
 				<p><input type="submit" name="delete_submit_btn"></p>
 			</form>
@@ -110,6 +110,6 @@
 	
 	<footer>
 	</footer>
-	<script src="couponScript.js"></script>
+	<script src="coupon_script.js"></script>
 </body>
 </html>
