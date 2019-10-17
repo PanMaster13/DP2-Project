@@ -77,13 +77,20 @@
 			<form action="addCouponProcess.php" method="post">
 				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
 				<p>Enter coupon name*: <input type="text" name="add_name" required="required"></p>
-				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required"placeholder="Please input numbers only"></p>
+				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required" placeholder="Please input numbers only"></p>
 				<p><input type="submit" name="add_submit_btn"></p>
 			</form>
 		</div>
 	
 		<div id='edit-coupon-form'>
 			<h2>Edit a Coupon</h2>
+			<form action="editCouponProcess.php" method="post">
+				<p>Enter coupon code to be edited*: <input type="text" name="edit_code" required="required"></p>
+				<p>Enter new coupon code: <input type="text" name="couponCode" placeholder="Leave it empty if no change is needed" size="30"></p>
+				<p>Enter new coupon name: <input type="text" name="couponName" placeholder="Leave it empty if no change is needed" size="30"></p>
+				<p>Enter new coupon discount amount: <input type="text" name="couponAmount" placeholder="Leave it empty if no change is needed" size="30"></p>
+				<p><input type="submit" name="edit_submit_btn"></p>
+			</form>
 		</div>
 	
 		<div id='delete-coupon-form'>
@@ -96,7 +103,7 @@
 		
 		<?php 
 			if (isset($_SESSION["feedback"])){
-				echo "<p>" . $_SESSION["feedback"] . "</p>";
+				echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>";
 			}
 		?>
 	</div>

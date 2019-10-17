@@ -43,6 +43,8 @@ function showAddCoupon(){
 		displayBox.style.display = "none";
 		addCouponIsOn = false;
 		formIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
 	}
 }
 
@@ -56,6 +58,8 @@ function showEditCoupon(){
 		displayBox.style.display = "none";
 		formIsOn = false;
 		editCouponIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
 	}
 }
 
@@ -69,6 +73,8 @@ function showDeleteCoupon(){
 		displayBox.style.display = "none";
 		formIsOn = false;
 		deleteCouponIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
 	}
 }
 
