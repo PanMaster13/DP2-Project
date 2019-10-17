@@ -23,25 +23,48 @@
 		<div id='article-elements'>
 			<div id='left-order-list'>
 				<table id="order-table">
+					
 					<tr>
-						<th>Order Number</th>
+						<th>OrderID</th>
+						<th>Order Date</th>
 						<th>Order Items</th>
-						<th>Table Number</th>
+						<th>Order Status</th>
+						<th>Total Price</th>
+						<th>TableID</th>
 					</tr>
-					<tr class="list-items">
-						<td>1</td>
-						<td>Chicken rice</td>
-						<td>15</td>
-					</tr>
-					<tr class="list-items">
-						<td>2</td>
-						<td>Plain water</td>
-						<td>20</td>
-					</tr>
-				</table>
+				<?php
+					$host = "127.0.0.1";
+					$username = "root";
+					$password = "";
+					$database = "foodsmith";
+					
+					// Create connection
+					$conn = new mysqli($host, $username, $password, $database);
+					
+					// Check connection
+					if (mysqli_connect_error())
+					{
+						die("Database connection failed: " . mysqli_connect_error());
+					}
+					$orderListQuery = "SELECT * FROM orderList";
+					$orderListResult = $conn->query($orderListQuery);
+					
+					//PHP function n12br - Inserts HTML line breaks before all newlines in a string
+					while ($orderListRow = $orderListResult->fetch_assoc())
+					{
+						echo "<tr class='list-items'><td>" . $orderListRow["orderID"] . "</td><td>" . 
+						$orderListRow["orderDate"] . "</td><td>" . nl2br($orderListRow["itemList"]) . "</td><td>" .
+						$orderListRow["orderStatus"] . "</td><td>" . $orderListRow["totalPrice"] . "</td><td>" . 
+						$orderListRow["tableID"] . "</td></tr>";
+					}
+					
+					echo "</table>";
+					mysqli_free_result($orderListResult);
+					
+				?>
 			</div>
 			<div id='right-btns'>
-				<button id='add-button'>
+				<button id='add-button' onclick="window.location.href='/orderprocess'">
 					<p>Add</p>
 				</button>
 				<button id='amend-button'>
@@ -50,11 +73,25 @@
 				<button id='cancel-button'>
 					<p>Cancel</p>
 				</button>
-				<button id='pay-button'>
+				<!--Validation in progress-->
+				<button id='pay-button' onclick="window.location.href='/payment'">
 					<p>Pay</p>
 				</button>
 			</div>
 		</div>
+
+		<div id="none-popup">
+		<div id="popup">
+		
+			<div id="popup-content">
+				<span class="popup-close-btn">&times;</span>
+				<p id="popup-title">Are you sure to Cancel this Order?</p>
+				<button type="button" id="cancel-popup-button">No</button>
+				<button type="button" id="delete-popup-button">Cancel</button>
+			</div>
+		</div>
+		</div>
+		
 	</article>
 	
 	<footer>

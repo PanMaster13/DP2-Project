@@ -61,7 +61,6 @@
 		// $conn->close();
 	?>	
 	
-	
 		<h1>Payment</h1>
 		<div id="article-elements">
 			<table id="payment-table">
@@ -70,36 +69,51 @@
 					<th>Qty</th>
 					<th>Price</th>
 				</tr>
-				<tr>
-					<td>Chicken rice</td>
-					<td>1</td>
-					<td>7.50</td>
-				</tr>
-				<tr>
-					<td>Pasta</td>
-					<td>1</td>
-					<td>9.00</td>
-				</tr>
-				<tr>
-					<td>Ramen</td>
-					<td>1</td>
-					<td>7.00</td>
-				</tr>
-				<tr>
-					<td>Ramen</td>
-					<td>1</td>
-					<td>7.00</td>
-				</tr>
-				<tr>
-					<td>Ramen</td>
-					<td>1</td>
-					<td>7.00</td>
-				</tr>
-				<tr>
-					<td>Ramen</td>
-					<td>1</td>
-					<td>7.00</td>
-				</tr>
+				<?php
+					$orderID = $_REQUEST['orderID'];
+					$query = "SELECT itemList FROM orderList WHERE orderID='". $orderID."' ";
+					
+					$string = "";
+					$itemListarray = array();
+					$priceListarray = array();
+				
+					$itemListResult = $conn->query($query);
+				
+					while ($itemList = $itemListResult->fetch_assoc())
+					{
+						//join all of them into a string instead of an array consisting of just one string
+						$string = implode("", $itemList);
+					}
+					//split them into an array
+					$itemListarray = explode("\n", $string);
+					//trim all the whitespaces to make sure it matches the data in database
+					$itemListarray = array_filter(array_map('trim', $itemListarray));
+				
+					mysqli_free_result($itemListResult);
+				
+					for( $i = 0; $i < sizeof($itemListarray); $i++){
+						$query = "SELECT itemPrice FROM menu WHERE itemName='" . $itemListarray[$i] . "' ";
+						$itemPriceResult = $conn->query($query);
+						
+						$result = $conn->query($query);
+						
+						while ($priceList = $itemPriceResult->fetch_assoc())
+						{
+							//push the value to an array
+							array_push($priceListarray , implode(" ", $priceList));
+						}
+					}
+					
+					mysqli_free_result($itemPriceResult);
+				
+				
+					//display all the relevant data to table
+					for($i = 0; $i < sizeof($itemListarray); $i++){
+						echo "<tr class='list-items'><td>" . $itemListarray[$i] . "</td><td>" . 
+						"1" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
+					}
+				
+				?>
 				<tr id="specialCoupon">
 					<td>
 						<?php 
@@ -153,7 +167,7 @@
 			</table>
 			
 			<div id='payment-btns'>
-				<button id='cancel-btn'>
+				<button id='cancel-btn' onclick="window.location.href='/orderList'">
 					<p>Cancel</p>
 				</button>
 				<div id='right-btns'>
@@ -185,7 +199,7 @@
 				<span class="popup-close-btn">&times;</span>
 				<p id="popup-title"></p>
 				
-				<form id="couponForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" autocomplete="off">
+				<form id="couponForm" action="#" method="post" autocomplete="off">
 				
 				
 					<input id="textBox" required type="text" name="couponTextBox"/>
