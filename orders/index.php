@@ -32,19 +32,10 @@
 						<th>TableID</th>
 					</tr>
 				<?php
-					$host = "127.0.0.1";
-					$username = "root";
-					$password = "";
-					$database = "foodsmith";
+					//include database connection
+					//the connection variable is $conn
+					include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 					
-					// Create connection
-					$conn = new mysqli($host, $username, $password, $database);
-					
-					// Check connection
-					if (mysqli_connect_error())
-					{
-						die("Database connection failed: " . mysqli_connect_error());
-					}
 					$orderListQuery = "SELECT * FROM orderList";
 					$orderListResult = $conn->query($orderListQuery);
 					

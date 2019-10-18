@@ -6,17 +6,9 @@ if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 	//hash the password
 	$passwd = hash("sha256", $_POST["passwd"]);
 	
-	//init database
-	$host = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "foodsmith";
-	
-	// Create connection
-	$conn = new mysqli($host, $username, $password, $database);
-	
-	// Check connection
-	if (mysqli_connect_error()) die("Database connection failed: " . mysqli_connect_error());
+	//include database connection
+	//the connection variable is $conn
+	include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 	
 	//query
 	$sql = "SELECT * FROM user WHERE userName = '$uname' AND Password = '$passwd'";

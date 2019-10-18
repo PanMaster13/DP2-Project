@@ -13,19 +13,10 @@
 			header("Location: index.php");
 		} else {
 			// Insert data into database
-			// Parameters for connection
-			$host = "127.0.0.1";
-			$username = "root";
-			$password = "";
-			$database = "foodsmith";
-		
-			// Create connection
-			$conn = new mysqli($host, $username, $password, $database);
-		
-			// Check connection
-			if (mysqli_connect_error()){
-				die("Database connection failed: " . mysqli_connect_error());
-			}
+			
+			//include database connection
+			//the connection variable is $conn
+			include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 			
 			// Validates if such table number exists or not
 			$validationQuery = "SELECT * FROM tables WHERE tableID = '$tableNumber'";
