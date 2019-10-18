@@ -1,3 +1,53 @@
+var formIsOn = false;
+var addTableIsOn = false;
+var editTableIsOn = false;
+var deleteTableIsOn = false;
+
+function showAddTable(){
+	var displayBox = document.getElementById("add-table-form");
+	if ((addTableIsOn == false) && (formIsOn == false)){
+		displayBox.style.display = "block";
+		addTableIsOn = true;
+		formIsOn = true;
+	} else if ((addTableIsOn == true) && (formIsOn == true)){
+		displayBox.style.display = "none";
+		addTableIsOn = false;
+		formIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
+	}
+}
+
+function showEditTable(){
+	var displayBox = document.getElementById("edit-table-form");
+	if ((editTableIsOn == false) && (formIsOn == false)){
+		displayBox.style.display = "block";
+		editTableIsOn = true;
+		formIsOn = true;
+	} else if ((editTableIsOn == true) && (formIsOn == true)){
+		displayBox.style.display = "none";
+		formIsOn = false;
+		editTableIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
+	}
+}
+
+function showDeleteTable(){
+	var displayBox = document.getElementById("delete-table-form");
+	if ((deleteTableIsOn == false) && (formIsOn == false)){
+		displayBox.style.display = "block";
+		deleteTableIsOn = true;
+		formIsOn = true;
+	} else if ((deleteTableIsOn == true) && (formIsOn == true)){
+		displayBox.style.display = "none";
+		formIsOn = false;
+		deleteTableIsOn = false;
+	} else {
+		alert("Please click the appropriate button to hide its form.");
+	}
+}
+
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");
