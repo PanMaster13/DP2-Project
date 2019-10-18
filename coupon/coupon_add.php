@@ -9,7 +9,7 @@
 		
 		// Need some validation before inputting data
 		if (!is_numeric($couponAmount)){
-			$_SESSION["feedback"] = "Coupon amount is invalid!";
+			$_SESSION["feedback"] = "Coupon amount is invalid, must be numeric!";
 			header("Location: index.php");
 		} else{
 			// Insert data into database

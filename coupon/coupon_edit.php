@@ -35,17 +35,24 @@
 				// Creating dynamic UPDATE statement (Only updates if form value is not blank)
 				$query = "UPDATE coupon SET";
 				$comma = " ";
+				$checkPrank = 0;
 				foreach($_POST as $key => $val) {
 					if( ! empty($val)) {
 						$query .= $comma . $key . " = '" . $_POST[$key] . "'";
 						$comma = ", ";
+						$checkPrank++;
 					}
 				}
-				$query .= " WHERE couponCode = '$couponCode'";
-				if ($conn->query($query) === true){
-					$_SESSION["feedback"] = "Coupon edited successfully.";
+				// Check whether user doesn't fill in any of the editing input fields
+				if ($checkPrank == 0){
+					$_SESSION["feedback"] = "You think its funny huh, trying to editing something while leaving nothing changed. You think you've achieved the highest level of comedy huh? Guess what, your mum gay. How bout dat?";
 				} else {
-					$_SESSION["feedback"] = "Error editing record: " . $conn->error;
+					$query .= " WHERE couponCode = '$couponCode'";
+					if ($conn->query($query) === true){
+						$_SESSION["feedback"] = "Coupon edited successfully.";
+					} else {
+						$_SESSION["feedback"] = "Error editing record: " . $conn->error;
+					}
 				}
 				$conn->close();
 				header("Location: index.php");
