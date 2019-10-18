@@ -1,15 +1,13 @@
 <?php
 	session_start();
-	
-	if (isset($_POST["add_submit_btn"]))
-	{
-		$couponCode = $_POST["add_code"];
-		$couponName = $_POST["add_name"];
-		$couponAmount = $_POST["add_amount"];
+
+	if (isset($_POST["add_submit_btn"])){
+		$tableSeats = $_POST["add_seats"];
+		$tableStatus = $_POST["add_status"];
 		
 		// Need some validation before inputting data
-		if (!is_numeric($couponAmount)){
-			$_SESSION["feedback"] = "Coupon amount is invalid, must be numeric!";
+		if (!preg_match('/^\d+$/',$tableSeats)){
+			$_SESSION["tableMsg"] = "Table seats is invalid, must be an integer value!";
 			header("Location: index.php");
 		} else{
 			// Insert data into database
@@ -26,13 +24,13 @@
 			if (mysqli_connect_error()){
 				die("Database connection failed: " . mysqli_connect_error());
 			}
-		
-			$query = "INSERT INTO coupon (couponCode, couponName, couponAmount) VALUES ('$couponCode', '$couponName', '$couponAmount')";
+			
+			$query = "INSERT INTO tables (tableSeats, tableStatus) VALUES ('$tableSeats', '$tableStatus')";
 			
 			if ($conn->query($query) === true){
-				$_SESSION["feedback"] = "Coupon added successfully.";
-			} else {
-				$_SESSION["feedback"] = "Error adding record to database: " . $conn->error;
+				$_SESSION["tableMsg"] = "Table record added successfully.";
+			} else{
+				$_SESSION["tableMsg"] = "Error adding record to database: " . $conn->error;
 			}
 			$conn->close();
 			header("Location: index.php");

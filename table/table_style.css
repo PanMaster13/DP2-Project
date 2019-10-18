@@ -71,3 +71,18 @@ h1{
 	background-color: white;
 	border: 5px solid #87ceeb;
 }
+
+.table-forms{
+	margin-left: 10%;
+}
+
+#add-table-form, #edit-table-form, #delete-table-form{
+	display: none;
+}
+
+#feedback-msg{
+	font-style: italic;
+	font-size: 125%;
+	text-decoration: underline;
+	text-decoration-color: #87b5eb;
+}
