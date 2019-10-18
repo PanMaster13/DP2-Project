@@ -19,12 +19,13 @@ function popup(){
 	var popup = document.getElementById("popup");
 	
 	//get the textbox
-	var textbox = document.getElementById("text-box");
+	var textbox = document.getElementById("textBox");
 	
-	var couponForm = document.getElementById("coupon-form");
+	var couponForm = document.getElementById("couponForm");
 	
 	var paymentDiv = document.getElementById("payment-div");
 	
+	var payTextBox = document.getElementById("payTextBox");
 	
 	//if payBtn is clicked, the RM is shown and the title will be payment
 	payBtn.onclick = function(){
@@ -32,8 +33,8 @@ function popup(){
 		popupContainer.style.display = "block";
 		paymentDiv.style.display = "block";
 		couponForm.style.display = "none";
-		textbox.value = '';
-		textbox.focus();
+		payTextBox.value = '';
+		payTextBox.focus();
 	}
 
 	//if couponBtn is clicked, the RM is not shown and the title will be CouponID
@@ -66,18 +67,18 @@ function submitOnClick(){
 
 	var popupTitle = document.getElementById("popup-title");
 	
-	var totalPrice = document.getElementById("total-price");
+	var totalPrice = document.getElementById("totalPrice");
 	
-	var totalAmount = document.getElementById("total-amount");
+	var totalAmount = document.getElementById("totalAmount");
 	
-	var totalChange = document.getElementById("totalchange");
+	var totalChange = document.getElementById("totalChange");
 	
 	var payBtn = document.getElementById("pay-btn");
 	
 	var couponBtn = document.getElementById("coupon-btn");
 	
 		if(popupTitle.innerHTML == "Payment"){
-			payTextBox = document.getElementById("pay-textbox");
+			payTextBox = document.getElementById("payTextBox");
 			textboxValue = payTextBox.value;
 			totalAmount.children[2].innerHTML = parseFloat(textboxValue).toFixed(2);
 			var finalChange = parseFloat(payTextBox.value) - parseFloat(totalPrice.children[2].innerHTML);
@@ -89,11 +90,10 @@ function submitOnClick(){
 			couponBtn.disabled = true;
 			payBtn.disabled = true;
 		}
-	
 }
 
 function calculateTotalPrice(){
-	var totalPrice = document.getElementById("total-price").children[2];
+	var totalPrice = document.getElementById("totalPrice").children[2];
 	
 	var paymentTable = document.getElementById("payment-table");
 	
@@ -105,12 +105,18 @@ function calculateTotalPrice(){
 	for(var i = 0; i < length; i++){
 		var tr = paymentTable.rows[i];
 		
+		var qtyCell = tr.cells[1];
+		
 		var cell = tr.cells[2];
+		
+		var totalPerItem;
 		
 		if(i > 0 && i < (length-3)){
 			if(i == (length-4))
 				cell.innerHTML = -Math.abs(cell.innerHTML)
-			array.push(parseFloat(cell.innerHTML).toFixed(2));
+			
+			totalPerItem = qtyCell.innerHTML * cell.innerHTML;
+			array.push(parseFloat(totalPerItem).toFixed(2));
 		}
 	}
 	

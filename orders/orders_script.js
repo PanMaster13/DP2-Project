@@ -5,8 +5,11 @@ function highlight_row() {
     var table = document.getElementById('order-table');
     var cells = table.getElementsByTagName('td');
 
-	var cancelBtn = document.getElementById('delete-popup-button');
+	var cancelPopupBtn = document.getElementById('delete-popup-button');
 	var payBtn = document.getElementById("pay-button");
+	
+	var amendBtn = document.getElementById("amend-button");
+	var cancelBtn = document.getElementById("cancel-button");
 	
     for (var i = 0; i < cells.length; i++) {
         var cell = cells[i];
@@ -22,10 +25,16 @@ function highlight_row() {
 			
 			undisabled_buttons();
 			
-			console.log(rowId);
-			console.log(rowSelected.cells[0]);
+			if(rowSelected.cells[3].innerHTML == "Completed"){
+				payBtn.disabled = true;
+				cancelBtn.disabled = true;
+				amendBtn.disabled = true;
+			}
 			
-			cancelBtn.onclick = function(){
+			console.log(rowId);
+			console.log(rowSelected.cells[3]);
+			
+			cancelPopupBtn.onclick = function(){
 				window.location.href = "/orderList/deleteOrder.php?orderID=" + rowSelected.cells[0].innerHTML;
 			}
 			

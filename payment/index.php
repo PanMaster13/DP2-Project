@@ -110,7 +110,7 @@
 					//display all the relevant data to table
 					for($i = 0; $i < sizeof($itemListarray); $i++){
 						echo "<tr class='list-items'><td>" . $itemListarray[$i] . "</td><td>" . 
-						"1" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
+						"2" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
 					}
 				
 				?>
