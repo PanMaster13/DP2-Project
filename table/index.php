@@ -74,7 +74,7 @@
 						<option value="Unavailable">Unavailable</option>
 						<option value="Booked">Booked</option>
 					</select>
-				<p>
+				</p>
 				<p><input type="submit" name="add_submit_btn"></p>
 			</form>
 		</div>

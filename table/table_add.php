@@ -27,7 +27,7 @@
 			header("Location: index.php");
 		}
 	} else{
-		$_SESSION["feedback"] = "";
+		$_SESSION["tableMsg"] = "";
 		header("Location: index.php");
 	}
 ?>

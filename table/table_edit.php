@@ -35,7 +35,7 @@
 					}
 				}
 				if ($checkPrank == 0){
-					$_SESSION["feedback"] = "You think its funny huh, trying to editing something while leaving nothing changed. You think you've achieved the highest level of comedy huh? Guess what, your mum gay. How bout dat?";
+					$_SESSION["tableMsg"] = "You think its funny huh, trying to editing something while leaving nothing changed. You think you've achieved the highest level of comedy huh? Guess what, your mum gay. How bout dat?";
 				} else {
 					$query .= " WHERE tableID = '$tableNumber'";
 					if ($conn->query($query) === true){
