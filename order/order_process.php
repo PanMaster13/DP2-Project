@@ -37,8 +37,8 @@
 		}
 	}
 	
-	$sql = "INSERT INTO orderlist(orderID,orderDate,itemList,itemQuantity,itemRemarks,totalPrice,orderStatus,couponCode,tableID)
-				VALUES ('1',CURDATE(),'$itemList','$quantityList', '$remarksList', '0.00','Pending',NULL,'4')";
+	$sql = "INSERT INTO orderlist(orderDate,itemList,itemQuantity,itemRemarks,totalPrice,orderStatus,couponCode,tableID)
+				VALUES (CURDATE(),'$itemList','$quantityList', '$remarksList', '0.00','Pending',NULL,'4')";
 	$insert = $conn->query($sql);
 	
 	
