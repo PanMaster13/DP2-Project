@@ -7,29 +7,34 @@ session_start();
 if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 	$uname = $_POST["uname"];
 	//hash the password
-	$passwd = hash("sha256", $_POST["passwd"]);
+	$passwd = $_POST["passwd"];
 	
 	//include database connection
 	//the connection variable is $conn
 	include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 	
 	//query
-	$sql = "SELECT * FROM user WHERE userName = '$uname' AND Password = '$passwd'";
+	$sql = "SELECT * FROM user WHERE userName = '$uname'";
 	//run the query
 	$result = $conn->query($sql);
 
 	if (!$result) {
 		trigger_error('Invalid SQL query: ' . $conn->error);
 	}
-	//if there is row returned, login is valid
+	//if there is row returned, username is valid
 	else if ($result->num_rows > 0){
 		
 		$row = $result->fetch_assoc();
-		$usertype = $row["userType"];
 		
-		//set username and type to session
-		$_SESSION["userName"] = $uname;
-		$_SESSION["userType"] = $usertype;
+		//verify password
+		if(password_verify($passwd, $row["Password"])){
+			$usertype = $row["userType"];
+			
+			//set username and type to session
+			$_SESSION["userName"] = $uname;
+			$_SESSION["userType"] = $usertype;
+		}
+		else $out = "Username or password is incorrect. Please try again";
 	}
 	else $out = "Username or password is incorrect. Please try again";
 }

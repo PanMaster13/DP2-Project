@@ -41,6 +41,10 @@
 					<i class="fas fa-ticket-alt fa-5x"></i>
 					<p>Coupon Management</p>
 				</li>
+				<li class="panel-items color6" onclick="window.location.href='/user'">
+					<i class="fas fa-database fa-5x"></i>
+					<p>User Management</p>
+				</li>
 				<li class="panel-items color6" onclick="window.open('/admin/export.php', '_blank')">
 					<i class="fas fa-database fa-5x"></i>
 					<p>Export Database</p>
