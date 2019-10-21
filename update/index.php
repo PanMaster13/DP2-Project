@@ -14,15 +14,15 @@ include $_SERVER["DOCUMENT_ROOT"].'/template/header.php';
 	document.title = "Update | FoodSmithPOS";
 </script>
 
-<div class="w3-container" >
+<div >
 	<h1> Update webpages from github repo </h1>
 	<p> Note: This is for updating the latest changes from the github repository, the underlying script is written in bash. 
 	</br>
 	Press the button below or refresh to update.
 	</p>
-	<button type="button" onclick="updatePage()" class="w3-button w3-theme-d1">Update</button>
+	<button type="button" onclick="updatePage()">Update</button>
 	<p>
-	<iframe src="update.php" class="w3-light-grey w3-threequarter w3-mobile">
+	<iframe src="update.php" style="width:40%; height:500px;">
 		<p>Your browser does not support iframes.</p>
 	</iframe>
 	</p>
