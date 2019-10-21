@@ -28,7 +28,6 @@
 						<th>Order Date</th>
 						<th>Order Items</th>
 						<th>Order Status</th>
-						<th>Total Price</th>
 						<th>TableID</th>
 					</tr>
 				<?php
@@ -42,10 +41,11 @@
 					//PHP function n12br - Inserts HTML line breaks before all newlines in a string
 					while ($orderListRow = $orderListResult->fetch_assoc())
 					{
-						echo "<tr class='list-items'><td>" . $orderListRow["orderID"] . "</td><td>" . 
-						$orderListRow["orderDate"] . "</td><td>" . nl2br($orderListRow["itemList"]) . "</td><td>" .
-						$orderListRow["orderStatus"] . "</td><td>" . $orderListRow["totalPrice"] . "</td><td>" . 
-						$orderListRow["tableID"] . "</td></tr>";
+						if($orderListRow["orderStatus"] == "Pending")
+							echo "<tr class='list-items'><td>" . $orderListRow["orderID"] . "</td><td>" . 
+							$orderListRow["orderDate"] . "</td><td>" . nl2br($orderListRow["itemList"]) . "</td><td>" .
+							$orderListRow["orderStatus"] . "</td><td>" . 
+							$orderListRow["tableID"] . "</td></tr>";
 					}
 					
 					echo "</table>";
@@ -64,7 +64,7 @@
 					<p>Cancel</p>
 				</button>
 				<!--Validation in progress-->
-				<button id='pay-button' onclick="window.location.href='/payment'">
+				<button id='pay-button'>
 					<p>Pay</p>
 				</button>
 			</div>

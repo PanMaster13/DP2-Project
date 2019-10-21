@@ -35,9 +35,13 @@
 		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 	
 		$index = 1;
+		$rowIndex = 0;
 		$categoryQuery = "SELECT * FROM category";
 		$categoryResult = $conn->query($categoryQuery);
 		
+		//rowIndex acts as an index like an array
+		//rowIndex is used to allow us to get the quantity and remarks of that specific row
+		//therefore it will only get the quantity and remarks of the checkboxes which are checked
 		while ($categoryRow = $categoryResult->fetch_assoc())
 		{
 			$menuQuery = "SELECT * FROM menu WHERE categoryID = $index";
@@ -52,10 +56,12 @@
 				{
 					echo 
 					"<tr class='list-items'><td>" . $menuRow['itemName'] . "</td>
-					<td><input type='checkbox' name='checkbox1[]' value='" . $menuRow['itemName'] . "'></td>
-						<td><input type='text' id='text_order' name='quantity1'></td>
-						<td><input type='text' id='text_order' name='remarks1'></td>
+					<td><input type='checkbox' name='checkbox1[]' value='" . $rowIndex . "'></td>
+						<td><input type='text' id='text_order' name='quantity[]'></td>
+						<td><input type='text' id='text_order' name='remarks[]'></td>
 					</tr>";
+					
+					$rowIndex++;
 				}
 			}
 			else
@@ -71,131 +77,6 @@
 		// Close connection (although it is done automatically when script ends
 		$conn->close();
 	?>
-
-<!--
-
-	<table id ="food_table">
-<tr>
-	<td>Food name</td>
-	<td>CheckBox</td>
-	<td>Quantity</td>
-	<td>Remarks</td>
-
-</tr>
-	<tr>
-
-
-	<td>Item Name</td>
-	
-	<td><input type="checkbox" name="checkbox1"></td>
-	<td>
-		<input type="text" id="text_order" name="quantity1">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarks1">
-	</td>
-</tr>
-
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkbox2"></td>
-	<td>
-		<input type="text" id="text_order" name="quantity2">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarks2">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkbox3"></td>
-	<td>
-		<input type="text" id="text_order" name="quantity3">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarks3">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkbox4"></td>
-	<td>
-		<input type="text" id="text_order" name="quantity4">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarks4">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkbox5 "></td>
-	<td>
-		<input type="text" id="text_order" name="quantity5 ">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarks5"      >
-	</td>
-</tr>
-
-
-</table>
-
-<h2>Drinks</h2>
-
-<table id ="drinks_table">
-
-<tr>
-	<td>Drinks</td>
-	<td>CheckBox</td>
-	<td>Quantity</td>
-	<td>Remarks</td>
-
-</tr>
-
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkboxd1"></td>
-	<td>
-		<input type="text" id="text_order"  name="quantityd1">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarksd1">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkboxd2"></td>
-	<td>
-		<input type="text" id="text_order" name="quantityd2">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarksd2">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkboxd3"></td>
-	<td>
-		<input type="text" id="text_order" name="quantityd3">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarksd3">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkboxd4"></td>
-	<td>
-		<input type="text" id="text_order" name="quantityd4">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarksd4">
-	</td>
-</tr>
-<tr>
-	<td>Item Name</td><td><input type="checkbox" name="checkboxd5"></td>
-	<td>
-		<input type="text" id="text_order" name="quantityd5">
-	</td>
-	<td>
-		<input type="text" id="text_order" name="remarksd5">
-	</td>
-</tr>
-
-</table>
--->
 
 			<div id="send-btn">
 					<input type="submit" id="sendorder_btn" value="Send order" name="submit">

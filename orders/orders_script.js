@@ -25,21 +25,19 @@ function highlight_row() {
 			
 			undisabled_buttons();
 			
-			if(rowSelected.cells[3].innerHTML == "Completed"){
-				payBtn.disabled = true;
-				cancelBtn.disabled = true;
-				amendBtn.disabled = true;
-			}
-			
 			console.log(rowId);
 			console.log(rowSelected.cells[3]);
 			
 			cancelPopupBtn.onclick = function(){
-				window.location.href = "/orderList/deleteOrder.php?orderID=" + rowSelected.cells[0].innerHTML;
+				window.location.href = "/orders/orders_delete.php?orderID=" + rowSelected.cells[0].innerHTML;
 			}
 			
 			payBtn.onclick = function(){
 				window.location.href = "/payment/index.php?orderID=" + rowSelected.cells[0].innerHTML;
+			}
+			
+			amendBtn.onclick = function(){
+				window.location.href = "/orders/order_update.php?orderID=" + rowSelected.cells[0].innerHTML;
 			}
         }
     }

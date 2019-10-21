@@ -6,7 +6,7 @@
 	include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 	
 	$orderID = $_REQUEST['orderID'];
-	$query = "DELETE FROM orderList WHERE orderID='". $orderID."' ";
+	$query = "UPDATE orderList SET orderStatus = 'Cancelled' WHERE orderID='". $orderID."' ";
 	$result = mysqli_query($conn, $query) or die(mysqli_error());
 	header("Location: index.php"); 
 ?>

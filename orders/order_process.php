@@ -1,10 +1,15 @@
 <?php
-	// Order Process in ORDER page, used to insert an order to database
-
+	// Order Process in ORDERS page, used to update the specified order to database 
+	// Similar to Order Process in ORDER page, but order_process in ORDER page is for insertion and this is for updates
+	
 	//include database connection
 	//the connection variable is $conn
 	include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 
+	$itemlist = "";
+	
+	$orderID = $_REQUEST['orderID'];
+	
 	$selectedItem = "";
 	$itemList = "";
 	$quantityList = "";
@@ -37,12 +42,12 @@
 		}
 	}
 	
-	$sql = "INSERT INTO orderlist(orderID,orderDate,itemList,itemQuantity,itemRemarks,totalPrice,orderStatus,couponCode,tableID)
-				VALUES ('1',CURDATE(),'$itemList','$quantityList', '$remarksList', '0.00','Pending',NULL,'4')";
-	$insert = $conn->query($sql);
+	//CHANGE TO UPDATE
+	$sql = "UPDATE orderlist SET itemList = '$itemList', itemQuantity = '$quantityList', itemRemarks = '$remarksList' WHERE orderID = $orderID";
+	$update = $conn->query($sql);
 	
 	
-	if($insert){
+	if($update){
 		
 		echo "Success!";
 		

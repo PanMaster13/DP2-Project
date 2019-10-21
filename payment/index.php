@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -24,9 +28,33 @@
 		//the connection variable is $conn
 		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
 		
-		$count = $correctCouponID = $couponID = "";
 		$correct = false;
-		if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['couponTextBox'])){
+		$orderID = $_REQUEST['orderID'];
+		
+		
+		//check for previous inserted couponID from database
+		$sql = "SELECT couponCode FROM orderList WHERE orderID ='$orderID'";
+		$result = $conn->query($sql);
+		
+		while ($coupon = $result->fetch_assoc()){
+			if(!is_null($coupon['couponCode'])){
+				$couponCode = $coupon['couponCode'];
+				$correct = true;
+				
+				$sql = "SELECT * FROM coupon WHERE couponCode='$couponCode'";
+				$result = $conn->query($sql);
+				
+				while($row = $result->fetch_assoc()) {
+					$correctCouponName = $row['couponName'];
+				}
+			}
+		}
+		
+		
+		
+		//validate couponID and set it to this order if the couponID is valid and couponSubmitBtn is clicked
+		$count = $correctCouponID = $couponID = "";
+		if(isset($_POST['couponSubmitBtn'])){
 			$couponCode = $_POST['couponTextBox'];
 			$correctCouponName = "";
 			$correct = false;
@@ -39,6 +67,8 @@
 				while($row = $result->fetch_assoc()) {
 					$correctCouponName = $row['couponName'];
 				}
+				$sql = "UPDATE orderList SET couponCode='$couponCode' WHERE orderID='$orderID'";
+				$result = $conn->query($sql);
 				$correct = true;
 			}
 			else{
@@ -46,9 +76,14 @@
 				$correct = false;
 			}
 		}
-
-		// Close connection (although it is done automatically when script ends
-		// $conn->close();
+		
+		if(isset($_POST['paymentSubmitBtn'])){
+			echo '<style type="text/css">
+					#totalAmount, #totalChange{
+						display: table-row;
+					}
+				</style>';
+		}
 	?>	
 	
 		<h1>Payment</h1>
@@ -60,6 +95,8 @@
 					<th>Price</th>
 				</tr>
 				<?php
+					//Display all items from database
+				
 					$orderID = $_REQUEST['orderID'];
 					$query = "SELECT itemList FROM orderList WHERE orderID='". $orderID."' ";
 					
@@ -100,16 +137,18 @@
 					//display all the relevant data to table
 					for($i = 0; $i < sizeof($itemListarray); $i++){
 						echo "<tr class='list-items'><td>" . $itemListarray[$i] . "</td><td>" . 
-						"2" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
+						"1" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
 					}
 				
 				?>
 				<tr id="specialCoupon">
 					<td>
 						<?php 
+							//Display couponName
+						
 							echo $correctCouponName;
 							
-							if($correct == true)
+							if($correct)
 								echo "<style type='text/css'>
 										#specialCoupon{
 											display: table-row;
@@ -125,17 +164,19 @@
 					
 					</td>
 					<td>
-						<?php 
-						if($correct == true){
-							$sql = "SELECT couponAmount FROM coupon WHERE couponCode='$couponCode'";
-							$result = $conn->query($sql);
-							while($row = $result->fetch_assoc()) {
-								echo $row['couponAmount'];
+						<?php
+							//Display couponAmount if it is valid
+							
+							if($correct){
+								$sql = "SELECT couponAmount FROM coupon WHERE couponCode='" . $couponCode . "'";
+								$result = $conn->query($sql);
+								while($row = $result->fetch_assoc()) {
+									echo $row['couponAmount'];
+								}
 							}
-						}
-						else{
-							echo 0.00;
-						}
+							else{
+								echo 0.00;
+							}
 						?>
 					</td>
 				</tr>
@@ -147,12 +188,18 @@
 				<tr id="totalAmount">
 					<td>Amount:</td>
 					<td></td>
-					<td></td>
+					<?php
+						//if paymentSubmitBtn is not empty, echo the amount given
+						if(isset($_POST['paymentSubmitBtn'])){
+							echo "<td>" . $_POST['paymentTextBox'] . "</td>";
+						}
+					?>
 				</tr>
 				<tr id="totalChange">
 					<td>Change:</td>
 					<td></td>
-					<td></td>
+					<td>
+					</td>
 				</tr>
 			</table>
 			
@@ -171,14 +218,29 @@
 			</div>
 			
 			<?php 
-						if($correct == true){
-							echo "<script>
-							
-								var couponBtn = document.getElementById('coupon-btn');
-								couponBtn.disabled = true;
-							
-							</script>";
-						}
+				//If coupon valid, below javascript codes are used
+				
+				if($correct){
+					echo "<script>
+					
+						var couponBtn = document.getElementById('coupon-btn');
+						couponBtn.disabled = true;
+					
+					</script>";
+				}
+				
+				//If paymentSubmitBtn is not empty, below javascript codes are used
+				
+				if(isset($_POST['paymentSubmitBtn'])){
+					echo "<script>
+					
+						var couponBtn = document.getElementById('coupon-btn');
+						var payBtn = document.getElementById('pay-btn');
+						couponBtn.disabled = true;
+						payBtn.disabled = true;
+					
+					</script>";
+				}
 			?>
 		</div>
 		
@@ -189,33 +251,70 @@
 				<span class="popup-close-btn">&times;</span>
 				<p id="popup-title"></p>
 				
-				<form id="couponForm" action="#" method="post" autocomplete="off">
+				<form id="couponForm" action="" method="post" autocomplete="off">
 				
 				
 					<input id="textBox" required type="text" name="couponTextBox"/>
 				
 				
 				<div class="submit-btn" id="couponSubmitBtn">
-					<input id="submitBtn" type="submit" value="Submit"/>
+					<input id="submitBtn" type="submit" value="Submit" name="couponSubmitBtn"/>
 				</div>
 				
 				</form>
 				
 				
 				<div id ="payment-div">
-				<div id="popup-RM-textBox">
-					<span id="popup-RM-word">RM</span> 
-					<input id="payTextBox" required type="text" name="paymentTextBox"/>
-				</div>
+				<form id="paymentForm" action="" method="post" autocomplete="off">
+					<div id="popup-RM-textBox">
+						<span id="popup-RM-word">RM</span> 
+						<input id="payTextBox" required type="text" name="paymentTextBox"/>
+						<input id="hidden" type="hidden" name="result"/>
+					</div>
 				
-				<div class="submit-btn" id="paymentSubmitBtn">
-					<input id="paySubmitBtn" type="submit" value="Submit" onclick="submitOnClick()"/>
-				</div>
+					<div class="submit-btn" id="paymentSubmitBtn">
+						<input id="paySubmitBtn" type="submit" value="Submit" name="paymentSubmitBtn"/>
+					</div>
+				</form>
 				</div>
 			</div>
+			
+			
+				<?php
+					//call calculateTotalPrice function to calculate totalPrice
+					echo "<script>calculateTotalPrice();</script>";
+				
+					//if paymentSubmitBtn is pressed, we trigger the javascript codes below, 
+					//set the totalPrice and also update the orderStatus to database
+					if(isset($_POST['paymentSubmitBtn'])){
+						$totalPrice = $_POST['result'];
+						
+						echo "<script>
+								var totalPrice = document.getElementById('totalPrice');
+	
+								var totalChange = document.getElementById('totalChange');
+								
+								var totalAmount = document.getElementById('totalAmount');
+								
+								var finalChange = totalAmount.children[2].innerHTML - parseFloat(totalPrice.children[2].innerHTML);
+								
+								totalChange.children[2].innerHTML = parseFloat(finalChange).toFixed(2);
+								console.log(totalPrice.children[2].innerHTML);
+								console.log(totalAmount.children[2].innerHTML);
+								console.log(totalChange.children[2].innerHTML);
+							</script>";
+							
+						$sql = "UPDATE orderList SET totalPrice='$totalPrice' WHERE orderID='$orderID'";
+						$result = $conn->query($sql);
+						
+						
+						$query = "UPDATE orderList SET orderStatus = 'Completed' WHERE orderID='$orderID'";
+						$result = $conn->query($query);
+					}
+				?>
 			
 		</div>
 		</div>
 	</article>
 
-	</body>
+</body>

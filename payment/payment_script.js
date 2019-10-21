@@ -33,7 +33,6 @@ function popup(){
 		popupContainer.style.display = "block";
 		paymentDiv.style.display = "block";
 		couponForm.style.display = "none";
-		payTextBox.value = '';
 		payTextBox.focus();
 	}
 
@@ -43,7 +42,6 @@ function popup(){
 		popupContainer.style.display = "block";
 		couponForm.style.display = "block";
 		paymentDiv.style.display = "none";
-		textbox.value = '';
 		textbox.focus();
 	}
 	
@@ -129,10 +127,12 @@ function calculateTotalPrice(){
 	}
 	
 	totalPrice.innerHTML = totalprice.toFixed(2);
+	
+	document.getElementById('hidden').value = totalprice.toFixed(2);
 }
 
 function init(){
-	calculateTotalPrice();
+	//calculateTotalPrice();
 	popup();
 }
 
