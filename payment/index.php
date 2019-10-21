@@ -101,7 +101,9 @@ session_start();
 					$query = "SELECT itemList FROM orderList WHERE orderID='". $orderID."' ";
 					
 					$string = "";
+					$string2 = "";
 					$itemListarray = array();
+					$quantityListarray = array();
 					$priceListarray = array();
 				
 					$itemListResult = $conn->query($query);
@@ -117,6 +119,26 @@ session_start();
 					$itemListarray = array_filter(array_map('trim', $itemListarray));
 				
 					mysqli_free_result($itemListResult);
+				
+
+					$query = "SELECT itemQuantity FROM orderList WHERE orderID='". $orderID."' ";
+					
+					$itemQtyResult = $conn->query($query);
+					
+					while ($itemQty = $itemQtyResult->fetch_assoc())
+					{
+						//join all of them into a string instead of an array consisting of just one string
+						$string2 = implode("", $itemQty);
+					}
+					//split them into an array
+					$quantityListarray = explode("\n", $string2);
+					//trim all the whitespaces to make sure it matches the data in database
+					$quantityListarray = array_filter(array_map('trim', $quantityListarray));
+				
+					mysqli_free_result($itemQtyResult);
+					
+					
+				
 				
 					for( $i = 0; $i < sizeof($itemListarray); $i++){
 						$query = "SELECT itemPrice FROM menu WHERE itemName='" . $itemListarray[$i] . "' ";
@@ -137,7 +159,7 @@ session_start();
 					//display all the relevant data to table
 					for($i = 0; $i < sizeof($itemListarray); $i++){
 						echo "<tr class='list-items'><td>" . $itemListarray[$i] . "</td><td>" . 
-						"1" . "</td><td>" . $priceListarray[$i] . "</td></tr>";
+						$quantityListarray[$i] . "</td><td>" . $priceListarray[$i] . "</td></tr>";
 					}
 				
 				?>
