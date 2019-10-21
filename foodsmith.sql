@@ -48,7 +48,6 @@ INSERT INTO `category` (`categoryID`, `categoryName`) VALUES
 --
 
 CREATE TABLE `coupon` (
-  `couponID` int(11) NOT NULL,
   `couponCode` varchar(10) NOT NULL,
   `couponName` text NOT NULL,
   `couponAmount` float NOT NULL
@@ -58,10 +57,10 @@ CREATE TABLE `coupon` (
 -- Dumping data for table `coupon`
 --
 
-INSERT INTO `coupon` (`couponID`, `couponCode`, `couponName`, `couponAmount`) VALUES
-(1, 'FFF2F', 'Game Collaboration - Final Fantasy VII Coupon Ticket', 77.7),
-(2, '11111', 'FoodSmith Cafe First Anniversary Coupon Ticket', 11.11),
-(27, 'MTM02', 'Testo', 50);
+INSERT INTO `coupon` (`couponCode`, `couponName`, `couponAmount`) VALUES
+('11111', 'FoodSmith Cafe First Anniversary Coupon Ticket', 11.11),
+('FFF2F', 'Game Collaboration - Final Fantasy VII Coupon Ticket', 77.7),
+('MTM02', 'Montly Coupon Ticket - Febuary', 22.22);
 
 -- --------------------------------------------------------
 
@@ -96,8 +95,11 @@ CREATE TABLE `orderlist` (
   `orderID` int(11) NOT NULL,
   `orderDate` date NOT NULL,
   `itemList` text NOT NULL,
+  `itemQuantity` text NOT NULL,
+  `itemRemarks` text NOT NULL,
   `totalPrice` float NOT NULL,
   `orderStatus` enum('Completed','Cancelled','Pending') NOT NULL,
+  `couponCode` varchar(10) DEFAULT NULL,
   `tableID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -182,8 +184,7 @@ ALTER TABLE `category`
 -- Indexes for table `coupon`
 --
 ALTER TABLE `coupon`
-  ADD PRIMARY KEY (`couponID`),
-  ADD UNIQUE KEY `couponCode` (`couponCode`);
+  ADD PRIMARY KEY (`couponCode`);
 
 --
 -- Indexes for table `menu`
@@ -198,7 +199,8 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `orderlist`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `tableID` (`tableID`);
+  ADD KEY `tableID` (`tableID`),
+  ADD KEY `orderlist_ibfk_1` (`couponCode`);
 
 --
 -- Indexes for table `report`
@@ -228,12 +230,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `category`
   MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `coupon`
---
-ALTER TABLE `coupon`
-  MODIFY `couponID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -279,7 +275,7 @@ ALTER TABLE `menu`
 -- Constraints for table `orderlist`
 --
 ALTER TABLE `orderlist`
-  ADD CONSTRAINT `orderlist_ibfk_1` FOREIGN KEY (`tableID`) REFERENCES `tables` (`tableID`);
+  ADD CONSTRAINT `orderlist_ibfk_1` FOREIGN KEY (`couponCode`) REFERENCES `coupon` (`couponCode`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
