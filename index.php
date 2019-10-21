@@ -1,5 +1,8 @@
 <?php
 $out = "";
+//start session
+session_start();
+
 //if username and password is set
 if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 	$uname = $_POST["uname"];
@@ -24,20 +27,16 @@ if (isset($_POST["uname"]) && isset($_POST["passwd"])){
 		$row = $result->fetch_assoc();
 		$usertype = $row["userType"];
 		
-		session_start();
-		
+		//set username and type to session
 		$_SESSION["userName"] = $uname;
 		$_SESSION["userType"] = $usertype;
-		
-		session_destroy();
-		
-		//redirect to page based on user type
-		if ($usertype == "admin") header("Location: /admin/");
-		else {
-			header("Location: /orders/");
-		}
 	}
 	else $out = "Username or password is incorrect. Please try again";
+}
+//redirect to page based on user type
+if (isset($_SESSION["userType"])){
+	if ($_SESSION["userType"] == "admin") header("Location: /admin/");
+	else header("Location: /orders/");
 }
 ?>
 <!DOCTYPE html>

@@ -14,10 +14,11 @@
 
 <?php
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+	session_start(); //needed to get user name
 ?>
 	
 	<article>
-		<h1>Welcome Back <span id="name">Chris!</span></h1>
+		<h1>Welcome Back <span id="name"><?php echo $_SESSION['userName']; ?>!</span></h1>
 		<div id="admin-panel">
 			<ul class="panel-selection-container">
 				<li class="panel-items color1" onclick="window.location.href='/menu'">

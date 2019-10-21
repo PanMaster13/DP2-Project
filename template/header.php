@@ -9,8 +9,8 @@
 <body>
 
 <header>
-		<img src='/template/images/logo_white.png' alt='logo'>
-		<div id='logout-button'>
+		<img src='/template/images/logo_white.png' onclick="location.href='/'" alt='logo'>
+		<div id='logout-button' onclick="location.href='/logout.php'">
 			<i class='material-icons'>lock_open</i>
 			<p>Logout</p>
 		</div>
