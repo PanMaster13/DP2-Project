@@ -83,6 +83,15 @@ session_start();
 						display: table-row;
 					}
 				</style>';
+				
+			$sql = "SELECT tableID FROM orderList WHERE orderID ='$orderID'";
+			$result = $conn->query($sql);
+			
+			$tableID = "";
+			
+			while($row = $result->fetch_assoc()) {
+				$tableID = $row['tableID'];
+			}
 		}
 	?>	
 	
@@ -329,9 +338,11 @@ session_start();
 						$sql = "UPDATE orderList SET totalPrice='$totalPrice' WHERE orderID='$orderID'";
 						$result = $conn->query($sql);
 						
-						
 						$query = "UPDATE orderList SET orderStatus = 'Completed' WHERE orderID='$orderID'";
 						$result = $conn->query($query);
+						
+						$query2 = "UPDATE tables SET tableStatus='Vacant' where tableID='$tableID'";
+						$result = $conn->query($query2);
 					}
 				?>
 			

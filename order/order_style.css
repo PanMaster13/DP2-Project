@@ -8,11 +8,15 @@ article{
 	padding: 50px;
 }
 
-article h1{
+article h2{
 	margin-top: 0;
 }
 
-#sendorder_btn{
+#tableSelection{
+	width: 30%;
+}
+
+#sendorder_btn, #back_btn{
 	
 	height:80px;
 	width:120px;
@@ -40,13 +44,25 @@ article h1{
 	float:right;
 }
 
+#back_btn{
+	clear:both;
+	position: absolute;
+	cursor: pointer;
+}
 
+select{
+	width: 130px;
+	height: 60px;
+	margin-bottom: 30px;
+	text-align-last: center;
+}
 
 #food_table,#drinks_table{
 	
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
+	margin-bottom: 30px;
 	
 }
 
@@ -54,11 +70,13 @@ article h1{
 	
 	border: 1px solid black;
 	border-collapse: collapse;
+	height: 40px;
 	
 }
 
 #text_order{
-	
+	width:100%;
 	border:0px;
-	
+	height: 40px;
+	text-align:center;
 }

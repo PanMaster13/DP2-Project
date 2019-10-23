@@ -14,10 +14,15 @@
 	$itemList = "";
 	$quantityList = "";
 	$remarksList = "";
+	$selectedTable = "";
+	$prevSelectedTable = "";
 	
 	
 	
 	if(isset($_POST['submit'])){
+		if($_POST['tableSelection']){
+			$selectedTable = $_POST['tableSelection']; 
+		}
 		
 		if(!empty($_POST['checkbox1'])){
 			foreach($_POST['checkbox1'] as $selected){
@@ -39,23 +44,49 @@
 				else
 					$remarksList = $remarksList . $_POST['remarks'][$selected] . "\n";
 			}
+			
+			//CHANGE TO UPDATE
+			$sql = "UPDATE orderlist SET itemList = '$itemList', itemQuantity = '$quantityList', itemRemarks = '$remarksList' WHERE orderID = $orderID";
+			$update = $conn->query($sql);
+			
+			//Check previous tableID
+			$tableQuery = "SELECT tableID FROM orderlist WHERE orderID=$orderID";
+			$tableResult = $conn->query($tableQuery);
+			
+			$update2 = true;
+			$update3 = true;
+			$update4 = true;
+			
+			while($tableRow = $tableResult->fetch_assoc())
+				$prevSelectedTable = $tableRow['tableID'];
+			
+			if($prevSelectedTable != $selectedTable){
+				//Update tablestatus of selected tableID
+				$sql = "UPDATE tables SET tableStatus='Occupied' WHERE tableID='$selectedTable'";
+				$update2 = $conn->query($sql);
+				//Update tablestatus of previous selected tableID
+				$sql = "UPDATE tables SET tableStatus='Vacant' WHERE tableID='$prevSelectedTable'";
+				$update3 = $conn->query($sql);
+				//Update the tableID for that order
+				$sql = "UPDATE orderlist SET tableID = '$selectedTable' WHERE orderID = $orderID";
+				$update4 = $conn->query($sql);
+			}
+			
+			if($update  && $update2 && $update3 && $update4){
+				
+				echo "Success!";
+				
+			}
+			else{
+				
+				die("Error:" . mysqli_error($conn));
+			}
+		}
+		else{
+			echo "Please enter at least one food or drink.\n";
+			echo "Redirecting in 5 seconds.";
+			header("Refresh: 5; url=/orders");
 		}
 	}
-	
-	//CHANGE TO UPDATE
-	$sql = "UPDATE orderlist SET itemList = '$itemList', itemQuantity = '$quantityList', itemRemarks = '$remarksList' WHERE orderID = $orderID";
-	$update = $conn->query($sql);
-	
-	
-	if($update){
-		
-		echo "Success!";
-		
-	}
-	else{
-		
-		die("Error:" . mysqli_error($conn));
-	}
-	
 
 ?>

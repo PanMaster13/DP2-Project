@@ -7,11 +7,9 @@
 	<meta name="author" content="Chris">
 	<meta name="description" content="Order Update">
 	<meta name="keywords" content="Order, Order Update">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/order/order_style.css">
 
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
-
-	<script src="script.js"></script>
 </head>
 
 
@@ -44,6 +42,29 @@
 		$itemListArray = array();
 		$quantityListArray = array();
 		$remarksListArray = array();
+	
+		
+		$tableQuery = "SELECT * FROM tables";
+		$tableResult = $conn->query($tableQuery);
+		$tableQuery2 = "SELECT tableID FROM orderList WHERE orderID = '" . $orderID . "'";
+		$tableResult2 = $conn->query($tableQuery2);
+	
+		echo "<h2>" . "Table No." . "</h2>";
+		if($tableResult->num_rows > 0)
+		{
+			echo "<select name='tableSelection'>";
+			
+			while($tableRow2 = $tableResult2->fetch_assoc())
+				while($tableRow = $tableResult->fetch_assoc())
+				{
+					if($tableRow['tableStatus'] == 'Vacant')
+						echo "<option value='" . $tableRow['tableID'] . "'>" . $tableRow['tableID'] . "</option>";
+					else if($tableRow['tableID']==$tableRow2['tableID'])
+						echo "<option value='" . $tableRow['tableID'] . "' selected>" . $tableRow['tableID'] . "</option>";
+				}
+			
+			echo "</select>";
+		}
 	
 	
 		/////////////////////////
@@ -108,7 +129,7 @@
 			
 			// Echos table and values from database
 			echo "<h2>" . $categoryRow["categoryName"] . "</h2>";
-			echo "<table id='food_table'><tr><th>Item Name</th><th>Checkbox</th><th>Quantity</th><th>Remarks</th></tr>";
+			echo "<table id='food_table'><tr><th>Item Name</th><th></th><th>Quantity</th><th>Remarks</th></tr>";
 			if ($menuResult->num_rows > 0)
 			{
 				while($menuRow = $menuResult->fetch_assoc())
@@ -118,14 +139,14 @@
 					
 					if(in_array($menuRow['itemName'], $itemListArray)){
 						echo"<td><input type='checkbox' name='checkbox1[]' value='" . $rowIndex2 . "' checked></td>";
-						echo "<td><input type='text' id='text_order' name='quantity[]' value='" . $quantityListArray[$rowIndex] . "'></td>
+						echo "<td><input type='number' id='text_order' name='quantity[]' value='" . $quantityListArray[$rowIndex] . "' min='0' max='10'></td>
 							<td><input type='text' id='text_order' name='remarks[]' value='" . $remarksListArray[$rowIndex] . "'></td>
 						</tr>";
 						$rowIndex++;
 					}
 					else{
 						echo"<td><input type='checkbox' name='checkbox1[]' value='" . $rowIndex2 . "'></td>";
-						echo "<td><input type='text' id='text_order' name='quantity[]'></td>
+						echo "<td><input type='number' id='text_order' name='quantity[]' min='0' max='10'></td>
 							<td><input type='text' id='text_order' name='remarks[]'></td>
 						</tr>";
 					}
@@ -146,14 +167,15 @@
 		$conn->close();
 	?>
 
-			<div id="send-btn">
-					<input type="submit" id="sendorder_btn" value="Send order" name="submit">
-					
-					</button>
-			</div>
+		<div id="send-btn">
+				<input type="submit" id="sendorder_btn" value="Update order" name="submit"/>
+		</div>
 
 </form>
-	
+
+		<div id="back-btn">
+				<button id="back_btn" onclick="window.location.href='/orders'">Back</button>
+		</div>
 			
 
 </article>
