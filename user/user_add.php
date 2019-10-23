@@ -14,7 +14,7 @@
 	if ($conn->query($query) === true){
 		echo "User '$userName' has been succesfully created. Returning to user management page.";
 	} else {
-		echo "Error removing user from database: " . $conn->error;
+		echo "Error adding user to database: " . $conn->error;
 	}
 	$conn->close();
 	header("Refresh: 5; url=/user/");

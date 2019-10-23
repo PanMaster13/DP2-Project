@@ -64,6 +64,7 @@ function highlight_row() {
 				
 				document.getElementById("form-edit-user").elements.namedItem("userID").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-user").elements.namedItem("userName").value = row.childNodes[1].textContent;
+				document.getElementById("form-edit-user").elements.namedItem("userType").value = row.childNodes[2].textContent;
 				
 				document.getElementById("form-remove-user").elements.namedItem("userID").value = row.childNodes[0].textContent;
 				document.getElementById("form-remove-user").elements.namedItem("userName").value = row.childNodes[1].textContent;

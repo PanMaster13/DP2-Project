@@ -89,7 +89,8 @@
 				<br/>
 				User type: <select name="userType" />
 				<option value="staff">Staff</option>
-				<option value="admin">Admin</option></select>
+				<option value="admin">Admin</option>
+				</select>
 				<br/>
 				<button type="submit">Submit</button>
 			</form>

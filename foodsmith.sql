@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2019 at 05:16 AM
+-- Generation Time: Oct 21, 2019 at 03:28 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -60,6 +60,7 @@ CREATE TABLE `coupon` (
 INSERT INTO `coupon` (`couponCode`, `couponName`, `couponAmount`) VALUES
 ('11111', 'FoodSmith Cafe First Anniversary Coupon Ticket', 11.11),
 ('FFF2F', 'Game Collaboration - Final Fantasy VII Coupon Ticket', 77.7),
+('GAEBOIS', 'free offer for gae bois', 9999),
 ('MTM02', 'Montly Coupon Ticket - Febuary', 22.22);
 
 -- --------------------------------------------------------
@@ -102,6 +103,14 @@ CREATE TABLE `orderlist` (
   `couponCode` varchar(10) DEFAULT NULL,
   `tableID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderlist`
+--
+
+INSERT INTO `orderlist` (`orderID`, `orderDate`, `itemList`, `itemQuantity`, `itemRemarks`, `totalPrice`, `orderStatus`, `couponCode`, `tableID`) VALUES
+(1, '2019-10-21', 'Burger\nLatte\n', '1000\n1000000\n', 'Extra cheese\ncold\n', -9987.5, 'Completed', 'GAEBOIS', 4),
+(2, '2019-10-21', 'Burger\nLatte\n', '11\n15\n', 'None\nNone\n', 0, 'Pending', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -166,8 +175,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `userType`, `userName`, `Password`) VALUES
-(1, 'admin', 'admin', '811eb81b9d11d65a36c53c3ebdb738ee303403cb79d781ccf4b40764e0a9d12a'),
-(2, 'staff', 'bryan', '8f684d401d2bd253c862fda31cf5cb5a70dcccd3dd551dafce69ac28f5f6aabe');
+(1, 'admin', 'admin', '$2y$10$N/rxKv/YjZyWO5.dZ0WgOu8tYthCYxTkDH.RfVkz1DmGCSkHPzS8W'),
+(2, 'admin', 'bryan', '$2y$10$vwsH3/dfBC0R1n2eutcoBuNMCQ3knw5J3a2x.kSZwe.uJS9v6tM8C'),
+(3, 'staff', 'user', '$2y$10$s088mOVQDN0wpdyjMR7dr.ja53JBt/G25el4.3ZenQxMdx19cOBee'),
+(4, 'admin', 'lolipoplls', '$2y$10$tquRgebndH8xY66lZGSOd.TriaJ5TgsMzQyFyOSwMmQ.nHy4ib5pG');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +252,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `orderlist`
 --
 ALTER TABLE `orderlist`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -259,7 +270,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
