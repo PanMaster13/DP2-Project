@@ -22,45 +22,74 @@
 		<h1>Transaction History</h1>
 		<div id='article-elements'>
 			<div id='left-transaction-list'>
-				<table id="transaction-table">
+			
+			<?php
+		//include database connection
+		//the connection variable is $conn
+		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
+		
+		$transacQuery = "SELECT * FROM orderlist";
+		$transacResult = $conn->query($transacQuery);
+		
+		
+		{
+			$transacQuery = "SELECT * FROM orderlist";
+			$transacResult = $conn->query($transacQuery);
+			
+			// Echos table and values from database
+			
+			echo "<table id='transaction-table'>
 					<tr>
-						<th>Transaction ID </th>
-						<th>Event</th>
+						<th>Order ID</th>
+						<th>Order Status</th>
 						<th>Order Price</th>
-						<th>Time</th>
-						<th>Staff</th>
-					</tr>
-					<tr class="list-items">
-						<td>abc12345</td>
-						<td>Paid</td>
-						<td>RMxxxx</td>
-						<td>7:00 10/10/2019</td>
-						<td>Jason</td>
-					</tr>
-					<tr class="list-items">
-						<td>def67890</td>
-						<td>Paid</td>
-						<td>RMxxxx</td>
-						<td>19:00 10/10/2019</td>
-						<td>Chris</td>
-					</tr>
+						<th>Item List</th>
+						<th>Table ID</th>
+						<th>Order Date</th>
+					
+					</tr>";
+			if ($transacResult->num_rows > 0)
+			{
+				while($transacRow = $transacResult->fetch_assoc())
+				{
+					if($transacRow['orderStatus']=="Completed")
+					echo 
+					"<tr'>
+					<td>" . $transacRow['orderID'] . "</td>
+					<td>" . $transacRow['orderStatus']."</td>
+					<td>" . $transacRow['totalPrice'] . "</td>
+					<td>" . nl2br($transacRow['itemList']) . "</td>	
+					<td>" . $transacRow['tableID'] . "</td>	
+					<td>" . $transacRow['orderDate'] . "</td>						
+					
+					</tr>";
 					
 					
-					
-					
-				</table>
+				}
+			}
+			else
+			{
+				echo "0 results";
+			}
+			echo "</table>";
+			mysqli_free_result($transacResult);
+		}
+	
+		
+		// Close connection (although it is done automatically when script ends
+		$conn->close();
+?>
+				
 			</div>
 			<div id='right-btns'>
 				<button id='add-button'>
-					<p>Add</p>
-				</button>
-				<button id='edit-button'>
-					<p>Edit</p>
+					<p>Delete</p>
 				</button>
 				
 			</div>
 		</div>
 	</article>
+	
 	
 	<footer>
 		
