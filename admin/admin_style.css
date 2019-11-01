@@ -56,12 +56,15 @@ article h1{
 	margin-top: 10px;
 }
 
-.panel-items p {
+.panel-items .title {
 	margin: 5px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
-.panel-items i, .panel-items p{
+.panel-items i, .panel-items .title{
 	margin-left: 20px;
+	margin-right: 20px;
 	margin-top: 20px;
 }
 
@@ -70,7 +73,7 @@ article h1{
 }
 
 .color2{
-	background: #87eba4;
+	background: #76e897;
 }
 
 .color3{
@@ -82,9 +85,16 @@ article h1{
 }
 
 .color5{
-	background: #afafeb;
+	background: #c5ace8;
 }
 
 .color6{
 	background: #bcbcbc;
+}
+
+.description{
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 5px;
 }
