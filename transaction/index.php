@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="transaction_style.css">
 	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 
-	<script src="script.js"></script>
+	<script src="transaction_script.js"></script>
 
 <?php
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
@@ -88,6 +88,15 @@
 				
 			</div>
 		</div>
+		
+		<div class="dropdown">
+		<button onclick="dropdownFunction()" class="dropbtn">Check Transaction</button>
+		<div id="Dropdownfunc" class="dropdown-content">
+			<a href="#Daily">Daily</a>
+			<a href="#Weekly">Weekly</a>
+			<a href="#Monthly">Monthly</a>
+		</div>
+	</div>
 	</article>
 	
 	
