@@ -32,12 +32,6 @@ article h1{
 }
 
 #add-button, #amend-button, #cancel-button, #pay-button{
-	height: 80px;
-	width: 120px;
-	background-color: #87ceeb;
-	margin: 10px;
-	border-radius: 15px;
-	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;

@@ -51,12 +51,6 @@ h1{
 }
 
 .menu-buttons{
-	height: 80px;
-	width: 120px;
-	background-color: #87ceeb;
-	margin: 10px;
-	border-radius: 15px;
-	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
