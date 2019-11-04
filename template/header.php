@@ -1,5 +1,5 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="/styles/headerStyle.css">
+		<link rel="stylesheet" href="/styles/header.css">
 		
 		<link rel="shortcut icon" href="/template/images/icon.ico" type="image/x-icon">
 		<link rel="icon" href="/template/images/icon.ico" type="image/x-icon">
