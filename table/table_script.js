@@ -1,56 +1,36 @@
-var formIsOn = false;
-var addTableIsOn = false;
-var editTableIsOn = false;
-var deleteTableIsOn = false;
+//id of modal (the background i guess, the shaded area when its enabled)
+var modal = document.getElementById("modal");
 
-function showAddTable(){
-	var displayBox = document.getElementById("add-table-form");
-	if ((addTableIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		addTableIsOn = true;
-		formIsOn = true;
-	} else if ((addTableIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		addTableIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
+// show modal of the respective form
+function showModal(formID){
+	var form = document.getElementById(formID);
+	//id of modal contents
+	var addModal = document.getElementById("modal-add-table");
+	var editModal = document.getElementById("modal-edit-table");
+	var removeModal = document.getElementById("modal-delete-table");
+	
+	//hide all forms
+	addModal.style.display = "none";
+	editModal.style.display = "none";
+	removeModal.style.display = "none";
+	
+	//display both modal and selected form
+	modal.style.display = "block";
+	form.style.display = "block";
 }
 
-function showEditTable(){
-	var displayBox = document.getElementById("edit-table-form");
-	if ((editTableIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		editTableIsOn = true;
-		formIsOn = true;
-	} else if ((editTableIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		editTableIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showDeleteTable(){
-	var displayBox = document.getElementById("delete-table-form");
-	if ((deleteTableIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		deleteTableIsOn = true;
-		formIsOn = true;
-	} else if ((deleteTableIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		deleteTableIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
 
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");
+	var editButton = document.getElementById("edit-button");
+	var removeButton = document.getElementById("remove-button");
 	
 	for (var x = 0; x < tableList.length; x++)
 	{
@@ -61,6 +41,12 @@ function highlight_row() {
 			var cell = cells[i];
 			
 			cell.onclick = function(){
+				//enable buttons if disabled (first time only)
+				if (editButton.disabled){
+					editButton.disabled = false;
+					removeButton.disabled = false;
+				}
+				
 				//Deselects all other rows
 				for (var y = 0; y < tableList.length; y++)
 				{
@@ -72,7 +58,13 @@ function highlight_row() {
 				}
 			
 				// Sets clicked row with the class name
-				this.parentNode.className = "selectedRow";
+				var row = this.parentNode;
+				row.className = "selectedRow";
+				
+				document.getElementById("form-edit-table").elements.namedItem("tableID").value = row.childNodes[0].textContent;
+				document.getElementById("form-edit-table").elements.namedItem("tableSeats").value = row.childNodes[1].textContent;
+				
+				document.getElementById("form-delete-table").elements.namedItem("delete_number").value = row.childNodes[0].textContent;
 			}
 		}
 	}

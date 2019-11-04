@@ -49,23 +49,23 @@
 	?>
 		</div>
 		<div class="table-buttons-group">
-			<button class='table-buttons' onclick="showAddTable()">
+			<button class='table-buttons' onclick="showModal('modal-add-table')">
 				<p>Add Table</p>
 			</button>
-			<button class='table-buttons' onclick="showEditTable()">
+			<button id="edit-button" class='table-buttons' onclick="showModal('modal-edit-table')" disabled="disabled">
 				<p>Edit Table</p>
 			</button>
-			<button class='table-buttons' onclick="showDeleteTable()">
+			<button id="remove-button" class='table-buttons' onclick="showModal('modal-delete-table')" disabled="disabled">
 				<p>Delete Table</p>
 			</button>
 		</div>
 	</article>
 	
-	<div class="table-forms">
-		<div id="add-table-form">
+	<div id="modal" class="modal">
+		<div id="modal-add-table" class="modal-content">
 			<h2>Add a Table</h2>
 			<p>Note: The 'Table Number' value is auto generated, so there's no need for you to input anything.</p>
-			<form action="table_add.php" method="post">
+			<form id="form-add-table" action="table_add.php" method="post">
 				<p>Enter table seats*: <input type="text" name="add_seats" required="required" placeholder="Please input integer values only" size="30"></p>
 				<p>Select table status: 
 					<select name="add_status">
@@ -79,12 +79,11 @@
 			</form>
 		</div>
 		
-		<div id="edit-table-form">
+		<div id="modal-edit-table" class="modal-content">
 			<h2>Edit a Table</h2>
-			<form action="table_edit.php" method="post">
-				<p>Enter table number to be editied*: <input type="text" name="edit_number" required="required"></p>
-				<p>Enter new table number: <input type="text" name="tableID" placeholder="Leave it empty if no change is needed" size="30"></p>
-				<p>Enter new table seats amount: <input type="text" name="tableSeats" placeholder="Leave it empty if no change is needed" size="30"></p>
+			<form id="form-edit-table" action="table_edit.php" method="post">
+				<p>Enter new table number: <input type="text" name="tableID"></p>
+				<p>Enter new table seats amount: <input type="text" name="tableSeats"></p>
 				<p>Select new table status:
 					<select name="tableStatus">
 						<option value="Occupied">Occupied</option>
@@ -97,10 +96,10 @@
 			</form>
 		</div>
 		
-		<div id="delete-table-form">
+		<div id="modal-delete-table" class="modal-content">
 			<h2>Delete a Table</h2>
-			<form action="table_delete.php" method="post">
-				<p>Enter table number to be deleted*: <input type="text" name="delete_number" required="required"></p>
+			<form id="form-delete-table" action="table_delete.php" method="post">
+				<p>Table number to be deleted: <input type="text" name="delete_number" readonly="readonly"></p>
 				<p><input type="submit" name="delete_submit_btn"></p>
 			</form>
 		</div>
