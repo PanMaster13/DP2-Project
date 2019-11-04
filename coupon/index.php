@@ -49,22 +49,22 @@
 		</div>
 		
 		<div class='coupon-buttons-group'>
-			<button class='coupon-buttons' onclick="showAddCoupon()">
+			<button class='coupon-buttons' onclick="showModal('modal-add-coupon')">
 				<p>Add Coupon</p>
 			</button>
-			<button class='coupon-buttons' onclick="showEditCoupon()">
+			<button id="edit-button" class='coupon-buttons' onclick="showModal('modal-edit-coupon')" disabled="disabled">
 				<p>Edit Coupon</p>
 			</button>
-			<button class='coupon-buttons' onclick="showDeleteCoupon()">
+			<button id="remove-button" class='coupon-buttons' onclick="showModal('modal-delete-coupon')" disabled="disabled">
 				<p>Delete Coupon</p>
 			</button>
 		</div>
 	</article>
 	
-	<div class="coupon-forms">
-		<div id='add-coupon-form'>
+	<div id="modal" class="modal">
+		<div id='modal-add-coupon' class="modal-content">
 			<h2>Add a Coupon</h2>
-			<form action="coupon_add.php" method="post">
+			<form id="form-add-coupon" action="coupon_add.php" method="post">
 				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
 				<p>Enter coupon name*: <input type="text" name="add_name" required="required"></p>
 				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required" placeholder="Please input numbers only"></p>
@@ -72,22 +72,21 @@
 			</form>
 		</div>
 	
-		<div id='edit-coupon-form'>
+		<div id='modal-edit-coupon' class="modal-content">
 			<h2>Edit a Coupon</h2>
-			<form action="coupon_edit.php" method="post">
-				<p>Enter coupon code to be edited*: <input type="text" name="edit_code" required="required"></p>
-				<p>Enter new coupon code: <input type="text" name="couponCode" placeholder="Leave it empty if no change is needed" size="30"></p>
-				<p>Enter new coupon name: <input type="text" name="couponName" placeholder="Leave it empty if no change is needed" size="30"></p>
-				<p>Enter new coupon discount amount: <input type="text" name="couponAmount" placeholder="Leave it empty if no change is needed" size="30"></p>
+			<form id="form-edit-coupon" action="coupon_edit.php" method="post">
+				<p>Enter new coupon code: <input type="text" name="couponCode"></p>
+				<p>Enter new coupon name: <input type="text" name="couponName"></p>
+				<p>Enter new coupon discount amount: <input type="text" name="couponAmount"></p>
 				<p><input type="submit" name="edit_submit_btn"></p>
 			</form>
 		</div>
 	
-		<div id='delete-coupon-form'>
+		<div id='modal-delete-coupon' class="modal-content">
 			<h2>Delete a Coupon</h2>
-			<form action="coupon_delete.php" method="post">
-				<p>Enter coupon code to be deleted*: <input type="text" name="delete_code" required="required"></p>
-				<p><input type="submit" name="delete_submit_btn"></p>
+			<form id="form-delete-coupon" action="coupon_delete.php" method="post">
+				<p>Code of coupon to be deleted: <input type="text" name="delete_code" readonly="readonly"></p>
+				<p><input type="submit" name="delete_submit_btn" value="Confirm Deletion?"></p>
 			</form>
 		</div>
 		

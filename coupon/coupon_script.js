@@ -1,56 +1,36 @@
-var formIsOn = false;
-var addCouponIsOn = false;
-var editCouponIsOn = false;
-var deleteCouponIsOn = false;
+//id of modal (the background i guess, the shaded area when its enabled)
+var modal = document.getElementById("modal");
 
-function showAddCoupon(){
-	var displayBox = document.getElementById("add-coupon-form");
-	if ((addCouponIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		addCouponIsOn = true;
-		formIsOn = true;
-	} else if ((addCouponIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		addCouponIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
+// show modal of the respective form
+function showModal(formID){
+	var form = document.getElementById(formID);
+	//id of modal contents
+	var addModal = document.getElementById("modal-add-coupon");
+	var editModal = document.getElementById("modal-edit-coupon");
+	var removeModal = document.getElementById("modal-delete-coupon");
+	
+	//hide all forms
+	addModal.style.display = "none";
+	editModal.style.display = "none";
+	removeModal.style.display = "none";
+	
+	//display both modal and selected form
+	modal.style.display = "block";
+	form.style.display = "block";
 }
 
-function showEditCoupon(){
-	var displayBox = document.getElementById("edit-coupon-form");
-	if ((editCouponIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		editCouponIsOn = true;
-		formIsOn = true;
-	} else if ((editCouponIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		editCouponIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showDeleteCoupon(){
-	var displayBox = document.getElementById("delete-coupon-form");
-	if ((deleteCouponIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		deleteCouponIsOn = true;
-		formIsOn = true;
-	} else if ((deleteCouponIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		deleteCouponIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
 
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");
+	var editButton = document.getElementById("edit-button");
+	var removeButton = document.getElementById("remove-button");
 	
 	for (var x = 0; x < tableList.length; x++)
 	{
@@ -61,6 +41,12 @@ function highlight_row() {
 			var cell = cells[i];
 			
 			cell.onclick = function(){
+				//enable buttons if disabled (first time only)
+				if (editButton.disabled){
+					editButton.disabled = false;
+					removeButton.disabled = false;
+				}
+				
 				//Deselects all other rows
 				for (var y = 0; y < tableList.length; y++)
 				{
@@ -72,7 +58,14 @@ function highlight_row() {
 				}
 			
 				// Sets clicked row with the class name
-				this.parentNode.className = "selectedRow";
+				var row = this.parentNode;
+				row.className = "selectedRow";
+				
+				document.getElementById("form-edit-coupon").elements.namedItem("couponCode").value = row.childNodes[0].textContent;
+				document.getElementById("form-edit-coupon").elements.namedItem("couponName").value = row.childNodes[1].textContent;
+				document.getElementById("form-edit-coupon").elements.namedItem("couponAmount").value = row.childNodes[2].textContent;
+				
+				document.getElementById("form-delete-coupon").elements.namedItem("delete_code").value = row.childNodes[0].textContent;
 			}
 		}
 	}
