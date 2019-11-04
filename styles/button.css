@@ -1,6 +1,7 @@
 button {
 	border-radius: 5px;
 	text-align: center;
-	background-color: deepskyblue;
+	color: snow;
+	background-color: dodgerblue;
 	margin: 5px;
 }
