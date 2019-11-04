@@ -22,6 +22,8 @@ article h1{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 70%;
+	margin: 0 auto;
 }
 
 .panel-items{
@@ -33,6 +35,8 @@ article h1{
 	font-size: 1.2em;
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
+	flex: 1 1 30%;
 	
 	/*https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting*/
 	/*stop users from selecting the elements accidentality*/
