@@ -1,104 +1,44 @@
-var formIsOn = false;
-var addCategoryIsOn = false;
-var addItemIsOn = false;
-var editCategoryIsOn = false;
-var editItemIsOn = false;
-var deleteCategoryIsOn = false;
-var deleteItemIsOn = false;
+//id of modal (the background i guess, the shaded area when its enabled)
+var modal = document.getElementById("modal");
 
-function showAddCategory(){
-	var displayBox = document.getElementById("add-category-form");
-	if ((addCategoryIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		addCategoryIsOn = true;
-		formIsOn = true;
-	} else if ((addCategoryIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		addCategoryIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
+// show modal of the respective form
+function showModal(formID){
+	var form = document.getElementById(formID);
+	//id of modal contents
+	var addCatModal = document.getElementById("modal-add-category");
+	var addItemModal = document.getElementById("modal-add-item");
+	var editCatModal = document.getElementById("modal-edit-category");
+	var editItemModal = document.getElementById("modal-edit-item");
+	var removeCatModal = document.getElementById("modal-delete-category");
+	var removeItemModal = document.getElementById("modal-delete-item");
+	
+	//hide all forms
+	addCatModal.style.display = "none";
+	addItemModal.style.display = "none";
+	editCatModal.style.display = "none";
+	editItemModal.style.display = "none";
+	removeCatModal.style.display = "none";
+	removeItemModal.style.display = "none";
+	
+	//display both modal and selected form
+	modal.style.display = "block";
+	form.style.display = "block";
 }
 
-function showAddItem(){
-	var displayBox = document.getElementById("add-item-form");
-	if ((addItemIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		addItemIsOn = true;
-		formIsOn = true;
-	} else if ((addItemIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		addItemIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showEditCategory(){
-	var displayBox = document.getElementById("edit-category-form");
-	if ((editCategoryIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		editCategoryIsOn = true;
-		formIsOn = true;
-	} else if ((editCategoryIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		editCategoryIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showEditItem(){
-	var displayBox = document.getElementById("edit-item-form");
-	if ((editItemIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		editItemIsOn = true;
-		formIsOn = true;
-	} else if ((editItemIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		editItemIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showDeleteCategory(){
-	var displayBox = document.getElementById("delete-category-form");
-	if ((deleteCategoryIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		deleteCategoryIsOn = true;
-		formIsOn = true;
-	} else if ((deleteCategoryIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		formIsOn = false;
-		deleteCategoryIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
-
-function showDeleteItem(){
-	var displayBox = document.getElementById("delete-item-form");
-	if ((deleteItemIsOn == false) && (formIsOn == false)){
-		displayBox.style.display = "block";
-		deleteItemIsOn = true;
-		formIsOn = true;
-	} else if ((deleteItemIsOn == true) && (formIsOn == true)){
-		displayBox.style.display = "none";
-		deleteItemIsOn = false;
-		formIsOn = false;
-	} else {
-		alert("Please click the appropriate button to hide its form.");
-	}
-}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
 
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");
+	var editCatButton = document.getElementById("edit-cat-btn");
+	var editItemButton = document.getElementById("edit-item-btn");
+	var deleteCatButton = document.getElementById("delete-cat-btn");
+	var deleteItemButton = document.getElementById("delete-item-btn");
 	
 	for (var x = 0; x < tableList.length; x++)
 	{
@@ -109,6 +49,12 @@ function highlight_row() {
 			var cell = cells[i];
 			
 			cell.onclick = function(){
+				//enable buttons if disabled (first time only)
+				if (editItemButton.disabled){
+					editItemButton.disabled = false;
+					deleteItemButton.disabled = false;
+				}
+				
 				//Deselects all other rows
 				for (var y = 0; y < tableList.length; y++)
 				{
@@ -120,7 +66,13 @@ function highlight_row() {
 				}
 			
 				// Sets clicked row with the class name
-				this.parentNode.className = "selectedRow";
+				var row = this.parentNode;
+				row.className = "selectedRow";
+				
+				document.getElementById("form-edit-item").elements.namedItem("itemName").value = row.childNodes[0].textContent;
+				document.getElementById("form-edit-item").elements.namedItem("itemPrice").value = row.childNodes[1].textContent;
+				
+				document.getElementById("form-delete-item").elements.namedItem("delete_item").value = row.childNodes[0].textContent;
 			}
 		}
 	}

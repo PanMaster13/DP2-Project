@@ -61,40 +61,40 @@
 		</div>
 	
 		<div class='menu-buttons-group'>
-			<button class='menu-buttons' onclick="showAddCategory()">
+			<button class='menu-buttons' onclick="showModal('modal-add-category')">
 				<p>Add Category</p>
 			</button>
-			<button class='menu-buttons' onclick="showAddItem()">
+			<button class='menu-buttons' onclick="showModal('modal-add-item')">
 				<p>Add Item</p>
 			</button>
-			<button class='menu-buttons' onclick="showEditCategory()">
+			<button id="edit-cat-btn" class='menu-buttons' onclick="showModal('modal-edit-category')" disabled="disabled">
 				<p>Edit Category</p>
 			</button>
-			<button class='menu-buttons' onclick="showEditItem()">
+			<button id="edit-item-btn" class='menu-buttons' onclick="showModal('modal-edit-item')" disabled="disabled">
 				<p>Edit Item</p>
 			</button>
-			<button class='menu-buttons' onclick="showDeleteCategory()">
+			<button id="delete-cat-btn" class='menu-buttons' onclick="showModal('modal-delete-category')" disabled="disabled">
 				<p>Delete Category</p>
 			</button>
-			<button class='menu-buttons' onclick="showDeleteItem()">
+			<button id="delete-item-btn" class='menu-buttons' onclick="showModal('modal-delete-item')" disabled="disabled">
 				<p>Delete Item</p>
 			</button>
 		</div>
 	</article>
 	
-	<div class="menu-forms">
-		<div id="add-category-form">
+	<div id="modal" class="modal">
+		<div id="modal-add-category" class="modal-content">
 			<h2>Add a Category</h2>
 			<p>Note: The 'Identifier' value is auto generated, so there's no need for you to input anything.</p>
-			<form action="category_add.php" method="post">
+			<form id="form-add-category" action="category_add.php" method="post">
 				<p>Enter category name*: <input type="text" name="add_category_name" required="required"></p>
 				<p><input type="submit" name="add_cat_btn"></p>
 			</form>
 		</div>
 		
-		<div id="add-item-form">
+		<div id="modal-add-item" class="modal-content">
 			<h2>Add an Item</h2>
-			<form action="item_add.php" method="post">
+			<form id="form-add-item" action="item_add.php" method="post">
 				<p>Enter item name*: <input type="text" name="add_item_name" required="required"></p>
 				<p>Select category (use identifier): <input type="number" name="add_item_cat" min="1" value="1"></p>
 				<p>Enter item price*: <input type="text" name="add_item_price" required="required"></p>
@@ -102,41 +102,39 @@
 			</form>
 		</div>
 		
-		<div id="edit-category-form">
+		<div id="modal-edit-category" class="modal-content">
 			<h2>Edit a Category</h2>
 			<p>Note: Please ensure that the desired category to be edited does not have any items before you edit it.</p>
-			<form action="category_edit.php" method="post">
-				<p>Enter category identifier to be edited*: <input type="text" name="edit_category" required="required"></p>
+			<form id="form-edit-category" action="category_edit.php" method="post">
 				<p>Enter new category identifier: <input type="number" name="categoryID" min="1" value="1" placeholder="Leave it empty if no change is needed"></p>
 				<p>Enter new category name: <input type="text" name="categoryName" placeholder="Leave it empty if no change is needed" size="30"></p>
 				<p><input type="submit" name="edit_cat_btn"></p>
 			</form>
 		</div>
 		
-		<div id="edit-item-form">
+		<div id="modal-edit-item" class="modal-content">
 			<h2>Edit an Item</h2>
-			<form action="item_edit.php" method="post">
-				<p>Enter item name to be edited*: <input type="text" name="edit_item" required="required"></p>
-				<p>Enter new item name: <input type="text" name="itemName" placeholder="Leave it empty if no change is needed"  size="30"></p>
+			<form id="form-edit-item" action="item_edit.php" method="post">
+				<p>Enter new item name: <input type="text" name="itemName"></p>
 				<p>Select new category: <input type="number" name="categoryID" min="1" value="1" placeholder="Leave it empty if no change is needed"></p>
-				<p>Enter new item price: <input type="text" name="itemPrice" placeholder="Leave it empty if no change is needed"  size="30"></p>
+				<p>Enter new item price: <input type="text" name="itemPrice"></p>
 				<p><input type="submit" name="edit_item_btn"></p>
 			</form>
 		</div>
 		
-		<div id="delete-category-form">
+		<div id="modal-delete-category" class="modal-content">
 			<h2>Delete a Category</h2>
 			<p>Note: Please ensure that the desired category to be deleted does not have any items before you delete it.</p>
-			<form action="category_delete.php" method="post">
-				<p>Enter category identifier to be deleted*: <input type="number" name="delete_category" min="1" value="1"></p>
+			<form id="form-delete-category" action="category_delete.php" method="post">
+				<p>Category Identifier to be deleted*: <input type="number" name="delete_category" min="1" value="1"></p>
 				<p><input type="submit" name="delete_cat_btn"></p>
 			</form>
 		</div>
 		
-		<div id="delete-item-form">
+		<div id="modal-delete-item" class="modal-content">
 			<h2>Delete an Item</h2>
-			<form action="item_delete.php" method="post">
-				<p>Enter item name to be deleted*: <input type="text" name="delete_item" required="required"></p>
+			<form id="form-delete-item" action="item_delete.php" method="post">
+				<p>Item Name to be deleted*: <input type="text" name="delete_item" readonly="readonly"></p>
 				<p><input type="submit" name="delete_item_btn"></p>
 			</form>
 		</div>
