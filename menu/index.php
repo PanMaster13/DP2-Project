@@ -36,11 +36,11 @@
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-				printf('<h2>%s (%s)</h2><button onclick="test(\'%s\')">Show</button>', $categoryRow["categoryName"], $categoryRow["categoryID"], $tableIndex);
+				printf('<h2>%s (%s)</h2>', $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				
-				echo "<table class='theTables'><tr><th>Item Name</th><th>Item Price</th></tr>";
+				printf('<button onclick="test(\'%s\')">Show / Hide Table</button>', $tableIndex);
+				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())
 				{
