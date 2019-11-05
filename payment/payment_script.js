@@ -78,9 +78,9 @@ function submitOnClick(){
 		if(popupTitle.innerHTML == "Payment"){
 			payTextBox = document.getElementById("payTextBox");
 			textboxValue = payTextBox.value;
-			totalAmount.children[2].innerHTML = parseFloat(textboxValue).toFixed(2);
-			var finalChange = parseFloat(payTextBox.value) - parseFloat(totalPrice.children[2].innerHTML);
-			totalChange.children[2].innerHTML = parseFloat(finalChange).toFixed(2);
+			totalAmount.children[3].innerHTML = parseFloat(textboxValue).toFixed(2);
+			var finalChange = parseFloat(payTextBox.value) - parseFloat(totalPrice.children[3].innerHTML);
+			totalChange.children[3].innerHTML = parseFloat(finalChange).toFixed(2);
 			totalAmount.style.display = "table-row";
 			totalChange.style.display = "table-row";
 			popupContainer.style.display = "none";
@@ -91,7 +91,7 @@ function submitOnClick(){
 }
 
 function calculateTotalPrice(){
-	var totalPrice = document.getElementById("totalPrice").children[2];
+	var totalPrice = document.getElementById("totalPrice").children[3];
 	
 	var paymentTable = document.getElementById("payment-table");
 	
@@ -106,12 +106,16 @@ function calculateTotalPrice(){
 		var qtyCell = tr.cells[1];
 		
 		var cell = tr.cells[2];
+
+		var cell2 = tr.cells[3];
 		
 		var totalPerItem;
 		
 		if(i > 0 && i < (length-3)){
-			if(i == (length-4))
+			if(i == (length-4)){
 				cell.innerHTML = -Math.abs(cell.innerHTML)
+				cell2.innerHTML = -Math.abs(cell.innerHTML)
+			}
 			
 			totalPerItem = qtyCell.innerHTML * cell.innerHTML;
 			array.push(parseFloat(totalPerItem).toFixed(2));

@@ -101,7 +101,8 @@ session_start();
 				<tr>
 					<th>Items</th>
 					<th>Qty</th>
-					<th>Price</th>
+					<th>Unit Price</th>
+					<th>SubTotal</th>
 				</tr>
 				<?php
 					//Display all items from database
@@ -168,7 +169,8 @@ session_start();
 					//display all the relevant data to table
 					for($i = 0; $i < sizeof($itemListarray); $i++){
 						echo "<tr class='list-items'><td>" . $itemListarray[$i] . "</td><td>" . 
-						$quantityListarray[$i] . "</td><td>" . $priceListarray[$i] . "</td></tr>";
+						$quantityListarray[$i] . "</td><td>" . number_format($priceListarray[$i], 2) . "</td><td>" . 
+						number_format(($quantityListarray[$i] * $priceListarray[$i]), 2) . "</td></tr>";
 					}
 				
 				?>
@@ -210,27 +212,45 @@ session_start();
 							}
 						?>
 					</td>
+					<td>
+						<?php
+							//Display couponAmount if it is valid
+							
+							if($correct){
+								$sql = "SELECT couponAmount FROM coupon WHERE couponCode='" . $couponCode . "'";
+								$result = $conn->query($sql);
+								while($row = $result->fetch_assoc()) {
+									echo $row['couponAmount'];
+								}
+							}
+							else{
+								echo 0.00;
+							}
+						?>
+					</td>
 				</tr>
 				<tr id="totalPrice">
 					<td>Total:</td>
+					<td></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr id="totalAmount">
 					<td>Amount:</td>
 					<td></td>
+					<td></td>
 					<?php
 						//if paymentSubmitBtn is not empty, echo the amount given
 						if(isset($_POST['paymentSubmitBtn'])){
-							echo "<td>" . $_POST['paymentTextBox'] . "</td>";
+							echo "<td>" . number_format($_POST['paymentTextBox'], 2) . "</td>";
 						}
 					?>
 				</tr>
 				<tr id="totalChange">
 					<td>Change:</td>
 					<td></td>
-					<td>
-					</td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
 			
@@ -327,12 +347,12 @@ session_start();
 								
 								var totalAmount = document.getElementById('totalAmount');
 								
-								var finalChange = totalAmount.children[2].innerHTML - parseFloat(totalPrice.children[2].innerHTML);
+								var finalChange = totalAmount.children[3].innerHTML - parseFloat(totalPrice.children[3].innerHTML);
 								
-								totalChange.children[2].innerHTML = parseFloat(finalChange).toFixed(2);
-								console.log(totalPrice.children[2].innerHTML);
-								console.log(totalAmount.children[2].innerHTML);
-								console.log(totalChange.children[2].innerHTML);
+								totalChange.children[3].innerHTML = parseFloat(finalChange).toFixed(2);
+								console.log(totalPrice.children[3].innerHTML);
+								console.log(totalAmount.children[3].innerHTML);
+								console.log(totalChange.children[3].innerHTML);
 							</script>";
 							
 						$sql = "UPDATE orderList SET totalPrice='$totalPrice' WHERE orderID='$orderID'";
