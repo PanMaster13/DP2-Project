@@ -20,6 +20,7 @@ h1{
 }
 
 .table-group table{
+	display: none;
 	width: 90%;
 	table-layout: fixed;
 	text-align: center;

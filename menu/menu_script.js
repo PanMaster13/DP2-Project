@@ -32,6 +32,15 @@ window.onclick = function(event) {
   }
 } 
 
+function test(table_index){
+	var tableList = document.getElementsByClassName("theTables");
+	//for (int i = 0; i < tableList.length; i++){
+	//	tableList[i].style.display = "none";
+	//}
+	tableList[table_index].style.display = "block";
+	alert(table_index);
+}
+
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");

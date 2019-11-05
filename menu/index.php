@@ -28,16 +28,18 @@
 	
 		$categoryQuery = "SELECT * FROM category";
 		$categoryResult = $conn->query($categoryQuery);
+		$tableIndex = 0;
 		
 		while ($categoryRow = $categoryResult->fetch_assoc())
 		{
 			$menuQuery = "SELECT * FROM menu WHERE categoryID = " . $categoryRow["categoryID"];
 			$menuResult = $conn->query($menuQuery);
 			
+			// Echos table and values from database
+				printf('<h2>%s (%s)</h2><button onclick="test(\'%s\')">Show</button>', $categoryRow["categoryName"], $categoryRow["categoryID"], $tableIndex);
 			if ($menuResult->num_rows > 0)
 			{
-				// Echos table and values from database
-				echo "<h2>" . $categoryRow["categoryName"] . " (Identifier: " . $categoryRow["categoryID"] .  ")</h2>";
+				
 				echo "<table class='theTables'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())
@@ -52,6 +54,7 @@
 				echo "<p>No results for the " . $categoryRow["categoryName"] . " (Identifier: " . $categoryRow["categoryID"] .  ") category.</p>";
 			}
 			mysqli_free_result($menuResult);
+			$tableIndex++;
 		}
 		mysqli_free_result($categoryResult);
 		
