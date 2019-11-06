@@ -36,10 +36,10 @@
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-				printf('<h2>%s (%s)</h2>', $categoryRow["categoryName"], $categoryRow["categoryID"]);
+			printf('<div class="catTitleBox"><h2 id="%s" class="catTitles" onclick="categoryClicked(\'%s\', \'%s\')">%s (%s)</h2></div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				printf('<button onclick="test(\'%s\')">Show / Hide Table</button>', $tableIndex);
+				printf('<button class="tableBtn" onclick="showHideTable(\'%s\')">Show / Hide Table</button>', $tableIndex);
 				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())
@@ -109,6 +109,7 @@
 			<h2>Edit a Category</h2>
 			<p>Note: Please ensure that the desired category to be edited does not have any items before you edit it.</p>
 			<form id="form-edit-category" action="category_edit.php" method="post">
+				<input type="hidden" name="edit_category">
 				<p>Enter new category identifier: <input type="number" name="categoryID" min="1" value="1" placeholder="Leave it empty if no change is needed"></p>
 				<p>Enter new category name: <input type="text" name="categoryName" placeholder="Leave it empty if no change is needed" size="30"></p>
 				<p><input type="submit" name="edit_cat_btn"></p>
@@ -118,6 +119,7 @@
 		<div id="modal-edit-item" class="modal-content">
 			<h2>Edit an Item</h2>
 			<form id="form-edit-item" action="item_edit.php" method="post">
+				<input type="hidden" name="edit_item">
 				<p>Enter new item name: <input type="text" name="itemName"></p>
 				<p>Select new category: <input type="number" name="categoryID" min="1" value="1" placeholder="Leave it empty if no change is needed"></p>
 				<p>Enter new item price: <input type="text" name="itemPrice"></p>
@@ -141,12 +143,13 @@
 				<p><input type="submit" name="delete_item_btn"></p>
 			</form>
 		</div>
-		<?php
+	</div>
+	
+	<?php
 			if (isset($_SESSION["menuMsg"])){
-				echo "<p id='feedback-msg'>" . $_SESSION["menuMsg"] . "</p>";
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["menuMsg"] . "</p>";
 			}
 		?>
-	</div>
 	
 	<footer>
 	</footer>

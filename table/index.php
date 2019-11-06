@@ -82,6 +82,7 @@
 		<div id="modal-edit-table" class="modal-content">
 			<h2>Edit a Table</h2>
 			<form id="form-edit-table" action="table_edit.php" method="post">
+				<input type="hidden" name="edit_number">
 				<p>Enter new table number: <input type="text" name="tableID"></p>
 				<p>Enter new table seats amount: <input type="text" name="tableSeats"></p>
 				<p>Select new table status:
@@ -107,7 +108,7 @@
 	
 	<?php
 			if (isset($_SESSION["tableMsg"])){
-				echo "<p id='feedback-msg'>" . $_SESSION["tableMsg"] . "</p>";
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["tableMsg"] . "</p>";
 			}
 		?>
 	

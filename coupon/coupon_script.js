@@ -61,6 +61,7 @@ function highlight_row() {
 				var row = this.parentNode;
 				row.className = "selectedRow";
 				
+				document.getElementById("form-edit-coupon").elements.namedItem("edit_code").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-coupon").elements.namedItem("couponCode").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-coupon").elements.namedItem("couponName").value = row.childNodes[1].textContent;
 				document.getElementById("form-edit-coupon").elements.namedItem("couponAmount").value = row.childNodes[2].textContent;

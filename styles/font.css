@@ -1,0 +1,83 @@
+/* Regular Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Italic Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Italic.ttf);
+	font-weight: normal;
+	font-style: italic;
+}
+
+/* Bold Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Bold.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Bold & Italic Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-BoldItalic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Thin Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Thin.ttf);
+	font-weight: 200;
+	font-style: normal;
+}
+
+/* Thin Italic Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-ThinItalic.ttf);
+	font-weight: 200;
+	font-style: italic;
+}
+
+/* Light Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Light.ttf);
+	font-weight: 100;
+	font-style: normal;
+}
+
+/* Light Italic Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-LightItalic.ttf);
+	font-weight: 100;
+	font-style: italic;
+}
+
+/* Medium Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-Medium.ttf);
+	font-weight: 300;
+	font-style: normal;
+}
+
+/* Medium Italic Texts */
+@font-face{
+	font-family: Roboto;
+	src: url(fonts/Roboto-MediumItalic.ttf);
+	font-weight: 300;
+	font-style: italic;
+}
+
+*{
+	font-family: Roboto;
+}

@@ -32,7 +32,7 @@ window.onclick = function(event) {
   }
 } 
 
-function test(table_index){
+function showHideTable(table_index){
 	var tableList = document.getElementsByClassName("theTables");
 	
 	if (tableList[table_index].style.display == "none"){
@@ -43,12 +43,42 @@ function test(table_index){
 	
 }
 
+// Function to mark category for editing/deleting and fill it the modals
+function categoryClicked(categoryName, categoryID){
+	var catTitles = document.getElementsByClassName("catTitles");
+	var selectedCat = document.getElementById(categoryName);
+	
+	var editCatButton = document.getElementById("edit-cat-btn");
+	var deleteCatButton = document.getElementById("delete-cat-btn");
+	
+	var editCatForm = document.getElementById("form-edit-category");
+	var deleteCatForm = document.getElementById("form-delete-category");
+	
+	for (var i = 0; i < catTitles.length; i++){
+		catTitles[i].style.backgroundColor = "";
+		catTitles[i].style.color = "black";
+	}
+	
+	selectedCat.style.backgroundColor = "#87b5eb";
+	selectedCat.style.color = "white";
+	
+	if (editCatButton.disabled){
+		editCatButton.disabled = false;
+		deleteCatButton.disabled = false;
+	}
+	
+	editCatForm.elements.namedItem("edit_category").value = categoryID;
+	editCatForm.elements.namedItem("categoryID").value = categoryID;
+	editCatForm.elements.namedItem("categoryName").value = categoryName;
+	
+	deleteCatForm.elements.namedItem("delete_category").value = categoryID;
+}
+
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("theTables");
-	var editCatButton = document.getElementById("edit-cat-btn");
+	
 	var editItemButton = document.getElementById("edit-item-btn");
-	var deleteCatButton = document.getElementById("delete-cat-btn");
 	var deleteItemButton = document.getElementById("delete-item-btn");
 	
 	for (var x = 0; x < tableList.length; x++)
@@ -80,6 +110,7 @@ function highlight_row() {
 				var row = this.parentNode;
 				row.className = "selectedRow";
 				
+				document.getElementById("form-edit-item").elements.namedItem("edit_item").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-item").elements.namedItem("itemName").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-item").elements.namedItem("itemPrice").value = row.childNodes[1].textContent;
 				

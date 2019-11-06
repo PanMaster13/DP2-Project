@@ -26,6 +26,42 @@ h1{
 	text-align: center;
 }
 
+.catTitleBox{
+	display:block;
+}
+
+.catTitles{
+	border: 2px solid black;
+	padding: 1%;
+	display: inline-block;
+}
+
+.catTitles:hover{
+	cursor: pointer;
+	background-color: #87b5eb;
+	border: 2px solid yellow;
+}
+
+.tableBtn{
+	padding: 1%;
+}
+
+.tableBtn:hover{
+	cursor: pointer;
+	background-color:white;
+	border: 2px solid yellow;
+	color: black;
+}
+
+.tableBtn:active{
+	color: red;
+	border: 2px solid red;
+}
+
+.catTitles:active{
+	border: 2px solid red;
+}
+
 .table-group table, .table-group th, .table-group td{
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -89,8 +125,8 @@ h1{
 }
 
 #feedback-msg{
+	margin-left: 15%;
 	font-style: italic;
 	font-size: 125%;
-	text-decoration: underline;
-	text-decoration-color: #87b5eb;
+	text-align: center;
 }

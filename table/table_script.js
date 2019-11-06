@@ -61,6 +61,7 @@ function highlight_row() {
 				var row = this.parentNode;
 				row.className = "selectedRow";
 				
+				document.getElementById("form-edit-table").elements.namedItem("edit_number").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-table").elements.namedItem("tableID").value = row.childNodes[0].textContent;
 				document.getElementById("form-edit-table").elements.namedItem("tableSeats").value = row.childNodes[1].textContent;
 				

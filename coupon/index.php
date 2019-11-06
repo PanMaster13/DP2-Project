@@ -66,7 +66,7 @@
 			<h2>Add a Coupon</h2>
 			<form id="form-add-coupon" action="coupon_add.php" method="post">
 				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
-				<p>Enter coupon name*: <input type="text" name="add_name" required="required"></p>
+				<p>Enter coupon name*: <input type="text" name="add_name" required="required" size="60"></p>
 				<p>Enter coupon discount amount*: <input type="text" name="add_amount" required="required" placeholder="Please input numbers only"></p>
 				<p><input type="submit" name="add_submit_btn"></p>
 			</form>
@@ -75,8 +75,9 @@
 		<div id='modal-edit-coupon' class="modal-content">
 			<h2>Edit a Coupon</h2>
 			<form id="form-edit-coupon" action="coupon_edit.php" method="post">
+				<input type="hidden" name="edit_code">
 				<p>Enter new coupon code: <input type="text" name="couponCode"></p>
-				<p>Enter new coupon name: <input type="text" name="couponName"></p>
+				<p>Enter new coupon name: <input type="text" name="couponName" size="60"></p>
 				<p>Enter new coupon discount amount: <input type="text" name="couponAmount"></p>
 				<p><input type="submit" name="edit_submit_btn"></p>
 			</form>
@@ -93,7 +94,7 @@
 	
 	<?php 
 			if (isset($_SESSION["feedback"])){
-				echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>";
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["feedback"] . "</p>";
 			}
 		?>
 	

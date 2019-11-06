@@ -49,6 +49,7 @@ if (isset($_SESSION["userType"])){
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="/styles/style.css">
+	<link rel="stylesheet" href="/styles/font.css">
 </head>
 <body>
 
