@@ -89,13 +89,13 @@
 				<p><input type="submit" name="delete_submit_btn" value="Confirm Deletion?"></p>
 			</form>
 		</div>
-		
-		<?php 
+	</div>
+	
+	<?php 
 			if (isset($_SESSION["feedback"])){
 				echo "<p id='feedback-msg'>" . $_SESSION["feedback"] . "</p>";
 			}
 		?>
-	</div>
 	
 	<footer>
 	</footer>

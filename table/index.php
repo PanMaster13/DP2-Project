@@ -103,12 +103,13 @@
 				<p><input type="submit" name="delete_submit_btn"></p>
 			</form>
 		</div>
-		<?php
+	</div>
+	
+	<?php
 			if (isset($_SESSION["tableMsg"])){
 				echo "<p id='feedback-msg'>" . $_SESSION["tableMsg"] . "</p>";
 			}
 		?>
-	</div>
 	
 	<footer>
 	</footer>
