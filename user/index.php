@@ -45,14 +45,14 @@
 	?>
 		</div>
 		
-		<div class='buttons-group'>
-			<button class='buttons' onclick="showModal('modal-add-user')">
+		<div class='button-group'>
+			<button class='button' onclick="showModal('modal-add-user')">
 				<p>Add User</p>
 			</button>
-			<button id="edit-button" class='buttons' onclick="showModal('modal-edit-user')" disabled="disabled">
+			<button id="edit-button" class='button' onclick="showModal('modal-edit-user')" disabled="disabled">
 				<p>Edit User</p>
 			</button>
-			<button id="remove-button" class='buttons' onclick="showModal('modal-remove-user')" disabled="disabled">
+			<button id="remove-button" class='button button-red' onclick="showModal('modal-remove-user')" disabled="disabled">
 				<p>Remove User</p>
 			</button>
 		</div>

@@ -1,7 +1,36 @@
+.button-group {
+	max-width: 20%;
+	padding: 10px;
+	}
 button {
 	border-radius: 5px;
+	width: 100%;
 	text-align: center;
-	color: snow;
-	background-color: dodgerblue;
+	color: #fff;
+	background-color: #007bff;
+    border: none;
 	margin: 5px;
+}
+button:hover {
+  filter: brightness(85%);
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  transition: all 0.1s ease-in;
+  cursor: auto;
+}
+
+.button-red {
+	background-color: #dc3545;
+}
+
+.button-green {
+	background-color: #28a745;
+}
+
+.button-cyan {
+	background-color: #17a2b8;
 }

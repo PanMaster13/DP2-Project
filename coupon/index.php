@@ -48,14 +48,14 @@
 	?>
 		</div>
 		
-		<div class='coupon-buttons-group'>
-			<button class='coupon-buttons' onclick="showModal('modal-add-coupon')">
+		<div class='button-group'>
+			<button class='button' onclick="showModal('modal-add-coupon')">
 				<p>Add Coupon</p>
 			</button>
-			<button id="edit-button" class='coupon-buttons' onclick="showModal('modal-edit-coupon')" disabled="disabled">
+			<button id="edit-button" class='button' onclick="showModal('modal-edit-coupon')" disabled="disabled">
 				<p>Edit Coupon</p>
 			</button>
-			<button id="remove-button" class='coupon-buttons' onclick="showModal('modal-delete-coupon')" disabled="disabled">
+			<button id="remove-button" class='button button-red' onclick="showModal('modal-delete-coupon')" disabled="disabled">
 				<p>Delete Coupon</p>
 			</button>
 		</div>

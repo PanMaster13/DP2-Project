@@ -42,29 +42,6 @@ h1{
 	color: white;
 }
 
-.buttons-group{
-	width: 15%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.buttons{
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-.buttons:hover{
-	cursor: pointer;
-}
-
-.buttons:active{
-	-webkit-box-sizing: border-box;
-	background-color: white;
-	border: 5px solid #87ceeb;
-}
-
 .modal{
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */

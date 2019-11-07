@@ -39,7 +39,7 @@
 			printf('<div class="catTitleBox"><h2 id="%s" class="catTitles" onclick="categoryClicked(\'%s\', \'%s\')">%s (%s)</h2></div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				printf('<button class="tableBtn" onclick="showHideTable(\'%s\')">Show / Hide Table</button>', $tableIndex);
+				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')">Show / Hide Table</button>', $tableIndex);
 				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())
@@ -63,23 +63,23 @@
 	?>
 		</div>
 	
-		<div class='menu-buttons-group'>
+		<div class='button-group'>
 			<button class='menu-buttons' onclick="showModal('modal-add-category')">
 				<p>Add Category</p>
 			</button>
 			<button class='menu-buttons' onclick="showModal('modal-add-item')">
 				<p>Add Item</p>
 			</button>
-			<button id="edit-cat-btn" class='menu-buttons' onclick="showModal('modal-edit-category')" disabled="disabled">
+			<button id="edit-cat-btn" class='button' onclick="showModal('modal-edit-category')" disabled="disabled">
 				<p>Edit Category</p>
 			</button>
-			<button id="edit-item-btn" class='menu-buttons' onclick="showModal('modal-edit-item')" disabled="disabled">
+			<button id="edit-item-btn" class='button' onclick="showModal('modal-edit-item')" disabled="disabled">
 				<p>Edit Item</p>
 			</button>
-			<button id="delete-cat-btn" class='menu-buttons' onclick="showModal('modal-delete-category')" disabled="disabled">
+			<button id="delete-cat-btn" class='button button-red' onclick="showModal('modal-delete-category')" disabled="disabled">
 				<p>Delete Category</p>
 			</button>
-			<button id="delete-item-btn" class='menu-buttons' onclick="showModal('modal-delete-item')" disabled="disabled">
+			<button id="delete-item-btn" class='button button-red' onclick="showModal('modal-delete-item')" disabled="disabled">
 				<p>Delete Item</p>
 			</button>
 		</div>

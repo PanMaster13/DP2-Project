@@ -78,6 +78,7 @@ article h1{
 #right-btns{
 	width: 15%;
 	display: flex;
+	padding: 1%;
 	flex-direction: column;
 	align-items: center;
 }
@@ -146,8 +147,8 @@ article h1{
 		display: flex;
 		flex-direction: row;
 		width:100%;
+		background-color: lightsteelblue;
 		justify-content: center;
-		background-color: gray;
 		right: 0;
 		padding: 10px 0 10px 0;
 	}
