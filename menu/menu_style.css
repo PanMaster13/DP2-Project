@@ -45,18 +45,6 @@ h1{
 	padding: 1%;
 }
 
-.tableBtn:hover{
-	cursor: pointer;
-	background-color:white;
-	border: 2px solid yellow;
-	color: black;
-}
-
-.tableBtn:active{
-	color: red;
-	border: 2px solid red;
-}
-
 .catTitles:active{
 	border: 2px solid red;
 }
@@ -79,27 +67,10 @@ h1{
 	color: white;
 }
 
-.menu-buttons-group{
-	width: 15%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .menu-buttons{
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-}
-
-.menu-buttons:hover{
-	cursor: pointer;
-}
-
-.menu-buttons:active{
-	-webkit-box-sizing: border-box;
-	background-color: white;
-	border: 5px solid #87ceeb;
 }
 
 .modal{

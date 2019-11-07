@@ -70,16 +70,16 @@
 			<button class='menu-buttons' onclick="showModal('modal-add-item')">
 				<p>Add Item</p>
 			</button>
-			<button id="edit-cat-btn" class='button' onclick="showModal('modal-edit-category')" disabled="disabled">
+			<button id="edit-cat-btn" class='' onclick="showModal('modal-edit-category')" disabled="disabled">
 				<p>Edit Category</p>
 			</button>
-			<button id="edit-item-btn" class='button' onclick="showModal('modal-edit-item')" disabled="disabled">
+			<button id="edit-item-btn" class='' onclick="showModal('modal-edit-item')" disabled="disabled">
 				<p>Edit Item</p>
 			</button>
-			<button id="delete-cat-btn" class='button button-red' onclick="showModal('modal-delete-category')" disabled="disabled">
+			<button id="delete-cat-btn" class=' button-red' onclick="showModal('modal-delete-category')" disabled="disabled">
 				<p>Delete Category</p>
 			</button>
-			<button id="delete-item-btn" class='button button-red' onclick="showModal('modal-delete-item')" disabled="disabled">
+			<button id="delete-item-btn" class=' button-red' onclick="showModal('modal-delete-item')" disabled="disabled">
 				<p>Delete Item</p>
 			</button>
 		</div>
