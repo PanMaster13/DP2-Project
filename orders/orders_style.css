@@ -41,12 +41,6 @@ article h1{
 	cursor: pointer;
 }
 
-#add-button:active, #amend-button:active, #cancel-button:active, #pay-button:active{
-	-webkit-box-sizing: border-box;
-	background-color: white;
-	border: 5px solid #87ceeb;
-}
-
 #pay-button{
 	margin-top: 40px;
 }

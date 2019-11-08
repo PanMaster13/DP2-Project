@@ -60,11 +60,11 @@
 				<button id='amend-button'>
 					<p>Amend</p>
 				</button>
-				<button id='cancel-button'>
+				<button id='cancel-button' class="button-red">
 					<p>Cancel</p>
 				</button>
 				<!--Validation in progress-->
-				<button id='pay-button'>
+				<button id='pay-button' class="button-green">
 					<p>Pay</p>
 				</button>
 			</div>

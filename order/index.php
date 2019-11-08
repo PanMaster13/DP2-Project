@@ -95,9 +95,7 @@
 		$conn->close();
 	?>
 
-		<div id="send-btn">
-				<input type="submit" id="sendorder_btn" value="Send order" name="submit"/>
-		</div>
+		<button type="submit" id="sendorder_btn" class="button-green" value="Send order" name="submit">Submit</button>
 
 </form>
 
