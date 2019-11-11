@@ -8,12 +8,10 @@ function showModal(formID){
 	//id of modal contents
 	var addModal = document.getElementById("modal-add-user");
 	var editModal = document.getElementById("modal-edit-user");
-	var removeModal = document.getElementById("modal-remove-user");
 	
 	//hide all forms
 	addModal.style.display = "none";
 	editModal.style.display = "none";
-	removeModal.style.display = "none";
 	
 	//display both modal and selected form
 	modal.style.display = "block";

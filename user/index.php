@@ -46,13 +46,13 @@
 		</div>
 		
 		<div class='button-group table-buttons-group center-media'>
-			<button class='button' onclick="showModal('modal-add-user')">
+			<button onclick="showModal('modal-add-user')">
 				<p>Add User</p>
 			</button>
-			<button id="edit-button" class='button' onclick="showModal('modal-edit-user')" disabled="disabled">
+			<button id="edit-button" onclick="showModal('modal-edit-user')" disabled="disabled">
 				<p>Edit User</p>
 			</button>
-			<button id="remove-button" class='button button-red' onclick="showModal('modal-remove-user')" disabled="disabled">
+			<button id="remove-button" form="form-remove-user" class="button-red" disabled="disabled" type="submit">
 				<p>Remove User</p>
 			</button>
 		</div>
@@ -95,21 +95,11 @@
 				<button type="submit">Submit</button>
 			</form>
 		</div>
-	
-		<div id='modal-remove-user' class="modal-content">
-			<h2>Delete User</h2>
-			<form id="form-remove-user" action="user_remove.php" method="post">
-			
-				User ID: <input type="text" name="userID" readonly="readonly"/>
-				<br/>
-				User Name: <input type="text" name="userName" readonly="readonly"/>
-				<br/>
-				Confirm deletion: <input type="checkbox" required="required"/>
-				<br/>
-				<button type="submit">Submit</button>
-				
-			</form>
-		</div>
+		
+		<form id="form-remove-user" onsubmit="return confirm('Are you sure?\nThis user will be forever deleted!')" action="user_remove.php" method="post" hidden="hidden">
+			<input type="text" name="userID" readonly="readonly"/>
+			<input type="text" name="userName" readonly="readonly"/>
+		</form>
 		
 	</div>
 	<script src="user_script.js"></script>
