@@ -1,7 +1,7 @@
 body{
 	padding: 0;
 	margin: 0;
-	background-color: #F3FCFF;
+	background-color: white;
 }
 
 article{
@@ -23,6 +23,12 @@ article h1{
 }
 
 #add-button, #edit-button{
+	height: 80px;
+	width: 120px;
+	background-color: #87ceeb;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -69,46 +75,3 @@ article h1{
 	flex-direction: column;
 	align-items: center;
 }
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}

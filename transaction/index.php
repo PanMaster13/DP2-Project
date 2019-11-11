@@ -17,10 +17,11 @@
 <?php
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
-	<h1>Table Management Page</h1>
 	
 	<article>
-		<div id="article-elements">
+		<h1>Transaction History</h1>
+		<div id='article-elements'>
+			<div id='left-transaction-list'>
 			
 			<?php
 		//include database connection
@@ -37,7 +38,7 @@
 			
 			// Echos table and values from database
 			
-			echo "<table id='transaction-table'  class='table-group center-media'>
+			echo "<table id='transaction-table'>
 					<tr>
 						<th>Order ID</th>
 						<th>Order Status</th>
@@ -76,18 +77,19 @@
 	
 		
 		// Close connection (although it is done automatically when script ends
-		$conn->close();
+	
 ?>
 				
-			<div class="table-buttons-group button-group">
-				<button id='delete-button' class="button-red red-button-active">
+			</div>
+			<div id='right-btns'>
+				<button id='add-button'>
 					<p>Delete</p>
 				</button>
 				
 			</div>
-			</div>
+		</div>
 		
-		<div class="dropdown">
+		<!--<div class="dropdown">
 		<button onclick="dropdownFunction()" class="dropbtn">Check Transaction</button>
 		<div id="Dropdownfunc" class="dropdown-content">
 			<a href="#Daily">Daily</a>
@@ -95,6 +97,55 @@
 			<a href="#Monthly">Monthly</a>
 		</div>
 	</div>
+	-->
+	
+	<form action="" method="post">
+		<select name="date[]">
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="monthly">Monthly</option>
+		
+		</select>
+	<br><br>
+	<input type="submit" name ="submit" value="Get Transaction Information">
+	</form>
+
+	<?php
+	
+		//include database connection
+		//the connection variable is $conn
+		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
+		
+		$transacDate = "SELECT orderDate FROM orderlist";
+		$transacDateR = $conn->query($transacDate);
+		
+	if(isset($_POST['submit'])){
+		
+		if($transacDateR ->num_rows> 0){
+			
+			foreach ($_POST['date'] as $select){
+			
+			while($transacRow = $transacDateR -> fetch_assoc()){
+			
+			
+			
+				echo "You have selected :" .$select; // Displaying Selected Value
+			
+				echo ''. $transacDateR['orderDate'] . '';
+					
+			}
+		
+			
+
+			}
+		}
+
+	}
+	
+		$conn->close();
+	?>
+
+	
 	</article>
 	
 	
