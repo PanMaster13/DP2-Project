@@ -10,7 +10,6 @@
 	<meta name="keywords" content="Order, Order List">
 
 	<link rel="stylesheet" href="orders_style.css">
-	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 
 	<script src="orders_script.js"></script>
 <?php
@@ -53,18 +52,18 @@
 					
 				?>
 			</div>
-			<div id='right-btns'>
+			<div class="table-buttons-group button-group">
 				<button id='add-button' onclick="window.location.href='/order'">
 					<p>Add</p>
 				</button>
 				<button id='amend-button'>
 					<p>Amend</p>
 				</button>
-				<button id='cancel-button'>
+				<button id='cancel-button' class="button-red red-button-active">
 					<p>Cancel</p>
 				</button>
 				<!--Validation in progress-->
-				<button id='pay-button'>
+				<button id='pay-button' class="button-green green-button-active">
 					<p>Pay</p>
 				</button>
 			</div>
@@ -77,15 +76,10 @@
 				<span class="popup-close-btn">&times;</span>
 				<p id="popup-title">Are you sure to Cancel this Order?</p>
 				<button type="button" id="cancel-popup-button">No</button>
-				<button type="button" id="delete-popup-button">Cancel</button>
+				<button type="button" id="delete-popup-button" class="button-red red-button-active">Yes</button>
 			</div>
 		</div>
 		</div>
 		
 	</article>
-	
-	<footer>
-		
-	</footer>
-	
 </body>

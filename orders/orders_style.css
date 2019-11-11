@@ -43,8 +43,6 @@ article h1{
 
 #add-button:active, #amend-button:active, #cancel-button:active, #pay-button:active{
 	-webkit-box-sizing: border-box;
-	background-color: white;
-	border: 5px solid #87ceeb;
 }
 
 #pay-button{
@@ -52,7 +50,7 @@ article h1{
 }
 
 #order-table{
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -126,9 +124,6 @@ article h1{
 
 
 @media only screen and (max-width: 800px) {
-	body{
-	}
-	
 	#article-elements{
 		display: block;
 	}
@@ -152,8 +147,12 @@ article h1{
 		right: 0;
 		padding: 10px 0 10px 0;
 	}
+
+	#right-btns button{
+		width: 100px;
+	}
   
 	#pay-button{
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 }

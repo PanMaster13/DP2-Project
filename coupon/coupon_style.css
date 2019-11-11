@@ -15,11 +15,11 @@ h1{
 }
 
 .table-group{
-	width: 70%;
+	width: 85%;
 }
 
 .table-group table{
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
 }

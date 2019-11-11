@@ -262,7 +262,7 @@ session_start();
 					<button id='coupon-btn'>
 						<p>Coupon</p>
 					</button>
-					<button id='pay-btn'>
+					<button id='pay-btn' class="button-green green-button-active">
 						<p>Pay</p>
 					</button>
 				</div>
