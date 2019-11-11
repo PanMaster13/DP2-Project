@@ -59,11 +59,19 @@
 				<button id='amend-button'>
 					<p>Amend</p>
 				</button>
+<<<<<<< HEAD
 				<button id='cancel-button' class="button-red red-button-active">
 					<p>Cancel</p>
 				</button>
 				<!--Validation in progress-->
 				<button id='pay-button' class="button-green green-button-active">
+=======
+				<button id='cancel-button' class="button-red">
+					<p>Cancel</p>
+				</button>
+				<!--Validation in progress-->
+				<button id='pay-button' class="button-green">
+>>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 					<p>Pay</p>
 				</button>
 			</div>

@@ -16,8 +16,12 @@ button {
     border: none;
     transition: all 0.2s ease-in;
 	margin: 5px;
+<<<<<<< HEAD
 	max-width: 100px;
 	padding: 10px 0 10px 0;
+=======
+	padding: 1%;
+>>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 }
 button:hover {
   filter: brightness(85%);

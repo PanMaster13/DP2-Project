@@ -41,10 +41,13 @@ article h1{
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 #add-button:active, #amend-button:active, #cancel-button:active, #pay-button:active{
 	-webkit-box-sizing: border-box;
 }
 
+=======
+>>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 #pay-button{
 	margin-top: 40px;
 }

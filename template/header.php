@@ -10,7 +10,7 @@
 <body>
 
 <header>
-		<img src='/template/images/logo_white.png' onclick="location.href='/'" alt='logo'>
+		<a href="/"><img src='/template/images/logo_white.png' alt='logo'></a>
 		<button id='logout-button' onclick="location.href='/logout.php'">
 			<i class='material-icons'>lock_open</i>
 			Logout

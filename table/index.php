@@ -55,7 +55,11 @@
 			<button id="edit-button" class='table-buttons' onclick="showModal('modal-edit-table')" disabled="disabled">
 				<p>Edit Table</p>
 			</button>
+<<<<<<< HEAD
 			<button id="remove-button" class='table-buttons button-red red-button-active' onclick="showModal('modal-delete-table')" disabled="disabled">
+=======
+			<button id="remove-button" class='table-buttons button-red' onclick="showModal('modal-delete-table')" disabled="disabled">
+>>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 				<p>Delete Table</p>
 			</button>
 		</div>

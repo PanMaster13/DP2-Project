@@ -33,13 +33,15 @@ article h2{
 	border: 5px solid #87ceeb;
 }
 
-#send-btn{
+#sendorder_btn{
+	width: 20%;
 	float:right;
 }
 
 #back_btn{
 	clear:both;
 	position: absolute;
+	width: 20%;
 	cursor: pointer;
 }
 
@@ -68,7 +70,7 @@ select{
 }
 
 #text_order{
-	width:100%;
+	width:99%;
 	border:0px;
 	height: 40px;
 	text-align:center;
