@@ -17,11 +17,10 @@
 <?php
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
-	
-	<h1>Transaction History</h1>
+	<h1>Table Management Page</h1>
 	
 	<article>
-		<div id='article-elements' class="table-group center-media">
+		<div id="article-elements">
 			
 			<?php
 		//include database connection
@@ -38,7 +37,7 @@
 			
 			// Echos table and values from database
 			
-			echo "<table id='transaction-table' class='table-group center-media'>
+			echo "<table id='transaction-table'  class='table-group center-media'>
 					<tr>
 						<th>Order ID</th>
 						<th>Order Status</th>
@@ -80,14 +79,13 @@
 		$conn->close();
 ?>
 				
-			</div>
-			<div class='table-buttons-group button-group'>
+			<div class="table-buttons-group button-group">
 				<button id='delete-button' class="button-red red-button-active">
 					<p>Delete</p>
 				</button>
 				
 			</div>
-		</div>
+			</div>
 		
 		<div class="dropdown">
 		<button onclick="dropdownFunction()" class="dropbtn">Check Transaction</button>

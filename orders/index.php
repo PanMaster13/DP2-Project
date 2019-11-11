@@ -53,7 +53,7 @@
 					
 				?>
 			</div>
-			<div id='table-buttons-group button-group'>
+			<div class='table-buttons-group button-group'>
 				<button id='add-button' onclick="window.location.href='/order'">
 					<p>Add</p>
 				</button>

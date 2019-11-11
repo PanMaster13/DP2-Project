@@ -76,6 +76,7 @@
 					<td><input class='checkboxes' type='checkbox' name='checkbox1[]' value='" . $rowIndex . "'></td>
 						<td><input class='quantity' type='number' id='text_order' name='quantity[]' min='0' max='10'></td>
 						<td><input type='text' id='text_order' name='remarks[]'></td>
+						<input type='hidden' name='hiddenNames[]' value='". $menuRow['itemName'] . "'>
 					</tr>";
 					
 					$rowIndex++;

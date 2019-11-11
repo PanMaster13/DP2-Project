@@ -141,6 +141,7 @@
 						echo"<td><input type='checkbox' name='checkbox1[]' value='" . $rowIndex2 . "' checked></td>";
 						echo "<td><input type='number' id='text_order' name='quantity[]' value='" . $quantityListArray[$rowIndex] . "' min='0' max='10'></td>
 							<td><input type='text' id='text_order' name='remarks[]' value='" . $remarksListArray[$rowIndex] . "'></td>
+							<input type='hidden' name='hiddenNames[]' value='". $menuRow['itemName'] . "'>
 						</tr>";
 						$rowIndex++;
 					}
@@ -148,6 +149,7 @@
 						echo"<td><input type='checkbox' name='checkbox1[]' value='" . $rowIndex2 . "'></td>";
 						echo "<td><input type='number' id='text_order' name='quantity[]' min='0' max='10'></td>
 							<td><input type='text' id='text_order' name='remarks[]'></td>
+							<input type='hidden' name='hiddenNames[]' value='". $menuRow['itemName'] . "'>
 						</tr>";
 					}
 					$rowIndex2++;

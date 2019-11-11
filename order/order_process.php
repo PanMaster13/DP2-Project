@@ -22,14 +22,7 @@
 		if(!empty($_POST['checkbox1'] and !empty($_POST['quantity']))){
 			foreach($_POST['checkbox1'] as $selected){
 				
-				if($selected == 0)
-					$selectedItem = "Burger";
-				else if($selected == 1)
-					$selectedItem = "Sandwich";
-				else if($selected == 2)
-					$selectedItem = "Boba Milk Tea";
-				else
-					$selectedItem = "Latte";
+				$selectedItem = $_POST['hiddenNames'][$selected];
 				
 				$itemList = $itemList . $selectedItem . "\n";
 				$quantityList = $quantityList . $_POST['quantity'][$selected] . "\n";
@@ -48,7 +41,8 @@
 			$update = $conn->query($sql);
 			
 			if($insert && $update){
-				echo "Success!";
+				//echo "Success!";
+				header('Location: /orders/');
 			
 			}
 			else{
