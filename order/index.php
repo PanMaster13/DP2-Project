@@ -8,6 +8,8 @@
 	<meta name="description" content="Order Process">
 	<meta name="keywords" content="Order, Order Process">
 	<link rel="stylesheet" href="order_style.css">
+
+	<script src="https://kit.fontawesome.com/335541e0f5.js" crossorigin="anonymous"></script>
 </head>
 
 

@@ -15,12 +15,12 @@ h1{
 }
 
 .table-group{
-	width: 85%;
+	width: 70%;
 }
 
 .theTables{
 	display:none;
-	width: 100%;
+	width: 90%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -99,10 +99,4 @@ h1{
 	font-style: italic;
 	font-size: 125%;
 	text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
-	body{
-		margin-bottom: 10rem;
-	}
 }

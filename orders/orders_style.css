@@ -41,19 +41,12 @@ article h1{
 	cursor: pointer;
 }
 
-<<<<<<< HEAD
-#add-button:active, #amend-button:active, #cancel-button:active, #pay-button:active{
-	-webkit-box-sizing: border-box;
-}
-
-=======
->>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 #pay-button{
 	margin-top: 40px;
 }
 
 #order-table{
-	width: 100%;
+	width: 90%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -127,6 +120,9 @@ article h1{
 
 
 @media only screen and (max-width: 800px) {
+	body{
+	}
+	
 	#article-elements{
 		display: block;
 	}
@@ -150,12 +146,8 @@ article h1{
 		right: 0;
 		padding: 10px 0 10px 0;
 	}
-
-	#right-btns button{
-		width: 100px;
-	}
   
 	#pay-button{
-		margin-top: 5px;
+		margin-top: 10px;
 	}
 }

@@ -76,6 +76,8 @@ article h1{
 
 #cancel-btn:active, #coupon-btn:active, #pay-btn:active{
 	-webkit-box-sizing: border-box;
+	background-color: white;
+	border: 5px solid #87ceeb;
 }
 
 

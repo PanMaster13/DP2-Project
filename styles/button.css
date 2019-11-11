@@ -1,12 +1,7 @@
-.table-buttons-group {
-	/*max-width: 20%;*/
-	/*padding: 10px; */
-
-	width: 15%;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-}
+.button-group {
+	max-width: 20%;
+	padding: 10px;
+	}
 button {
 	border-radius: 5px;
 	width: 100%;
@@ -14,27 +9,18 @@ button {
 	color: #fff;
 	background-color: #007bff;
     border: none;
-    transition: all 0.2s ease-in;
 	margin: 5px;
-<<<<<<< HEAD
-	max-width: 100px;
-	padding: 10px 0 10px 0;
-=======
 	padding: 1%;
->>>>>>> 4881391ffda99e278c0b83cd363773dd7eb31fe7
 }
 button:hover {
   filter: brightness(85%);
+  transition: all 0.1s ease-in;
   cursor: pointer;
-}
-button:active{
-	filter: brightness(100%);
-	color: #007bff;
-	background-color: #fff;
 }
 button:disabled {
   background-color: #cccccc;
   color: #666666;
+  transition: all 0.1s ease-in;
   cursor: auto;
 }
 
@@ -42,38 +28,10 @@ button:disabled {
 	background-color: #dc3545;
 }
 
-.red-button-active:active{
-	color: #dc3545;
-	background-color: #fff;
-}
-
 .button-green {
 	background-color: #28a745;
 }
 
-.green-button-active:active{
-	color: #28a745;
-	background-color: #fff;
-}
-
 .button-cyan {
 	background-color: #17a2b8;
-}
-
-@media only screen and (max-width: 800px) {
-	.button-group {
-		position: fixed;
-		bottom: 0;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		width:100%;
-		background-color: lightsteelblue;
-		right: 0;
-		padding: 10px 0 10px 0;
-	}
-
-	.center-media{
-		width: 100%;
-	}
 }

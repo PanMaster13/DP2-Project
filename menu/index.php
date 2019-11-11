@@ -20,7 +20,7 @@
 	<h1>Menu Mangement Page</h1>
 	<article>
 		
-		<div class="table-group center-media">
+		<div class="table-group">
 	<?php
 		//include database connection
 		//the connection variable is $conn
@@ -63,7 +63,7 @@
 	?>
 		</div>
 	
-		<div class='table-buttons-group button-group button-media'>
+		<div class='button-group'>
 			<button class='menu-buttons' onclick="showModal('modal-add-category')">
 				<p>Add Category</p>
 			</button>
@@ -76,10 +76,10 @@
 			<button id="edit-item-btn" class='' onclick="showModal('modal-edit-item')" disabled="disabled">
 				<p>Edit Item</p>
 			</button>
-			<button id="delete-cat-btn" class=' button-red red-button-active' onclick="showModal('modal-delete-category')" disabled="disabled">
+			<button id="delete-cat-btn" class=' button-red' onclick="showModal('modal-delete-category')" disabled="disabled">
 				<p>Delete Category</p>
 			</button>
-			<button id="delete-item-btn" class=' button-red red-button-active' onclick="showModal('modal-delete-item')" disabled="disabled">
+			<button id="delete-item-btn" class=' button-red' onclick="showModal('modal-delete-item')" disabled="disabled">
 				<p>Delete Item</p>
 			</button>
 		</div>

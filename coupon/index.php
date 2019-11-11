@@ -19,7 +19,7 @@
 	<h1>Coupon Management Page</h1>
 	<article>
 		
-		<div class="table-group center-media">
+		<div class="table-group">
 	<?php
 		//include database connection
 		//the connection variable is $conn
@@ -48,14 +48,14 @@
 	?>
 		</div>
 		
-		<div class='table-buttons-group button-group'>
+		<div class='button-group'>
 			<button class='button' onclick="showModal('modal-add-coupon')">
 				<p>Add Coupon</p>
 			</button>
 			<button id="edit-button" class='button' onclick="showModal('modal-edit-coupon')" disabled="disabled">
 				<p>Edit Coupon</p>
 			</button>
-			<button id="remove-button" class='red-button-active button button-red' onclick="showModal('modal-delete-coupon')" disabled="disabled">
+			<button id="remove-button" class='button button-red' onclick="showModal('modal-delete-coupon')" disabled="disabled">
 				<p>Delete Coupon</p>
 			</button>
 		</div>

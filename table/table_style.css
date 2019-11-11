@@ -15,11 +15,11 @@ h1{
 }
 
 .table-group{
-	width: 85%;
+	width: 70%;
 }
 
 .table-group table{
-	width: 100%;
+	width: 90%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -61,6 +61,8 @@ h1{
 
 .table-buttons:active{
 	-webkit-box-sizing: border-box;
+	background-color: white;
+	border: 5px solid #87ceeb;
 }
 
 .modal{
@@ -89,10 +91,4 @@ h1{
 	font-style: italic;
 	font-size: 125%;
 	text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
-	body{
-		margin-bottom: 10rem;
-	}
 }
