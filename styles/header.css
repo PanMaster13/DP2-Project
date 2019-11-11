@@ -2,16 +2,21 @@ header{
 	width: 100%;
 	height: auto;
 	background-color: #87b5eb;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	position: fixed;
 	top: 0;
 	/*https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting*/
 	/*stop users from selecting the elements accidentality*/
 	-webkit-touch-callout: none; /*IOS*/
-    -webkit-user-select: none;   /*Safari*/
-	-khtml-user-select: none;    /*Konqueror HTML*/
+    -webkit-user-select: none;   /*Safari*/    /*Konqueror HTML*/
     -moz-user-select: none;      /*Firefox(oldversion)*/
     -ms-user-select: none;       /*IE*/
     user-select: none;           /*Chrome, Opera, Firefox*/
