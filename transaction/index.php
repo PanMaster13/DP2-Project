@@ -18,10 +18,10 @@
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
 	
+	<h1>Transaction History</h1>
+	
 	<article>
-		<h1>Transaction History</h1>
-		<div id='article-elements'>
-			<div id='left-transaction-list'>
+		<div id='article-elements' class="table-group center-media">
 			
 			<?php
 		//include database connection
@@ -38,7 +38,7 @@
 			
 			// Echos table and values from database
 			
-			echo "<table id='transaction-table'>
+			echo "<table id='transaction-table' class='table-group center-media'>
 					<tr>
 						<th>Order ID</th>
 						<th>Order Status</th>
@@ -81,8 +81,8 @@
 ?>
 				
 			</div>
-			<div id='right-btns'>
-				<button id='add-button'>
+			<div class='table-buttons-group button-group'>
+				<button id='delete-button' class="button-red red-button-active">
 					<p>Delete</p>
 				</button>
 				

@@ -53,18 +53,18 @@
 					
 				?>
 			</div>
-			<div id='right-btns'>
+			<div id='table-buttons-group button-group'>
 				<button id='add-button' onclick="window.location.href='/order'">
 					<p>Add</p>
 				</button>
 				<button id='amend-button'>
 					<p>Amend</p>
 				</button>
-				<button id='cancel-button' class="button-red">
+				<button id='cancel-button' class="button-red red-button-active">
 					<p>Cancel</p>
 				</button>
 				<!--Validation in progress-->
-				<button id='pay-button' class="button-green">
+				<button id='pay-button'  class="button-green green-button-active">
 					<p>Pay</p>
 				</button>
 			</div>
@@ -77,7 +77,7 @@
 				<span class="popup-close-btn">&times;</span>
 				<p id="popup-title">Are you sure to Cancel this Order?</p>
 				<button type="button" id="cancel-popup-button">No</button>
-				<button type="button" id="delete-popup-button">Cancel</button>
+				<button type="button" id="delete-popup-button" class="button-red red-button-active">Yes</button>
 			</div>
 		</div>
 		</div>

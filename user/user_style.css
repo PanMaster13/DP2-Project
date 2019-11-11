@@ -15,11 +15,11 @@ h1{
 }
 
 .table-group{
-	width: 70%;
+	width: 85%;
 }
 
 .table-group table{
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -61,4 +61,10 @@ h1{
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+@media only screen and (max-width: 800px) {
+	body{
+		margin-bottom: 10rem;
+	}
 }

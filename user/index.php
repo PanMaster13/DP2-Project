@@ -16,7 +16,7 @@
 	
 	<article>
 		
-		<div class="table-group">
+		<div class="table-group center-media">
 	<?php
 		//include database connection
 		//the connection variable is $conn
@@ -45,7 +45,7 @@
 	?>
 		</div>
 		
-		<div class='button-group'>
+		<div class='button-group table-buttons-group center-media'>
 			<button class='button' onclick="showModal('modal-add-user')">
 				<p>Add User</p>
 			</button>

@@ -20,7 +20,7 @@
 
 	<h1>Table Management Page</h1>
 	<article>
-		<div class="table-group">
+		<div class="table-group center-media">
 	<?php
 		//include database connection
 		//the connection variable is $conn
@@ -48,14 +48,14 @@
 		$conn->close();
 	?>
 		</div>
-		<div class="table-buttons-group">
+		<div class="table-buttons-group button-group center-media">
 			<button class='table-buttons' onclick="showModal('modal-add-table')">
 				<p>Add Table</p>
 			</button>
 			<button id="edit-button" class='table-buttons' onclick="showModal('modal-edit-table')" disabled="disabled">
 				<p>Edit Table</p>
 			</button>
-			<button id="remove-button" class='table-buttons button-red' onclick="showModal('modal-delete-table')" disabled="disabled">
+			<button id="remove-button" class='table-buttons button-red red-button-active' onclick="showModal('modal-delete-table')" disabled="disabled">
 				<p>Delete Table</p>
 			</button>
 		</div>

@@ -46,7 +46,7 @@ article h1{
 }
 
 #order-table{
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -147,7 +147,11 @@ article h1{
 		padding: 10px 0 10px 0;
 	}
   
+	#right-btns button{
+		width: 100px;
+	}
+  
 	#pay-button{
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 }
