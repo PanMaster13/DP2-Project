@@ -22,6 +22,35 @@ article h1{
 	margin-top: 0;
 }
 
+.orders-button .tooltip-text{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 110%;
+}
+
+.orders-button .tooltip-text::after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+}
+
+.orders-button:hover .tooltip-text{
+	visibility: visible;
+}
+
 #article-elements{
 	width: 100%;
 	display:flex;
@@ -123,6 +152,15 @@ article h1{
 @media only screen and (max-width: 800px) {
 	body{
 	}
+	
+	article{
+	margin: 50px;
+	margin-top: 20%;
+	}
+	
+	.orders-button:hover .tooltip-text{
+	visibility: hidden;
+}
 	
 	#article-elements{
 		display: block;

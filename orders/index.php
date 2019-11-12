@@ -42,7 +42,7 @@
 					while ($orderListRow = $orderListResult->fetch_assoc())
 					{
 						if($orderListRow["orderStatus"] == "Pending")
-							echo "<tr class='list-items'><td>" . $orderListRow["orderID"] . "</td><td>" . 
+							echo "<tr title='Click me to select this order!' class='list-items'><td>" . $orderListRow["orderID"] . "</td><td>" . 
 							$orderListRow["orderDate"] . "</td><td>" . nl2br($orderListRow["itemList"]) . "</td><td>" .
 							$orderListRow["orderStatus"] . "</td><td>" . 
 							$orderListRow["tableID"] . "</td></tr>";
@@ -54,18 +54,22 @@
 				?>
 			</div>
 			<div class='table-buttons-group button-group'>
-				<button id='add-button' onclick="window.location.href='/order'">
+				<button id='add-button' class='orders-button' onclick="window.location.href='/order'">
 					<p>Add</p>
+					<span class='tooltip-text'>Click me to add a new order!</span>
 				</button>
-				<button id='amend-button'>
+				<button id='amend-button' class='orders-button'>
 					<p>Amend</p>
+					<span class='tooltip-text'>Click me to amend an existing order! (Must select an order first)</span>
 				</button>
-				<button id='cancel-button' class="button-red red-button-active">
+				<button id='cancel-button' class="button-red red-button-active orders-button">
 					<p>Cancel</p>
+					<span class='tooltip-text'>Click me to cancel an existing order! (Must select an order first)</span>
 				</button>
 				<!--Validation in progress-->
-				<button id='pay-button'  class="button-green green-button-active">
+				<button id='pay-button'  class="button-green green-button-active orders-button">
 					<p>Pay</p>
+					<span class='tooltip-text'>Click me to pay for an existing order! (Must select an order first)</span>
 				</button>
 			</div>
 		</div>

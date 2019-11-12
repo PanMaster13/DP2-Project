@@ -36,6 +36,9 @@
 		$rowIndex = 0;
 		$categoryQuery = "SELECT * FROM category";
 		$categoryResult = $conn->query($categoryQuery);
+		$catIdIndex = 1;
+		$itemIdIndex = 1;
+		$checkBoxId = "";
 		
 		$tableAvailable = array();	
 		
@@ -66,20 +69,21 @@
 		
 			// Echos table and values from database
 			echo "<h2>" . $categoryRow["categoryName"] . "</h2>";
-			echo "<table id='food_table'><tr><th>Item Name</th><th></th><th>Quantity</th><th>Remarks</th></tr>";
+			echo "<table id='food_table'><tr><th>Item Name</th><th>Item Selection</th><th>Quantity</th><th>Remarks</th></tr>";
 			if ($menuResult->num_rows > 0)
 			{
 				while($menuRow = $menuResult->fetch_assoc())
 				{
-					echo 
-					"<tr class='list-items'><td>" . $menuRow['itemName'] . "</td>
-					<td><input class='checkboxes' type='checkbox' name='checkbox1[]' value='" . $rowIndex . "'></td>
-						<td><input class='quantity' type='number' id='text_order' name='quantity[]' min='0' max='10'></td>
-						<td><input type='text' id='text_order' name='remarks[]'></td>
-						<input type='hidden' name='hiddenNames[]' value='". $menuRow['itemName'] . "'>
-					</tr>";
+					$checkBoxId = $catIdIndex . "-" . $itemIdIndex;
+					printf('<tr class="list-items"><td title="Click me to select or deselect this item" onclick="clickCheckBox(\'%s\')">%s</td>
+							<td title="Click me to select or deselect this item" onclick="clickCheckBox(\'%s\')"><input id="%s" class="checkboxes" type="checkbox" name="checkbox1[]" value="%s"></td>
+							<td><input class="quantity" type="number" id="text_order" name="quantity[]" min="0" max="10" placeholder="Limit to 10 per item"></td>
+							<td><input type="text" id="text_order" name="remarks[]"></td>
+							<input type="hidden" name="hiddenNames[]" value="%s">
+							</tr>', $checkBoxId, $menuRow['itemName'], $checkBoxId, $checkBoxId, $rowIndex, $menuRow['itemName']);
 					
 					$rowIndex++;
+					$itemIdIndex++;
 				}
 			}
 			else
@@ -88,7 +92,9 @@
 			}
 			echo "</table>";
 			$index++;
+			$itemIdIndex = 1;
 			mysqli_free_result($menuResult);
+			$catIdIndex++;
 		}
 		mysqli_free_result($categoryResult);
 		
@@ -96,14 +102,23 @@
 		$conn->close();
 	?>
 
-		<button type="submit" id="sendorder_btn" class="button-green" value="Send order" name="submit">Submit</button>
+		<button type="submit" id="sendorder_btn" class="button-green" value="Send order" name="submit">Add Order</button>
 
 </form>
 
 		<div id="back-btn">
-				<button id="back_btn" onclick="window.location.href='/orders'">Back</button>
+				<button id="back_btn" onclick="window.location.href='/orders'">Back to Orders Page</button>
 		</div>
-	
+	<script>
+		function clickCheckBox(checkBoxId){
+			if (document.getElementById(checkBoxId).checked){
+				document.getElementById(checkBoxId).checked = false;
+			} else {
+				document.getElementById(checkBoxId).checked = true;
+			}
+			
+		}
+	</script>
 			
 
 </article>

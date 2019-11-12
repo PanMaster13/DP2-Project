@@ -76,3 +76,10 @@ select{
 	height: 40px;
 	text-align:center;
 }
+
+@media only screen and (max-width: 800px) {
+	article{
+	padding: 50px;
+	margin-top: 20%;
+}
+}

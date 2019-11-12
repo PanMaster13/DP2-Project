@@ -8,11 +8,40 @@ article{
 	padding: 50px;
 	display: flex;
 	flex-direction: row;
-	margin-top: 10%;
 }
 
 h1{
 	text-align: center;
+	margin-top: 15%;
+}
+
+.user-button .tooltip-text{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 110%;
+}
+
+.user-button .tooltip-text::after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+}
+
+.user-button:hover .tooltip-text{
+	visibility: visible;
 }
 
 .table-group{
@@ -68,4 +97,13 @@ h1{
 	body{
 		margin-bottom: 10rem;
 	}
+	
+	h1{
+	text-align: center;
+	margin-top: 20%;
+	}
+	
+	.user-button:hover .tooltip-text{
+	visibility: hidden;
+}
 }

@@ -30,7 +30,7 @@
 		{
 			while ($row = $result->fetch_assoc())
 			{
-				echo "<tr class='list-items'><td>" . $row["userID"] . "</td><td>" . $row["userName"] . "</td><td>" . $row["userType"] . "</td></tr>";
+				echo "<tr title='Click this row to select this user!' class='list-items'><td>" . $row["userID"] . "</td><td>" . $row["userName"] . "</td><td>" . $row["userType"] . "</td></tr>";
 			}
 		}
 		else
@@ -46,14 +46,17 @@
 		</div>
 		
 		<div class='button-group table-buttons-group center-media'>
-			<button onclick="showModal('modal-add-user')">
+			<button class='user-button' onclick="showModal('modal-add-user')">
 				<p>Add User</p>
+				<span class='tooltip-text'>Click me to add a user to the database!</span>
 			</button>
-			<button id="edit-button" onclick="showModal('modal-edit-user')" disabled="disabled">
+			<button id="edit-button" class='user-button' onclick="showModal('modal-edit-user')" disabled="disabled">
 				<p>Edit User</p>
+				<span class='tooltip-text'>Click me to edit a user! (Must select a user first)</span>
 			</button>
-			<button id="remove-button" form="form-remove-user" class="button-red" disabled="disabled" type="submit">
+			<button id="remove-button" form="form-remove-user" class="button-red user-button" disabled="disabled" type="submit">
 				<p>Remove User</p>
+				<span class='tooltip-text'>Click me to delete a user! (Must select a user first)</span>
 			</button>
 		</div>
 	</article>
