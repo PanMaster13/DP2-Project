@@ -33,7 +33,7 @@
 		{
 			while ($couponRow = $couponResult->fetch_assoc())
 			{
-				echo "<tr class='list-items'><td>" . $couponRow["couponCode"] . "</td><td>" . $couponRow["couponName"] . "</td><td>" . number_format($couponRow["couponAmount"], 2) . "</td></tr>";
+				echo "<tr title='Click this row to select this coupon!' class='list-items'><td>" . $couponRow["couponCode"] . "</td><td>" . $couponRow["couponName"] . "</td><td>" . number_format($couponRow["couponAmount"], 2) . "</td></tr>";
 			}
 		}
 		else
@@ -51,12 +51,15 @@
 		<div class='table-buttons-group button-group'>
 			<button class='button' onclick="showModal('modal-add-coupon')">
 				<p>Add Coupon</p>
+				<span class='tooltip-text'>Click me to add a coupon to the database!</span>
 			</button>
 			<button id="edit-button" class='button' onclick="showModal('modal-edit-coupon')" disabled="disabled">
 				<p>Edit Coupon</p>
+				<span class='tooltip-text'>Click me to edit a coupon! (Must select a coupon first)</span>
 			</button>
 			<button id="remove-button" class='red-button-active button button-red' onclick="showModal('modal-delete-coupon')" disabled="disabled">
 				<p>Delete Coupon</p>
+				<span class='tooltip-text'>Click me to delete a coupon! (Must select a coupon first)</span>
 			</button>
 		</div>
 	</article>

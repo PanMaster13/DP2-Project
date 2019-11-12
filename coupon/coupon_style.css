@@ -8,11 +8,11 @@ article{
 	padding: 50px;
 	display: flex;
 	flex-direction: row;
-	margin-top: 10%;
 }
 
 h1{
 	text-align: center;
+	margin-top: 15%;
 }
 
 .table-group{
@@ -66,6 +66,35 @@ h1{
 	border: 5px solid #87ceeb;
 }
 
+.button .tooltip-text{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 110%;
+}
+
+.button .tooltip-text::after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+}
+
+.button:hover .tooltip-text{
+	visibility: visible;
+}
+
 .modal{
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -92,4 +121,11 @@ h1{
 	font-style: italic;
 	font-size: 125%;
 	text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+	h1{
+	text-align: center;
+	margin-top: 20%;
+}
 }
