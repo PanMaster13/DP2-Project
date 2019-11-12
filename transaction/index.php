@@ -27,16 +27,27 @@
 		//include database connection
 		//the connection variable is $conn
 		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
-		
-		$transacQuery = "SELECT * FROM orderlist";
-		$transacResult = $conn->query($transacQuery);
-		
-		
-		{
+		//$currentDate = CURDATE();
+		if (isset($_POST["date"])){
+			$val = $_POST["date"];
+			if ($val == "all"){
+				$transacQuery = "SELECT * FROM orderlist";
+			} else if ($val == "week"){
+				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE()";
+			} else if ($val == "month"){
+				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN  DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE()";
+			} else if ($val == "year"){
+				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE()";
+			} else {
+				$transacQuery = "SELECT * FROM orderlist";
+			}
+		} else {
 			$transacQuery = "SELECT * FROM orderlist";
-			$transacResult = $conn->query($transacQuery);
-			
-			// Echos table and values from database
+		}
+		
+		$transacResult = $conn->query($transacQuery);
+	
+		// Echos table and values from database	
 			
 			echo "<table id='transaction-table'>
 					<tr>
@@ -52,7 +63,7 @@
 			{
 				while($transacRow = $transacResult->fetch_assoc())
 				{
-					if($transacRow['orderStatus']=="Completed")
+					//if($transacRow['orderStatus']=="Completed")
 					echo 
 					"<tr'>
 					<td>" . $transacRow['orderID'] . "</td>
@@ -63,8 +74,6 @@
 					<td>" . $transacRow['orderDate'] . "</td>						
 					
 					</tr>";
-					
-					
 				}
 			}
 			else
@@ -73,79 +82,44 @@
 			}
 			echo "</table>";
 			mysqli_free_result($transacResult);
-		}
 	
 		
 		// Close connection (although it is done automatically when script ends
-	
+		$conn->close();
 ?>
 				
 			</div>
-			<div id='right-btns'>
-				<button id='add-button'>
-					<p>Delete</p>
-				</button>
-				
-			</div>
+			
+			
+			
 		</div>
 		
-		<!--<div class="dropdown">
-		<button onclick="dropdownFunction()" class="dropbtn">Check Transaction</button>
-		<div id="Dropdownfunc" class="dropdown-content">
-			<a href="#Daily">Daily</a>
-			<a href="#Weekly">Weekly</a>
-			<a href="#Monthly">Monthly</a>
-		</div>
-	</div>
-	-->
+		
 	
-	<form action="" method="post">
-		<select name="date[]">
-			<option value="daily">Daily</option>
-			<option value="weekly">Weekly</option>
-			<option value="monthly">Monthly</option>
+	<form id="filterForm" action="" method="post">
+		<select name="date" onchange="this.form.submit()">
+			<option value="-">-</option>
+			<option value="all">Show All</option>
+			<option value="week">This Week</option>
+			<option value="month">This Month</option>
+			<option value="year">This Year</option>
 		
 		</select>
-	<br><br>
-	<input type="submit" name ="submit" value="Get Transaction Information">
 	</form>
-
-	<?php
 	
-		//include database connection
-		//the connection variable is $conn
-		include_once ($_SERVER['DOCUMENT_ROOT']."/db_conn.php");
-		
-		$transacDate = "SELECT orderDate FROM orderlist";
-		$transacDateR = $conn->query($transacDate);
-		
-	if(isset($_POST['submit'])){
-		
-		if($transacDateR ->num_rows> 0){
-			
-			foreach ($_POST['date'] as $select){
-			
-			while($transacRow = $transacDateR -> fetch_assoc()){
-			
-			
-			
-				echo "You have selected :" .$select; // Displaying Selected Value
-			
-				echo ''. $transacDateR['orderDate'] . '';
-					
-			}
-		
-			
-
-			}
+	<script>
+		function onClickSubmit(){
+			document.getElementById('filterForm').submit();
 		}
+	</script>
 
-	}
-	
-		$conn->close();
-	?>
 
-	
+
+		<div id ="transition">
+				CSS
+				</div>
+			
+			
 	</article>
 	
 	
