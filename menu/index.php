@@ -36,15 +36,17 @@
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-			printf('<div class="catTitleBox"><h2 id="%s" class="catTitles" onclick="categoryClicked(\'%s\', \'%s\')">%s (%s)</h2></div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
+			printf('<div class="catTitleBox">
+			<h2 id="%s" title="Click me to select me!" class="catTitles" onclick="categoryClicked(\'%s\', \'%s\')">%s (%s)</h2>
+			</div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')">Show / Hide Table</button>', $tableIndex);
+				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')"><p>Show / Hide Table</p><span class="tooltip-text">Click me to show or hide the item table for this category!</span></button>', $tableIndex);
 				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())
 				{
-					echo "<tr class='list-items'><td>" . $menuRow["itemName"] . "</td><td>" . number_format($menuRow["itemPrice"], 2) . "</td></tr>";
+					echo "<tr class='list-items' title='Click this row to select this item'><td>" . $menuRow["itemName"] . "</td><td>" . number_format($menuRow["itemPrice"], 2) . "</td></tr>";
 				}
 				
 				echo "</table>";
@@ -66,21 +68,27 @@
 		<div class='table-buttons-group button-group button-media'>
 			<button class='menu-buttons' onclick="showModal('modal-add-category')">
 				<p>Add Category</p>
+				<span class='tooltip-text'>Click me to add a category to the menu list!</span>
 			</button>
 			<button class='menu-buttons' onclick="showModal('modal-add-item')">
 				<p>Add Item</p>
+				<span class='tooltip-text'>Click me to add an item to the menu list!</span>
 			</button>
-			<button id="edit-cat-btn" class='' onclick="showModal('modal-edit-category')" disabled="disabled">
+			<button id="edit-cat-btn" class='menu-buttons' onclick="showModal('modal-edit-category')" disabled="disabled">
 				<p>Edit Category</p>
+				<span class='tooltip-text'>Click me to edit a category! (Must select a category first)</span>
 			</button>
-			<button id="edit-item-btn" class='' onclick="showModal('modal-edit-item')" disabled="disabled">
+			<button id="edit-item-btn" class='menu-buttons' onclick="showModal('modal-edit-item')" disabled="disabled">
 				<p>Edit Item</p>
+				<span class='tooltip-text'>Click me to edit an item! (Must select an item first)</span>
 			</button>
-			<button id="delete-cat-btn" class=' button-red red-button-active' onclick="showModal('modal-delete-category')" disabled="disabled">
+			<button id="delete-cat-btn" class='button-red red-button-active menu-buttons' onclick="showModal('modal-delete-category')" disabled="disabled">
 				<p>Delete Category</p>
+				<span class='tooltip-text'>Click me to delete a category! (Must select a category first)</span>
 			</button>
-			<button id="delete-item-btn" class=' button-red red-button-active' onclick="showModal('modal-delete-item')" disabled="disabled">
+			<button id="delete-item-btn" class='button-red red-button-active menu-buttons' onclick="showModal('modal-delete-item')" disabled="disabled">
 				<p>Delete Item</p>
+				<span class='tooltip-text'>Click me to delete an item! (Must select an item first)</span>
 			</button>
 		</div>
 	</article>

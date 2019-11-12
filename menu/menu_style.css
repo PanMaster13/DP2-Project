@@ -8,11 +8,12 @@ article{
 	padding: 50px;
 	display: flex;
 	flex-direction: row;
-	margin-top: 10%;
+	
 }
 
 h1{
 	text-align: center;
+	margin-top: 15%;
 }
 
 .table-group{
@@ -42,8 +43,34 @@ h1{
 	border: 2px solid yellow;
 }
 
-.tableBtn{
-	padding: 1%;
+.tableBtn .tooltip-text{
+	visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tableBtn .tooltip-text::after{
+	content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tableBtn:hover .tooltip-text{
+	visibility: visible;
 }
 
 .catTitles:active{
@@ -72,6 +99,35 @@ h1{
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+}
+
+.menu-buttons .tooltip-text{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 110%;
+}
+
+.menu-buttons .tooltip-text::after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+}
+
+.menu-buttons:hover .tooltip-text{
+	visibility: visible;
 }
 
 .modal{
@@ -106,4 +162,39 @@ h1{
 	body{
 		margin-bottom: 10rem;
 	}
+	
+	h1{
+		text-align: center;
+		margin-top: 20%;
+	}
+	
+	.menu-buttons .tooltip-text{
+	visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 2000%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.menu-buttons .tooltip-text::after{
+	content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.menu-buttons:hover .tooltip-text{
+	visibility: hidden;
+}
 }
