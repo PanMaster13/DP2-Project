@@ -46,7 +46,7 @@
 					<p class="title">User Management</p>
 					<p class="description">Add, edit and remove user</p>
 				</li>
-				<li class="panel-items color6" onclick="window.open('/admin/export.php', '_blank')">
+				<li title="Once clicked, an SQL file of the database will be downloaded by the browser." class="panel-items color6" onclick="window.open('/admin/export.php', '_blank')">
 					<i class="fas fa-database fa-5x"></i>
 					<p class="title">Export Database</p>
 					<p class="description">Export database to sql file</p>
