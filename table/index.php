@@ -34,7 +34,7 @@
 		{
 			while ($tableRow = $tableResult->fetch_assoc())
 			{
-				echo "<tr class='list-items'><td>" . $tableRow["tableID"] . "</td><td>" . $tableRow["tableSeats"] . "</td><td>" . $tableRow["tableStatus"] . "</td></tr>";
+				echo "<tr class='list-items' title='Click this row to select this table!'><td>" . $tableRow["tableID"] . "</td><td>" . $tableRow["tableSeats"] . "</td><td>" . $tableRow["tableStatus"] . "</td></tr>";
 			}
 		}
 		else
@@ -51,12 +51,15 @@
 		<div class="table-buttons-group button-group center-media">
 			<button class='table-buttons' onclick="showModal('modal-add-table')">
 				<p>Add Table</p>
+				<span class="tooltip-text">Click me to add a table!</span>
 			</button>
 			<button id="edit-button" class='table-buttons' onclick="showModal('modal-edit-table')" disabled="disabled">
 				<p>Edit Table</p>
+				<span class="tooltip-text">Click me to edit a table! (Must select a table first)</span>
 			</button>
 			<button id="remove-button" class='table-buttons button-red red-button-active' onclick="showModal('modal-delete-table')" disabled="disabled">
 				<p>Delete Table</p>
+				<span class="tooltip-text">Click me to delete a table! (Must select a table first)</span>
 			</button>
 		</div>
 	</article>
