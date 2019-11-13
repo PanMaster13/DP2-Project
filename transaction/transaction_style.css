@@ -67,3 +67,10 @@ article h1{
 	background:red;
 	width:300px;	
 }
+
+@media only screen and (max-width: 800px) {
+	article{
+	padding: 50px;
+	margin-top: 20%;
+}
+}
