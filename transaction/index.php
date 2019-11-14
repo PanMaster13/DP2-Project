@@ -16,6 +16,7 @@
 
 <?php
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
+	session_start();
 ?>
 	
 	<article>
@@ -46,7 +47,8 @@
 		}
 		
 		$transacResult = $conn->query($transacQuery);
-	
+		$_SESSION["transaction"] = $transacQuery;
+		$_SESSION["period"] = $val;
 		// Echos table and values from database	
 			
 			echo "<table id='transaction-table'>
@@ -106,6 +108,8 @@
 		
 		</select>
 	</form>
+	
+	<button onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
 	
 	<script>
 		function onClickSubmit(){
