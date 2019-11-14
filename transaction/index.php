@@ -48,7 +48,8 @@
 		
 		$transacResult = $conn->query($transacQuery);
 		$_SESSION["transaction"] = $transacQuery;
-		$_SESSION["period"] = $val;
+		if($val) $_SESSION["period"] = $val;
+		else $_SESSION["period"] = "all";
 		// Echos table and values from database	
 			
 			echo "<table id='transaction-table'>
