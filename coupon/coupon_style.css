@@ -12,7 +12,7 @@ article{
 
 h1{
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 12rem;
 }
 
 .table-group{
@@ -126,6 +126,9 @@ h1{
 @media only screen and (max-width: 800px) {
 	h1{
 	text-align: center;
-	margin-top: 20%;
-}
+	}
+	
+	body{
+		margin-bottom: 6rem;
+	}
 }

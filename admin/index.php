@@ -21,27 +21,27 @@
 		<h1>Welcome Back <span id="name"><?php echo $_SESSION['userName']; ?>!</span></h1>
 		<div id="admin-panel">
 			<ul class="panel-selection-container">
-				<li class="panel-items color1" onclick="window.location.href='/menu'">
+				<li title="Direct to Menu Management page to add, edit and delete category and item" class="panel-items color1" onclick="window.location.href='/menu'">
 					<i class="fas fa-utensils fa-5x"></i>
 					<p class="title">Menu Management</p>
 					<p class="description">Add, edit and delete category and item</p>
 				</li>
-				<li class="panel-items color2" onclick="window.location.href='/table'">
+				<li title="Direct to Table Management page to add, edit and delete table" class="panel-items color2" onclick="window.location.href='/table'">
 					<i class="fas fa-table fa-5x"></i>
 					<p class="title">Table Management</p>
 					<p class="description">Add, edit and delete table</p>
 				</li>
-				<li class="panel-items color3" onclick="window.location.href='/transaction'">
+				<li title="Direct to Transaction Management page to delete transaction and generate report" class="panel-items color3" onclick="window.location.href='/transaction'">
 					<i class="fas fa-receipt fa-5x"></i>
 					<p class="title">Transaction Management</p>
-					<p class="description">Delete, print transaction</p>
+					<p class="description">Delete transaction and generate report</p>
 				</li>
-				<li class="panel-items color4" onclick="window.location.href='/coupon'">
+				<li title="Direct to Coupon Management page to add, edit and remove coupon" class="panel-items color4" onclick="window.location.href='/coupon'">
 					<i class="fas fa-ticket-alt fa-5x"></i>
 					<p class="title">Coupon Management</p>
 					<p class="description">Add, edit and delete coupon</p>
 				</li>
-				<li class="panel-items color5" onclick="window.location.href='/user'">
+				<li title="Direct to User Management page to add, edit and remove user" class="panel-items color5" onclick="window.location.href='/user'">
 					<i class="fas fa-user fa-5x"></i>
 					<p class="title">User Management</p>
 					<p class="description">Add, edit and remove user</p>

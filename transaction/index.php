@@ -18,9 +18,10 @@
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 	session_start();
 ?>
+
+	<h1>Transaction History Page</h1>
 	
 	<article>
-		<h1>Transaction History</h1>
 		<div id='article-elements'>
 			<div id='left-transaction-list'>
 			

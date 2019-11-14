@@ -6,11 +6,10 @@ body{
 
 article{
 	padding: 50px;
-	margin-top: 10%;
 }
 
 article h1{
-	margin-top: 0;
+	margin-top: 9rem;
 }
 
 #article-elements{
@@ -162,7 +161,6 @@ article h1{
 
 @media only screen and (max-width: 800px) {
 	article{
-	padding: 50px;
-	margin-top: 20%;
-}
+		padding: 50px;
+	}
 }

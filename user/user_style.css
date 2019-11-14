@@ -12,7 +12,7 @@ article{
 
 h1{
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 12rem;
 }
 
 .user-button .tooltip-text{
@@ -95,12 +95,11 @@ h1{
 
 @media only screen and (max-width: 800px) {
 	body{
-		margin-bottom: 10rem;
+		margin-bottom: 6rem;
 	}
 	
 	h1{
-	text-align: center;
-	margin-top: 20%;
+		text-align: center;
 	}
 	
 	.user-button:hover .tooltip-text{
