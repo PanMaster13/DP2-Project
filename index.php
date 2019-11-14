@@ -50,6 +50,7 @@ if (isset($_SESSION["userType"])){
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="/styles/font.css">
+	<link rel="stylesheet" href="/styles/button.css">
 </head>
 <body>
 
@@ -63,7 +64,7 @@ if (isset($_SESSION["userType"])){
 		<input class="login_input" type="password" name="passwd" placeholder="Password" required></input>
 		<br/>
 		<p id="error_out"><?php echo $out; ?></p>
-		<button id="login_button" type="submit">Submit</button>
+		<button id="login_button" type="submit">Log In</button>
 	</form>
 	</div>
 </body>

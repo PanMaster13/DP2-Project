@@ -42,6 +42,9 @@ body{
 #error_out {
 	color: red;
 	font-weight: bold;
-	}
+}
 
+#login_button{
+	padding: 3%;
+}
 /* End Login stuff */
