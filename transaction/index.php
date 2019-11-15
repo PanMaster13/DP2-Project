@@ -24,6 +24,7 @@
 	<article>
 		<div id='article-elements'>
 			<div id='left-transaction-list'>
+			<div class="table-group center-media">
 			
 			<?php
 		//include database connection
@@ -90,10 +91,8 @@
 		// Close connection (although it is done automatically when script ends
 		$conn->close();
 ?>
-				
+				</div>
 			</div>
-			
-			
 			
 		</div>
 		
@@ -110,7 +109,9 @@
 		</select>
 	</form>
 	
-	<button onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
+	<div class="table-buttons-group button-group">
+	<button class="button" onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
+	</div>
 	
 	<script>
 		function onClickSubmit(){
