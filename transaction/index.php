@@ -32,6 +32,7 @@
 						<select name="date" onchange="this.form.submit()" style="width: 150px;">
 						<option value="-">-</option>
 						<option value="all">Show All</option>
+						<option value="today">Today</option>
 						<option value="week">This Week</option>
 						<option value="month">This Month</option>
 						<option value="year">This Year</option>
@@ -52,13 +53,20 @@
 			$val = $_POST["date"];
 			if ($val == "all"){
 				$transacQuery = "SELECT * FROM orderlist";
-			} else if ($val == "week"){
+			} 
+			else if ($val =="today"){
+				$transacQuery = "SELECT * FROM orderlist WHERE orderDate = CURDATE()";
+			} 
+			else if ($val == "week"){
 				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE()";
-			} else if ($val == "month"){
+			} 
+			else if ($val == "month"){
 				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN  DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE()";
-			} else if ($val == "year"){
+			} 
+			else if ($val == "year"){
 				$transacQuery = "SELECT * FROM orderlist WHERE orderDate BETWEEN  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE()";
-			} else {
+			} 
+			else {
 				$transacQuery = "SELECT * FROM orderlist";
 			}
 		} else {
