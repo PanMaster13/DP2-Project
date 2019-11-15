@@ -12,7 +12,7 @@ article{
 
 h1{
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 12rem;
 }
 
 .table-group{
@@ -95,6 +95,12 @@ h1{
 	visibility: visible;
 }
 
+@keyframes popupAnimation{
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+
 .modal{
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -105,15 +111,32 @@ h1{
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 
 .modal-content {
-	background-color: #fefefe;
+	background-color: #F3FCFF;
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
+	border-radius: 15px;
+	animation-name: popupAnimation;
+	animation-duration: 0.2s;
+}
+
+.popup-close-btn {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.popup-close-btn:hover,
+.popup-close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #feedback-msg{
@@ -126,6 +149,9 @@ h1{
 @media only screen and (max-width: 800px) {
 	h1{
 	text-align: center;
-	margin-top: 20%;
-}
+	}
+	
+	body{
+		margin-bottom: 6rem;
+	}
 }

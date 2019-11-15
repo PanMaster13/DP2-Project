@@ -6,7 +6,8 @@ body{
 
 article{
 	padding: 50px;
-	margin-top: 10%;
+	margin-top: 9rem;
+	margin-bottom: 3rem;
 }
 
 article h2{
@@ -75,11 +76,4 @@ select{
 	border:0px;
 	height: 40px;
 	text-align:center;
-}
-
-@media only screen and (max-width: 800px) {
-	article{
-	padding: 50px;
-	margin-top: 20%;
-}
 }

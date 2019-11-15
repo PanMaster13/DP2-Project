@@ -8,12 +8,11 @@ article{
 	padding: 50px;
 	display: flex;
 	flex-direction: row;
-	
 }
 
 h1{
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 12rem;
 }
 
 .table-group{
@@ -140,16 +139,39 @@ h1{
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 
 .modal-content {
-	background-color: #fefefe;
+	background-color: #F3FCFF;
+	border-radius: 15px;
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
+	animation-name: popupAnimation;
+	animation-duration: 0.2s;
 }
+
+@keyframes popupAnimation{
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+.popup-close-btn {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.popup-close-btn:hover,
+.popup-close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 #feedback-msg{
 	margin-left: 15%;
@@ -160,41 +182,40 @@ h1{
 
 @media only screen and (max-width: 800px) {
 	body{
-		margin-bottom: 10rem;
+		margin-bottom: 6rem;
 	}
 	
 	h1{
 		text-align: center;
-		margin-top: 20%;
 	}
 	
 	.menu-buttons .tooltip-text{
-	visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 2000%;
-  left: 50%;
-  margin-left: -60px;
-}
+		visibility: hidden;
+		width: 120px;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+		bottom: 2000%;
+		left: 50%;
+		margin-left: -60px;
+	}
 
-.menu-buttons .tooltip-text::after{
-	content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
+	.menu-buttons .tooltip-text::after{
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: black transparent transparent transparent;
+	}
 
-.menu-buttons:hover .tooltip-text{
-	visibility: hidden;
-}
+	.menu-buttons:hover .tooltip-text{
+		visibility: hidden;
+	}
 }
