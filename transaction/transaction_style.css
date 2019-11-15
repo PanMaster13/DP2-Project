@@ -20,11 +20,11 @@ h1{
 }
 
 #left-transaction-list{
-	width: 85%;
+	width: 100%;
 }
 
 #transaction-table{
-	width: 90%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: center;
 }
@@ -53,17 +53,10 @@ h1{
 	flex-direction: column;
 	align-items: center;
 }
-
-#transition{
-	width: 100px;
-	height: 100px;
-	background: red;
-	transition: width 2s;
-}
-
-#transition:hover{
-	background:red;
-	width:300px;	
+.design{
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 800px) {

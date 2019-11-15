@@ -23,8 +23,25 @@
 	
 	<article>
 		<div id='article-elements'>
-			<div id='left-transaction-list'>
+			
 			<div class="table-group center-media">
+			
+				<p>Filter By</p>
+				<div class="design">
+					<form id="filterForm" action="" method="post">
+						<select name="date" onchange="this.form.submit()" style="width: 150px;">
+						<option value="-">-</option>
+						<option value="all">Show All</option>
+						<option value="week">This Week</option>
+						<option value="month">This Month</option>
+						<option value="year">This Year</option>
+						</select>
+					</form>
+			
+					<div class="table-buttons-group button-group">
+						<button class="button" onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
+					</div>
+				</div>
 			
 			<?php
 		//include database connection
@@ -96,21 +113,6 @@
 		</div>
 		
 		
-	
-	<form id="filterForm" action="" method="post">
-		<select name="date" onchange="this.form.submit()">
-			<option value="-">-</option>
-			<option value="all">Show All</option>
-			<option value="week">This Week</option>
-			<option value="month">This Month</option>
-			<option value="year">This Year</option>
-		
-		</select>
-	</form>
-	
-	<div class="table-buttons-group button-group">
-	<button class="button" onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
-	</div>
 	
 	<script>
 		function onClickSubmit(){
