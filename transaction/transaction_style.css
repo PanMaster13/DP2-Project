@@ -27,24 +27,24 @@ h1{
 	width: 100%;
 	table-layout: fixed;
 	text-align: center;
-}
-
-#transaction-table, #transaction-table th, #transaction-table td {
-  border: 1px solid black;
-  border-collapse: collapse;
+	border-collapse: collapse;
+	color: #0078DA;
 }
 
 #transaction-table th{
 	height: 50px;
+	border-bottom: 2px solid #0078DA;
 }
 
 #transaction-table td{
 	height: 40px;
+	border-bottom: 1px solid grey;
 }
 
 .selectedRow{
 	background-color: #87b5eb;
 	color: white;
+	transition: 0.5s;
 }
 
 #right-btns{

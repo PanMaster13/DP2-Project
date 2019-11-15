@@ -176,7 +176,16 @@
 		<div id="back-btn">
 				<button id="back_btn" onclick="window.location.href='/orders'">Back</button>
 		</div>
+	<script>
+		function clickCheckBox(checkBoxId){
+			if (document.getElementById(checkBoxId).checked){
+				document.getElementById(checkBoxId).checked = false;
+			} else {
+				document.getElementById(checkBoxId).checked = true;
+			}
 			
+		}
+	</script>
 
 </article>
 </body>

@@ -43,13 +43,9 @@ h1{
 	transition: 0.5s;
 }
 
-.catTitleBox{
-	display:block;
-}
-
 .catTitles{
 	border: 2px solid black;
-	padding: 1%;
+	padding: 0.9%;
 	display: inline-block;
 }
 
@@ -57,6 +53,12 @@ h1{
 	cursor: pointer;
 	background-color: #87b5eb;
 	border: 2px solid yellow;
+}
+
+.tableBtn{
+	padding-top: 0%;
+	padding-bottom: 0%;
+	margin: 1%;
 }
 
 .tableBtn .tooltip-text{
@@ -173,9 +175,8 @@ h1{
 
 
 #feedback-msg{
-	margin-left: 15%;
 	font-style: italic;
-	font-size: 125%;
+	font-size: 1.25vw;
 	text-align: center;
 }
 
@@ -187,6 +188,18 @@ h1{
 	h1{
 		text-align: center;
 	}
+	
+	.catTitles{
+	border: 2px solid black;
+	padding: 2%;
+	display: inline-block;
+}
+
+	#feedback-msg{
+	font-style: italic;
+	font-size: 3vw;
+	text-align: center;
+}
 	
 	.menu-buttons .tooltip-text{
 		visibility: hidden;

@@ -36,14 +36,14 @@
 			$menuResult = $conn->query($menuQuery);
 			
 			// Echos table and values from database
-			printf('<div class="catTitleBox">
+			printf('<div><span class="catTitleBox">
 			<h2 id="%s" title="Click me to select me!" class="catTitles" onclick="categoryClicked(\'%s\', \'%s\')">%s (%s)</h2>
-			</div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
+			</span>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')"><p>Show / Hide Table</p>
+				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')">Show / Hide Table
 				<span class="tooltip-text">Click me to show or hide the item table for this category!</span>
-				</button>', $tableIndex);
+				</button></div>', $tableIndex);
 				
 				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
@@ -56,7 +56,7 @@
 			}
 			else
 			{
-				echo "<p>No results for the " . $categoryRow["categoryName"] . " (Identifier: " . $categoryRow["categoryID"] .  ") category.</p>";
+				echo "</div><p>No results for the " . $categoryRow["categoryName"] . " (Identifier: " . $categoryRow["categoryID"] .  ") category.</p>";
 			}
 			mysqli_free_result($menuResult);
 			$tableIndex++;

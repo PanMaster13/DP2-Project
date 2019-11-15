@@ -140,9 +140,8 @@ h1{
 }
 
 #feedback-msg{
-	margin-left: 15%;
 	font-style: italic;
-	font-size: 125%;
+	font-size: 1.25vw;
 	text-align: center;
 }
 
@@ -154,4 +153,10 @@ h1{
 	body{
 		margin-bottom: 6rem;
 	}
+	
+	#feedback-msg{
+	font-style: italic;
+	font-size: 3vw;
+	text-align: center;
+}
 }

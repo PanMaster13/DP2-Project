@@ -40,7 +40,7 @@
 					</form>
 			
 					<div class="table-buttons-group button-group">
-						<button class="button" onclick="window.location.href = 'generatepdf.php';">Generate Report</button>
+						<button class="button" onclick="window.open('generatepdf.php', '_blank')">Generate Report</button>
 					</div>
 				</div>
 			
@@ -69,6 +69,7 @@
 			else {
 				$transacQuery = "SELECT * FROM orderlist";
 			}
+			$_SESSION["period"] = $val;
 		} else {
 			$transacQuery = "SELECT * FROM orderlist";
 		}
