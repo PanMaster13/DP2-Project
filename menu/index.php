@@ -41,7 +41,10 @@
 			</div>', $categoryRow["categoryName"], $categoryRow["categoryName"], $categoryRow["categoryID"], $categoryRow["categoryName"], $categoryRow["categoryID"]);
 			if ($menuResult->num_rows > 0)
 			{
-				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')"><p>Show / Hide Table</p><span class="tooltip-text">Click me to show or hide the item table for this category!</span></button>', $tableIndex);
+				printf('<button class="tableBtn button-cyan" onclick="showHideTable(\'%s\')"><p>Show / Hide Table</p>
+				<span class="tooltip-text">Click me to show or hide the item table for this category!</span>
+				</button>', $tableIndex);
+				
 				echo "<table class='theTables' style='display:none'><tr><th>Item Name</th><th>Item Price</th></tr>";
 				
 				while($menuRow = $menuResult->fetch_assoc())

@@ -23,24 +23,24 @@ h1{
 	width: 100%;
 	table-layout: fixed;
 	text-align: center;
-}
-
-.table-group table, .table-group th, .table-group td{
-	border: 1px solid black;
 	border-collapse: collapse;
+	color: #0078DA;
 }
 
 .table-group th{
 	height: 50px;
+	border-bottom: 2px solid #0078DA;
 }
 
 .table-group td{
 	height: 40px;
+	border-bottom: 1px solid grey;
 }
 
 .selectedRow{
 	background-color: #87b5eb;
 	color: white;
+	transition: 0.5s;
 }
 
 .coupon-buttons-group{

@@ -79,19 +79,18 @@ article h1{
 	width: 100%;
 	table-layout: fixed;
 	text-align: center;
-}
-
-#order-table, #order-table th, #order-table td {
-  border: 1px solid black;
-  border-collapse: collapse;
+	border-collapse: collapse;
+	color: #0078DA;
 }
 
 #order-table th{
 	height: 50px;
+	border-bottom: 2px solid #0078DA;
 }
 
 #order-table td{
 	height: 40px;
+	border-bottom: 1px solid grey;
 }
 
 .selectedRow{
