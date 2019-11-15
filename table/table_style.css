@@ -93,6 +93,14 @@ h1{
 	-webkit-box-sizing: border-box;
 }
 
+
+@keyframes popupAnimation{
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+
+
 .modal{
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -132,8 +140,9 @@ h1{
 }
 
 #feedback-msg{
+	margin-left: 15%;
 	font-style: italic;
-	font-size: 1.5vw;
+	font-size: 125%;
 	text-align: center;
 }
 
@@ -145,11 +154,6 @@ h1{
 	h1{
 		text-align: center;
 	}
-	
-	#feedback-msg{
-	font-style: italic;
-	font-size: 3vw;
-	text-align: center;
 	
 	.table-buttons:hover .tooltip-text{
 	visibility: hidden;
