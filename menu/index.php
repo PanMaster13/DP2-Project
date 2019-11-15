@@ -18,6 +18,12 @@
 	include_once ($_SERVER['DOCUMENT_ROOT']."/template/header.php");
 ?>
 	<h1>Menu Mangement Page</h1>
+	
+	<?php
+			if (isset($_SESSION["menuMsg"])){
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["menuMsg"] . "</p>";
+			}
+		?>
 	<article>
 		
 		<div class="table-group center-media">
@@ -161,12 +167,6 @@
 			</form>
 		</div>
 	</div>
-	
-	<?php
-			if (isset($_SESSION["menuMsg"])){
-				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["menuMsg"] . "</p>";
-			}
-		?>
 	
 	<footer>
 	</footer>

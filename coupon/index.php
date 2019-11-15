@@ -17,6 +17,12 @@
 ?>
 
 	<h1>Coupon Management Page</h1>
+	
+	<?php 
+			if (isset($_SESSION["feedback"])){
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["feedback"] . "</p>";
+			}
+		?>
 	<article>
 		
 		<div class="table-group center-media">
@@ -97,12 +103,6 @@
 			</form>
 		</div>
 	</div>
-	
-	<?php 
-			if (isset($_SESSION["feedback"])){
-				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["feedback"] . "</p>";
-			}
-		?>
 	
 	<footer>
 	</footer>

@@ -19,6 +19,12 @@
 ?>
 
 	<h1>Table Management Page</h1>
+	
+	<?php
+			if (isset($_SESSION["tableMsg"])){
+				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["tableMsg"] . "</p>";
+			}
+		?>
 	<article>
 		<div class="table-group center-media">
 	<?php
@@ -111,12 +117,6 @@
 			</form>
 		</div>
 	</div>
-	
-	<?php
-			if (isset($_SESSION["tableMsg"])){
-				echo "<p id='feedback-msg'>Feedback from server of previous query: " . $_SESSION["tableMsg"] . "</p>";
-			}
-		?>
 	
 	<footer>
 	</footer>
