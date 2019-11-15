@@ -81,7 +81,11 @@ $pdf->SetFont('helvetica', 'B', 12);
 $pdf->AddPage();
 
 if ($_SESSION["transaction"]){
-	$period = $_SESSION["period"];
+	if (isset($_SESSION["period"])){
+		$period = $_SESSION["period"];
+	} else {
+		$period = "all";
+	}
 $html = 
 <<<html
 <br/>

@@ -44,7 +44,6 @@
 			} else {
 				$transacQuery = "SELECT * FROM orderlist";
 			}
-			$_SESSION["period"] = $val;
 		} else {
 			$transacQuery = "SELECT * FROM orderlist";
 		}
