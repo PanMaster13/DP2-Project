@@ -23,6 +23,7 @@ function showModal(formID){
 	//display both modal and selected form
 	modal.style.display = "block";
 	form.style.display = "block";
+	
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -32,6 +33,19 @@ window.onclick = function(event) {
   }
 } 
 
+function closeBtn(){
+	//get the close button
+	var closeBtn = document.getElementsByClassName("popup-close-btn");
+
+	for(var i=0; i<closeBtn.length; i++){
+	
+	//when the close button is clicked, popup will be closed
+	closeBtn[i].onclick = function(){
+		modal.style.display = "none";
+	}
+	}
+}
+
 function showHideTable(table_index){
 	var tableList = document.getElementsByClassName("theTables");
 	
@@ -40,7 +54,6 @@ function showHideTable(table_index){
 	} else {
 		tableList[table_index].style.display = "none";
 	}
-	
 }
 
 // Function to mark category for editing/deleting and fill it the modals
@@ -120,4 +133,9 @@ function highlight_row() {
 	}
 }
 
-window.onload = highlight_row;
+window.onload = init;
+
+function init(){
+	closeBtn()
+	highlight_row()
+}

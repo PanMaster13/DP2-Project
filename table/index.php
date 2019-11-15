@@ -66,6 +66,7 @@
 	
 	<div id="modal" class="modal">
 		<div id="modal-add-table" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Add a Table</h2>
 			<p>Note: The 'Table Number' value is auto generated, so there's no need for you to input anything.</p>
 			<form id="form-add-table" action="table_add.php" method="post">
@@ -83,6 +84,7 @@
 		</div>
 		
 		<div id="modal-edit-table" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Edit a Table</h2>
 			<form id="form-edit-table" action="table_edit.php" method="post">
 				<input type="hidden" name="edit_number">
@@ -101,6 +103,7 @@
 		</div>
 		
 		<div id="modal-delete-table" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Delete a Table</h2>
 			<form id="form-delete-table" action="table_delete.php" method="post">
 				<p>Table number to be deleted: <input type="text" name="delete_number" readonly="readonly"></p>

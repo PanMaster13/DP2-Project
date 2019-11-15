@@ -64,6 +64,7 @@
 	<!-- modal forms -->
 	<div id="modal" class="modal">
 		<div id='modal-add-user' class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Add User</h2>
 			<form id='form-add-user' action="user_add.php" method="post">
 			
@@ -81,6 +82,7 @@
 		</div>
 		
 		<div id='modal-edit-user' class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Edit User</h2>
 			<form id='form-edit-user' action="user_edit.php" method="post">
 			

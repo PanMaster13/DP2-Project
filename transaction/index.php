@@ -121,10 +121,6 @@
 
 
 
-		<div id ="transition">
-				CSS
-				</div>
-			
 			
 	</article>
 	

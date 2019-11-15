@@ -95,6 +95,7 @@
 	
 	<div id="modal" class="modal">
 		<div id="modal-add-category" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Add a Category</h2>
 			<p>Note: The 'Identifier' value is auto generated, so there's no need for you to input anything.</p>
 			<form id="form-add-category" action="category_add.php" method="post">
@@ -104,6 +105,7 @@
 		</div>
 		
 		<div id="modal-add-item" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Add an Item</h2>
 			<form id="form-add-item" action="item_add.php" method="post">
 				<p>Enter item name*: <input type="text" name="add_item_name" required="required"></p>
@@ -114,6 +116,7 @@
 		</div>
 		
 		<div id="modal-edit-category" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Edit a Category</h2>
 			<p>Note: Please ensure that the desired category to be edited does not have any items before you edit it.</p>
 			<form id="form-edit-category" action="category_edit.php" method="post">
@@ -125,6 +128,7 @@
 		</div>
 		
 		<div id="modal-edit-item" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Edit an Item</h2>
 			<form id="form-edit-item" action="item_edit.php" method="post">
 				<input type="hidden" name="edit_item">
@@ -136,6 +140,7 @@
 		</div>
 		
 		<div id="modal-delete-category" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Delete a Category</h2>
 			<p>Note: Please ensure that the desired category to be deleted does not have any items before you delete it.</p>
 			<form id="form-delete-category" action="category_delete.php" method="post">
@@ -145,6 +150,7 @@
 		</div>
 		
 		<div id="modal-delete-item" class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Delete an Item</h2>
 			<form id="form-delete-item" action="item_delete.php" method="post">
 				<p>Item Name to be deleted*: <input type="text" name="delete_item" readonly="readonly"></p>

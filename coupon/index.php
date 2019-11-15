@@ -66,6 +66,7 @@
 	
 	<div id="modal" class="modal">
 		<div id='modal-add-coupon' class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Add a Coupon</h2>
 			<form id="form-add-coupon" action="coupon_add.php" method="post">
 				<p>Enter coupon code*: <input type="text" name="add_code" required="required"></p>
@@ -76,6 +77,7 @@
 		</div>
 	
 		<div id='modal-edit-coupon' class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Edit a Coupon</h2>
 			<form id="form-edit-coupon" action="coupon_edit.php" method="post">
 				<input type="hidden" name="edit_code">
@@ -87,6 +89,7 @@
 		</div>
 	
 		<div id='modal-delete-coupon' class="modal-content">
+		<span class="popup-close-btn">&times;</span>
 			<h2>Delete a Coupon</h2>
 			<form id="form-delete-coupon" action="coupon_delete.php" method="post">
 				<p>Code of coupon to be deleted: <input type="text" name="delete_code" readonly="readonly"></p>

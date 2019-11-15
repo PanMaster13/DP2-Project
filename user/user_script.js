@@ -25,6 +25,19 @@ window.onclick = function(event) {
   }
 } 
 
+function closeBtn(){
+	//get the close button
+	var closeBtn = document.getElementsByClassName("popup-close-btn");
+
+	for(var i=0; i<closeBtn.length; i++){
+	
+	//when the close button is clicked, popup will be closed
+	closeBtn[i].onclick = function(){
+		modal.style.display = "none";
+	}
+	}
+}
+
 //Codes taken from : https://jsfiddle.net/armaandhir/Lgt1j68s/
 function highlight_row() {
     var tableList = document.getElementsByClassName("user-list");
@@ -71,4 +84,9 @@ function highlight_row() {
 	}
 }
 
-window.onload = highlight_row;
+window.onload = init;
+
+function init(){
+	closeBtn()
+	highlight_row()
+}
