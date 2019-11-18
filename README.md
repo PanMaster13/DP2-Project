@@ -12,4 +12,4 @@ If you don't have access, you are probably not the ones who are supposed to acce
 
 For any enquiries, please contact this team directly.
 
-*to our lecturer: more marks pls, tenks
+*to our lecturer: more marks pls, tenks*
