@@ -1,6 +1,6 @@
 # FoodSmithPOS
 
-A attempt a food ordering system by a few students for an assignment.
+An attempt at a food ordering system by a few students for an assignment.
 
 The application(if still up): http://foodsmithcafe.mooo.com
 
@@ -8,7 +8,7 @@ The application(if still up): http://foodsmithcafe.mooo.com
 Users for testing:
 There are two user types: admin, staff.
 
-If you don't have access, you are probably not the ones who are supposed to access the site.
+If you don't have access, you are probably not the ones who are supposed to access the site. :P
 
 For any enquiries, please contact this team directly.
 
